@@ -5,16 +5,21 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DTO;
 
 
 namespace test
 {
     public partial class Form1 : Form
     {
+        // Khai báo bussiness logic layer
+        PhieuThuTienBLL _phieuThuTienBll  = new PhieuThuTienBLL();
+
         public Form1()
         {
             InitializeComponent();
@@ -87,14 +92,45 @@ namespace test
 
             //dataGridView_PhieuThu.DataSource = MySqlConnection.LoadData("PHIEUTHUTIEN");
 
-            UpdateComboxMaKhacHang(MaKhachHangPhieuThuComboBox);
+            UpdateComboBoxMaKhacHang(MaKhachHangPhieuThuComboBox);
+
+            ConnectPhieuThuTienDataSource();
+
+            BindingPhieuThuTienDataSourcePhi();
         }
 
-        private void UpdateComboxMaKhacHang(ComboBox comboxBox)
+        private void ConnectPhieuThuTienDataSource()
+        {
+            dataGridView_PhieuThu.DataSource = _phieuThuTienBll.SelectAll();
+        }
+
+        private void BindingPhieuThuTienDataSourcePhi()
+        {
+            txt_MaPhieuThu.DataBindings.Clear();
+            txt_MaPhieuThu.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
+            txt_MaPhieuThu.DataBindings.Add("Text", dataGridView_PhieuThu.DataSource, "MaPhieuThuTien");
+
+            txt_SoTienThu.DataBindings.Clear();
+            txt_SoTienThu.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
+            txt_SoTienThu.DataBindings.Add("Text", dataGridView_PhieuThu.DataSource, "SoTienThu");
+
+            dTime_NgayThu.DataBindings.Clear();
+            dataGridView_PhieuThu.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
+            dTime_NgayThu.DataBindings.Add("Value", dataGridView_PhieuThu.DataSource, "NgayThu");
+
+            MaKhachHangPhieuThuComboBox.DataBindings.Clear();
+            MaKhachHangPhieuThuComboBox.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
+            MaKhachHangPhieuThuComboBox.DataBindings.Add("Text", dataGridView_PhieuThu.DataSource, "MaKhachHang");
+
+        }
+
+       
+
+        private void UpdateComboBoxMaKhacHang(ComboBox comboxBox)
         {
            KhachHangBLL khachHang = new KhachHangBLL();
-           var listKh = khachHang.SelectAll();
-           comboxBox.DataSource = listKh;
+           var khList = khachHang.SelectAll();
+           comboxBox.DataSource = khList;
             comboxBox.DisplayMember = "MaKhachHang";
 
         }
@@ -110,7 +146,40 @@ namespace test
             //dataGridView_HoaDon.DataSource = MySqlConnection.LoadData("CHITIETHOADON");
             //dataGridView_HoaDonTQ.DataSource = MySqlConnection.LoadData("HOADON");
 
-            UpdateComboxMaKhacHang(MaKhachHangComboBox);
+            UpdateComboBoxMaKhacHang(MaKhachHangComboBox);
+
+            UpdateComboBoxMaSach(MaSachComboBox);
+
+            ConnectHoaDonDataSource();
+
+            ConnectChiTietHoaDonDataSource();
+
+        }
+
+        private void ConnectHoaDonDataSource()
+        {
+            HoaDonBLL hoaDon = new HoaDonBLL();
+
+            var hoaDonList = hoaDon.SelectAll();
+
+            dataGridView_HoaDonTQ.DataSource = hoaDonList;
+        }
+
+        private void ConnectChiTietHoaDonDataSource()
+        {
+            ChiTietHoaDonBLL  chiTietHoaDonBll = new ChiTietHoaDonBLL();
+
+            var chiTietHoaDonList = chiTietHoaDonBll.SelectAll();
+
+            dataGridView_HoaDon.DataSource = chiTietHoaDonList;
+        }
+
+        private void UpdateComboBoxMaSach(ComboBox comboBox)
+        {
+            SachBLL sachBll = new SachBLL();
+            var sachList = sachBll.SelectAll();
+            comboBox.DataSource = sachList;
+            comboBox.DisplayMember = "MaSach";
         }
 
         private void btn_ThayDoiQuyDinh_Click(object sender, EventArgs e)
@@ -241,6 +310,8 @@ namespace test
 
         private void btn_SuaSach_Click(object sender, EventArgs e)
         {
+            
+
             //try
             //{
             //    DataGridViewCell cell = null;
@@ -482,16 +553,25 @@ namespace test
         {
             try
             {
+                PhieuThuTienDTO phieuThuTien = new PhieuThuTienDTO();
+                phieuThuTien.MaPhieuThuTien = Utilities.PhieuThuUtility.PhatSinhMaPhieuThu();
+                phieuThuTien.SoTienThu = float.Parse(txt_SoTienThu.Text.ToString());
+                phieuThuTien.NgayThu = dTime_NgayThu.Value;
+                phieuThuTien.MaKhachHang = (MaKhachHangPhieuThuComboBox.SelectedItem as KhachHangDTO).MaKhachHang;
+                _phieuThuTienBll.InsertPhieuThuTien(phieuThuTien);
+                ConnectPhieuThuTienDataSource();
 
             }
             catch (SqlException sqlException)
             {
-                MessageBox.Show(sqlException.Message);
+                MessageBox.Show("Các trường nhập vào không được để trống!", "Cảnh báo!", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                
+                MessageBox.Show(ex.Message);
             }
+            
             //try
             //{
             //    DataTable tb = new DataTable();
@@ -511,6 +591,31 @@ namespace test
 
         private void btn_XoaPT_Click(object sender, EventArgs e)
         {
+            try
+            {
+                PhieuThuTienDTO phieuThuDTO = new PhieuThuTienDTO();
+
+                phieuThuDTO.MaPhieuThuTien = txt_MaPhieuThu.Text;
+
+                if (DialogResult.No ==
+                    MessageBox.Show("Bạn có thực sự muốn xóa không?", "Cảnh báo!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question))
+                {
+                    return;
+                }
+
+                _phieuThuTienBll.DeleteByMaPhieuThuTien(phieuThuDTO);
+
+                ConnectPhieuThuTienDataSource();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             //DataGridViewCell cell = null;
             //foreach (DataGridViewCell selectedcell in dataGridView_PhieuThu.SelectedCells)
             //{
@@ -526,6 +631,35 @@ namespace test
 
         private void btn_SuaPT_Click(object sender, EventArgs e)
         {
+            try
+            {
+                PhieuThuTienDTO phieuThuDto = new PhieuThuTienDTO();
+                phieuThuDto.MaPhieuThuTien = txt_MaPhieuThu.Text;
+                phieuThuDto.SoTienThu = float.Parse(txt_SoTienThu.Text);
+                phieuThuDto.NgayThu = dTime_NgayThu.Value;
+                phieuThuDto.MaKhachHang = (MaKhachHangPhieuThuComboBox.SelectedItem as KhachHangDTO).MaKhachHang;
+
+                if (DialogResult.No ==
+                    MessageBox.Show("Bạn có thực sự muốn sửa không?", "Cảnh báo!", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question))
+                {
+                    return;
+                }
+
+                _phieuThuTienBll.UpdatePhieuThuTien(phieuThuDto);
+
+                ConnectPhieuThuTienDataSource();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Có trường nhập vào bị trống!", "Cảnh báo!", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             //try
             //{
             //    DataGridViewCell cell = null;
@@ -912,6 +1046,12 @@ namespace test
             {
                 e.Handled = true;
             }
+        }
+
+        private void PhieuThuTab_Click(object sender, EventArgs e)
+        {
+            txt_MaPhieuThu.Text = Utilities.PhieuThuUtility.PhatSinhMaPhieuThu();
+            
         }
     }
 }
