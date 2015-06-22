@@ -717,13 +717,3 @@ insert into PHIEUTHUTIEN (MaPhieuThuTien, SoTienThu, MaKhachHang, NgayThu) value
 insert into PHIEUTHUTIEN (MaPhieuThuTien, SoTienThu, MaKhachHang, NgayThu) values ('PTT2', 250000, 'KH1', '12/6/2015')
 insert into PHIEUTHUTIEN (MaPhieuThuTien, SoTienThu, MaKhachHang, NgayThu) values ('PTT3', 3500000, 'KH1', '14/6/2015')
 
---select * from BAOCAOCONGNO
---select * from BAOCAOTON
---select * from CHITIETHOADON
---select * from CHITIETPHIEUNHAP
---select * from HOADON
---select * from KHACHHANG
---select * from PHIEUNHAP
---select * from PHIEUTHUTIEN
---select * from SACH
---select * from THAMSO
