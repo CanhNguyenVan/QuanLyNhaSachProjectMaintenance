@@ -7,6 +7,8 @@ Go
 Use QuanLyNhaSachMaintenance
 Go
 
+set DateFormat DMY
+
 --Create Table SACH
 Create Table SACH
 (
@@ -677,3 +679,51 @@ BEGIN
 	delete from SACH where (MaSach = @MaSach)
 END
 GO
+
+insert into SACH (MaSach, TenSach, TheLoai, TacGia, NamXuatBan, SoLuongTon, DonGiaBan) values ('S1', N'Cấu trúc rời rạc', N'Sách giáo trình', N'Nguyễn Văn Cảnh', 2000, 100, 25000)
+insert into SACH (MaSach, TenSach, TheLoai, TacGia, NamXuatBan, SoLuongTon, DonGiaBan) values ('S2', N'Tắt đèn', N'Sách văn học', N'Ngô Tất Tố', 2001, 50, 55000)
+insert into SACH (MaSach, TenSach, TheLoai, TacGia, NamXuatBan, SoLuongTon, DonGiaBan) values ('S3', N'Tôi tài giỏi bạn cũng thế', N'Sách Kinh Tế', N'Adam Khoo', 1998, 75, 100000)
+
+insert into KHACHHANG (MaKhachHang, HoTen, DiaChi, DienThoai, Email, SoTienNo) values ('KH1', N'Nguyễn Văn A', N'Quận 2', 01678321564, 'nguyenvana@gmail.com', 20000)
+insert into KHACHHANG (MaKhachHang, HoTen, DiaChi, DienThoai, Email, SoTienNo) values ('KH2', N'Phạm Thị B', N'Quận Thủ Đức', 0987451231, 'phamthib@gmail.com', 10000)
+insert into KHACHHANG (MaKhachHang, HoTen, DiaChi, DienThoai, Email, SoTienNo) values ('KH3', N'Võ Văn C', N'Quận 9', 01677853412, 'vovanc@gmail.com', 0)
+
+insert into HOADON (MaHoaDon, MaKhachHang, NgayLap) values ('HD1', 'KH1', '10/6/2015')
+insert into HOADON (MaHoaDon, MaKhachHang, NgayLap) values ('HD2', 'KH2', '12/6/2015')
+insert into HOADON (MaHoaDon, MaKhachHang, NgayLap) values ('HD3', 'KH3', '14/6/2015')
+
+insert into CHITIETHOADON (MaChiTietHoaDon, MaHoaDon, MaSach, SoLuongBan) values('CTHD1', 'HD1', 'S2', 20)
+insert into CHITIETHOADON (MaChiTietHoaDon, MaHoaDon, MaSach, SoLuongBan) values('CTHD2', 'HD2', 'S1', 10)
+insert into CHITIETHOADON (MaChiTietHoaDon, MaHoaDon, MaSach, SoLuongBan) values('CTHD3', 'HD3', 'S3', 35)
+
+insert into BAOCAOCONGNO (MaBaoCaoCongNo, Thang, MaKhachHang, NoDau, NoPhatSinh, NoCuoi) values ('BCCN1', 5, 'KH1', 20000, 0, 20000)
+insert into BAOCAOCONGNO (MaBaoCaoCongNo, Thang, MaKhachHang, NoDau, NoPhatSinh, NoCuoi) values ('BCCN2', 6, 'KH2', 10000, 5000, 15000)
+insert into BAOCAOCONGNO (MaBaoCaoCongNo, Thang, MaKhachHang, NoDau, NoPhatSinh, NoCuoi) values ('BCCN3', 7, 'KH3', 0, 0, 0)
+
+insert into BAOCAOTON (MaBaoCaoTon, Thang, MaSach, TonDau, TonPhatSinh, TonCuoi) values ('BCT1', 5, 'S1', 30, 0, 30)
+insert into BAOCAOTON (MaBaoCaoTon, Thang, MaSach, TonDau, TonPhatSinh, TonCuoi) values ('BCT2', 5, 'S2', 40, 10, 50)
+insert into BAOCAOTON (MaBaoCaoTon, Thang, MaSach, TonDau, TonPhatSinh, TonCuoi) values ('BCT3', 6, 'S3', 20, 5, 25)
+insert into BAOCAOTON (MaBaoCaoTon, Thang, MaSach, TonDau, TonPhatSinh, TonCuoi) values ('BCT4', 7, 'S2', 10, 0, 10)
+
+insert into PHIEUNHAP (MaPhieuNhap, NgayNhap) values('PN1', '15/6/2015')
+insert into PHIEUNHAP (MaPhieuNhap, NgayNhap) values('PN2', '16/6/2015')
+insert into PHIEUNHAP (MaPhieuNhap, NgayNhap) values('PN3', '17/6/2015')
+
+insert into CHITIETPHIEUNHAP (MaChiTietPhieuNhap, MaPhieuNhap, MaSach, SoLuongNhap, DonGiaNhap) values ('CTPN1', 'PN1', 'S1', 200, 25000)
+insert into CHITIETPHIEUNHAP (MaChiTietPhieuNhap, MaPhieuNhap, MaSach, SoLuongNhap, DonGiaNhap) values ('CTPN2', 'PN2', 'S2', 300, 55000)
+insert into CHITIETPHIEUNHAP (MaChiTietPhieuNhap, MaPhieuNhap, MaSach, SoLuongNhap, DonGiaNhap) values ('CTPN3', 'PN3', 'S3', 150, 100000)
+
+insert into PHIEUTHUTIEN (MaPhieuThuTien, SoTienThu, MaKhachHang, NgayThu) values ('PTT1', 1100000, 'KH1', '10/6/2015')
+insert into PHIEUTHUTIEN (MaPhieuThuTien, SoTienThu, MaKhachHang, NgayThu) values ('PTT2', 250000, 'KH1', '12/6/2015')
+insert into PHIEUTHUTIEN (MaPhieuThuTien, SoTienThu, MaKhachHang, NgayThu) values ('PTT3', 3500000, 'KH1', '14/6/2015')
+
+--select * from BAOCAOCONGNO
+--select * from BAOCAOTON
+--select * from CHITIETHOADON
+--select * from CHITIETPHIEUNHAP
+--select * from HOADON
+--select * from KHACHHANG
+--select * from PHIEUNHAP
+--select * from PHIEUTHUTIEN
+--select * from SACH
+--select * from THAMSO
