@@ -31,8 +31,7 @@ namespace DAL
                 for (int i = 0; i < row; i++)
                 {
                     ChiTietHoaDonDTO chiTietHoaDonDTO = new ChiTietHoaDonDTO();
-                    chiTietHoaDonDTO.MaHoaDon = dataTable.Rows[i].ItemArray[0].ToString();
-                    chiTietHoaDonDTO.MaHoaDon = dataTable.Rows[i].ItemArray[1].ToString();
+                    chiTietHoaDonDTO.MaChiTietHoaDon = dataTable.Rows[i].ItemArray[0].ToString();chiTietHoaDonDTO.MaHoaDon = dataTable.Rows[i].ItemArray[1].ToString();
                     chiTietHoaDonDTO.MaSach = dataTable.Rows[i].ItemArray[2].ToString();
                     chiTietHoaDonDTO.SoLuongBan = int.Parse(dataTable.Rows[i].ItemArray[3].ToString());
 

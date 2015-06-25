@@ -19,7 +19,8 @@ namespace test
     {
         // Khai báo bussiness logic layer
         PhieuThuTienBLL _phieuThuTienBll  = new PhieuThuTienBLL();
-
+        HoaDonBLL _hoaDonBll = new HoaDonBLL();
+        ChiTietHoaDonBLL _chiTietHoaDonBll = new ChiTietHoaDonBLL();
         public Form1()
         {
             InitializeComponent();
@@ -128,10 +129,12 @@ namespace test
 
         private void UpdateComboBoxMaKhacHang(ComboBox comboxBox)
         {
-           KhachHangBLL khachHang = new KhachHangBLL();
-           var khList = khachHang.SelectAll();
-           comboxBox.DataSource = khList;
+            KhachHangBLL khachHang = new KhachHangBLL();
+            var khList = khachHang.SelectAll();
+            comboxBox.DataSource = khList;
             comboxBox.DisplayMember = "MaKhachHang";
+            comboxBox.ValueMember = "MaKhachHang";
+
 
         }
 
@@ -146,13 +149,31 @@ namespace test
             //dataGridView_HoaDon.DataSource = MySqlConnection.LoadData("CHITIETHOADON");
             //dataGridView_HoaDonTQ.DataSource = MySqlConnection.LoadData("HOADON");
 
-            UpdateComboBoxMaKhacHang(MaKhachHangComboBox);
+            UpdateComboBoxMaKhacHang(MaKhachHangHoaDonComboBox);
 
-            UpdateComboBoxMaSach(MaSachComboBox);
+            UpdateComboBoxMaSach(MaSachHoaDonComboBox);
 
             ConnectHoaDonDataSource();
 
             ConnectChiTietHoaDonDataSource();
+
+            BindingHoaDonDataSource();
+
+        }
+
+        private void BindingHoaDonDataSource()
+        {
+            txt_MaHD.DataBindings.Clear();
+            txt_MaHD.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
+            txt_MaHD.DataBindings.Add("Text", dataGridView_HoaDonTQ.DataSource, "MaHoaDon");
+
+            MaKhachHangHoaDonComboBox.DataBindings.Clear();
+            MaKhachHangHoaDonComboBox.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
+            MaKhachHangHoaDonComboBox.DataBindings.Add("Text", dataGridView_HoaDonTQ.DataSource, "MaKhachHang");
+
+            dTime_LapHD.DataBindings.Clear();
+            dTime_LapHD.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
+            dTime_LapHD.DataBindings.Add("Value", dataGridView_HoaDonTQ.DataSource, "NgayLap");
 
         }
 
@@ -180,6 +201,8 @@ namespace test
             var sachList = sachBll.SelectAll();
             comboBox.DataSource = sachList;
             comboBox.DisplayMember = "MaSach";
+            comboBox.ValueMember = "MaSach";
+
         }
 
         private void btn_ThayDoiQuyDinh_Click(object sender, EventArgs e)
@@ -709,6 +732,37 @@ namespace test
 
         private void btn_ThemHD_Click(object sender, EventArgs e)
         {
+            try
+            {
+                HoaDonDTO hoaDongDto = new HoaDonDTO();
+                hoaDongDto.MaHoaDon = Utilities.HoaDonUtility.PhatSinhMaHoaDon();
+                hoaDongDto.NgayLap = dTime_LapHD.Value;
+                hoaDongDto.MaKhachHang = (MaKhachHangHoaDonComboBox.SelectedItem as KhachHangDTO).MaKhachHang;
+
+                ChiTietHoaDonDTO chiTietHoaDonDto  = new ChiTietHoaDonDTO();
+                chiTietHoaDonDto.MaChiTietHoaDon = Utilities.HoaDonUtility.PhatSinhChiTietMaHoaDon();
+                chiTietHoaDonDto.MaHoaDon = hoaDongDto.MaHoaDon;
+                chiTietHoaDonDto.MaSach = (MaSachHoaDonComboBox.SelectedItem as SachDTO).MaSach;
+                chiTietHoaDonDto.SoLuongBan = int.Parse(txt_SoLuongBan.Text);
+
+                _hoaDonBll.InsertHoaDon(hoaDongDto);
+                _chiTietHoaDonBll.InsertChiTietHoaDon(chiTietHoaDonDto);
+
+                ConnectHoaDonDataSource();
+
+                ConnectChiTietHoaDonDataSource();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Các trường nhập vào không được phép để trống!", "Cảnh báo!", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
             //try
             //{
             //    // dữ liệu cho chi tiết hóa đơn              
@@ -1052,6 +1106,27 @@ namespace test
         {
             txt_MaPhieuThu.Text = Utilities.PhieuThuUtility.PhatSinhMaPhieuThu();
             
+        }
+
+        private void dataGridView_HoaDonTQ_SelectionChanged(object sender, EventArgs e)
+        {
+            txt_MaHD.TextChanged += (o, args) =>
+            {
+                try
+                {
+                    var chiTietHoaDonList = _chiTietHoaDonBll.SelectAll();
+                    var  list = chiTietHoaDonList.Where(n => n.MaHoaDon.Trim() == txt_MaHD.Text.Trim()) as List<ChiTietHoaDonDTO>;
+                    dataGridView_HoaDon.DataSource = list;
+                }
+                catch (SqlException sqlEx)
+                {
+
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+            };
         }
     }
 }

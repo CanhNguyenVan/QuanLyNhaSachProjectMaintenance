@@ -14,6 +14,8 @@ namespace test.Utilities
 
         private static string _maHoaDonPrefix = "MHD";
 
+        private static string _maChiTietHoaDonPrefix = "MCTHD";
+
         public static string PhatSinhMaHoaDon()
         {
             HoaDonBLL hoaDonBll = new HoaDonBLL();
@@ -24,7 +26,6 @@ namespace test.Utilities
             {
                 return _maHoaDonPrefix + 1;
             }
-            var s = 2;
 
             List<int> maHoaDonList = new List<int>();
 
@@ -32,12 +33,31 @@ namespace test.Utilities
             {
                 maHoaDonList.Add(int.Parse(hoaDonDto.MaHoaDon.Replace(_maHoaDonPrefix, "")));
             }
+            
+            return _maHoaDonPrefix + (maHoaDonList.Max() + 1);
 
-            var max = maHoaDonList.Max();
+        }
 
-            s = max + 1;
+        public static string PhatSinhChiTietMaHoaDon()
+        {
+            ChiTietHoaDonBLL chiTietHoaDonBll = new ChiTietHoaDonBLL();
 
-            return _maHoaDonPrefix + s;
+            var chiTietHoaDonList = chiTietHoaDonBll.SelectAll();
+
+            if (chiTietHoaDonList.IsEmpty())
+            {
+                return _maChiTietHoaDonPrefix + 1;
+            }
+
+
+            List<int> maChiTietHoaDonList = new List<int>();
+
+            foreach (ChiTietHoaDonDTO chiTietHoaDonDto in chiTietHoaDonList)
+            {
+                maChiTietHoaDonList.Add(int.Parse(chiTietHoaDonDto.MaChiTietHoaDon.Replace(_maChiTietHoaDonPrefix, "")));
+            }
+
+            return _maChiTietHoaDonPrefix + (maChiTietHoaDonList.Max()  + 1);
 
         }
 

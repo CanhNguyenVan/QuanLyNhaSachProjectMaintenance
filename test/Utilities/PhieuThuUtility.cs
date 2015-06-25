@@ -24,20 +24,14 @@ namespace test.Utilities
                 return _maPhieuThuPrefix + "1";
             }
 
-            var s = 2;
-
             List<int> maPhieuThuList = new List<int>();
 
             foreach (PhieuThuTienDTO phieuThuTienDto in phieuThuList)
             {
                 maPhieuThuList.Add(int.Parse(phieuThuTienDto.MaPhieuThuTien.Replace(_maPhieuThuPrefix, "")));
             }
-
-            var max  = maPhieuThuList.Max();
-
-            s = max + 1;
             
-            return _maPhieuThuPrefix + s;
+            return _maPhieuThuPrefix + (maPhieuThuList.Max() + 1);
         }
 
     }
