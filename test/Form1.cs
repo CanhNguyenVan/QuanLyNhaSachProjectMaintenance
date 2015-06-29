@@ -21,6 +21,7 @@ namespace test
         PhieuThuTienBLL _phieuThuTienBll  = new PhieuThuTienBLL();
         HoaDonBLL _hoaDonBll = new HoaDonBLL();
         ChiTietHoaDonBLL _chiTietHoaDonBll = new ChiTietHoaDonBLL();
+        KhachHangBLL _khachHangBll = new KhachHangBLL();
         public Form1()
         {
             InitializeComponent();
@@ -34,13 +35,7 @@ namespace test
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MySqlConnection.OpenConnection();
-            dataGridView_Sach.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView_KH.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView_PhieuThu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView_PhieuNhap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView_HoaDon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView_PhieuNhapTQ.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+           
         }
 
         private void btn_Thoat_Click(object sender, EventArgs e)
@@ -93,51 +88,20 @@ namespace test
 
             //dataGridView_PhieuThu.DataSource = MySqlConnection.LoadData("PHIEUTHUTIEN");
 
-            UpdateComboBoxMaKhacHang(MaKhachHangPhieuThuComboBox);
+            LoadDataPhieuThu();
 
-            ConnectPhieuThuTienDataSource();
-
-            BindingPhieuThuTienDataSourcePhi();
         }
 
-        private void ConnectPhieuThuTienDataSource()
+        private void LoadDataPhieuThu()
         {
-            dataGridView_PhieuThu.DataSource = _phieuThuTienBll.SelectAll();
+            dgvPhieuThu.DataSource = _phieuThuTienBll.SelectAll();
+
+            (dgvPhieuThu.Columns["MaKhachHang"] as DataGridViewComboBoxColumn).DataSource = _khachHangBll.SelectAll();  
+            (dgvPhieuThu.Columns["MaKhachHang"] as DataGridViewComboBoxColumn).DisplayMember = "MaKhachHang";  
+            (dgvPhieuThu.Columns["MaKhachHang"] as DataGridViewComboBoxColumn).ValueMember = "MaKhachHang";  
         }
 
-        private void BindingPhieuThuTienDataSourcePhi()
-        {
-            txt_MaPhieuThu.DataBindings.Clear();
-            txt_MaPhieuThu.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
-            txt_MaPhieuThu.DataBindings.Add("Text", dataGridView_PhieuThu.DataSource, "MaPhieuThuTien");
-
-            txt_SoTienThu.DataBindings.Clear();
-            txt_SoTienThu.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
-            txt_SoTienThu.DataBindings.Add("Text", dataGridView_PhieuThu.DataSource, "SoTienThu");
-
-            dTime_NgayThu.DataBindings.Clear();
-            dataGridView_PhieuThu.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
-            dTime_NgayThu.DataBindings.Add("Value", dataGridView_PhieuThu.DataSource, "NgayThu");
-
-            MaKhachHangPhieuThuComboBox.DataBindings.Clear();
-            MaKhachHangPhieuThuComboBox.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
-            MaKhachHangPhieuThuComboBox.DataBindings.Add("Text", dataGridView_PhieuThu.DataSource, "MaKhachHang");
-
-        }
-
-       
-
-        private void UpdateComboBoxMaKhacHang(ComboBox comboxBox)
-        {
-            KhachHangBLL khachHang = new KhachHangBLL();
-            var khList = khachHang.SelectAll();
-            comboxBox.DataSource = khList;
-            comboxBox.DisplayMember = "MaKhachHang";
-            comboxBox.ValueMember = "MaKhachHang";
-
-
-        }
-
+ 
         private void btn_HoaDon_Click(object sender, EventArgs e)
         {
             ////if (isTabQL)
@@ -149,61 +113,10 @@ namespace test
             //dataGridView_HoaDon.DataSource = MySqlConnection.LoadData("CHITIETHOADON");
             //dataGridView_HoaDonTQ.DataSource = MySqlConnection.LoadData("HOADON");
 
-            UpdateComboBoxMaKhacHang(MaKhachHangHoaDonComboBox);
 
-            UpdateComboBoxMaSach(MaSachHoaDonComboBox);
-
-            ConnectHoaDonDataSource();
-
-            ConnectChiTietHoaDonDataSource();
-
-            BindingHoaDonDataSource();
-
+        
         }
 
-        private void BindingHoaDonDataSource()
-        {
-            txt_MaHD.DataBindings.Clear();
-            txt_MaHD.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
-            txt_MaHD.DataBindings.Add("Text", dataGridView_HoaDonTQ.DataSource, "MaHoaDon");
-
-            MaKhachHangHoaDonComboBox.DataBindings.Clear();
-            MaKhachHangHoaDonComboBox.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
-            MaKhachHangHoaDonComboBox.DataBindings.Add("Text", dataGridView_HoaDonTQ.DataSource, "MaKhachHang");
-
-            dTime_LapHD.DataBindings.Clear();
-            dTime_LapHD.DataBindings.DefaultDataSourceUpdateMode = DataSourceUpdateMode.Never;
-            dTime_LapHD.DataBindings.Add("Value", dataGridView_HoaDonTQ.DataSource, "NgayLap");
-
-        }
-
-        private void ConnectHoaDonDataSource()
-        {
-            HoaDonBLL hoaDon = new HoaDonBLL();
-
-            var hoaDonList = hoaDon.SelectAll();
-
-            dataGridView_HoaDonTQ.DataSource = hoaDonList;
-        }
-
-        private void ConnectChiTietHoaDonDataSource()
-        {
-            ChiTietHoaDonBLL  chiTietHoaDonBll = new ChiTietHoaDonBLL();
-
-            var chiTietHoaDonList = chiTietHoaDonBll.SelectAll();
-
-            dataGridView_HoaDon.DataSource = chiTietHoaDonList;
-        }
-
-        private void UpdateComboBoxMaSach(ComboBox comboBox)
-        {
-            SachBLL sachBll = new SachBLL();
-            var sachList = sachBll.SelectAll();
-            comboBox.DataSource = sachList;
-            comboBox.DisplayMember = "MaSach";
-            comboBox.ValueMember = "MaSach";
-
-        }
 
         private void btn_ThayDoiQuyDinh_Click(object sender, EventArgs e)
         {
@@ -231,18 +144,7 @@ namespace test
                 tabItem10.Visible = true;
                 tabItem5.Visible = tabItem6.Visible = tabItem7.Visible = tabItem8.Visible = tabItem9.Visible = tabItem11.Visible = tabItem12.Visible = tabItem13.Visible = tabItem14.Visible = tabItem15.Visible = tabItem16.Visible = false;
             }
-            //comboBox_ThangCongNo.Items.Add("Tháng 1");
-            //comboBox_ThangCongNo.Items.Add("Tháng 2");
-            //comboBox_ThangCongNo.Items.Add("Tháng 3");
-            //comboBox_ThangCongNo.Items.Add("Tháng 4");
-            //comboBox_ThangCongNo.Items.Add("Tháng 5");
-            //comboBox_ThangCongNo.Items.Add("Tháng 6");
-            //comboBox_ThangCongNo.Items.Add("Tháng 7");
-            //comboBox_ThangCongNo.Items.Add("Tháng 8");
-            //comboBox_ThangCongNo.Items.Add("Tháng 9");
-            //comboBox_ThangCongNo.Items.Add("Tháng 10");
-            //comboBox_ThangCongNo.Items.Add("Tháng 11");
-            //comboBox_ThangCongNo.Items.Add("Tháng 12");
+
 
         }
 
@@ -253,18 +155,7 @@ namespace test
                 tabItem11.Visible = true;
                 tabItem5.Visible = tabItem6.Visible = tabItem7.Visible = tabItem8.Visible = tabItem9.Visible = tabItem10.Visible = tabItem12.Visible = tabItem13.Visible = tabItem14.Visible = tabItem15.Visible = tabItem16.Visible = false;
             }
-            comboBox_ThangTon.Items.Add("Tháng 1");
-            comboBox_ThangTon.Items.Add("Tháng 2");
-            comboBox_ThangTon.Items.Add("Tháng 3");
-            comboBox_ThangTon.Items.Add("Tháng 4");
-            comboBox_ThangTon.Items.Add("Tháng 5");
-            comboBox_ThangTon.Items.Add("Tháng 6");
-            comboBox_ThangTon.Items.Add("Tháng 7");
-            comboBox_ThangTon.Items.Add("Tháng 8");
-            comboBox_ThangTon.Items.Add("Tháng 9");
-            comboBox_ThangTon.Items.Add("Tháng 10");
-            comboBox_ThangTon.Items.Add("Tháng 11");
-            comboBox_ThangTon.Items.Add("Tháng 12");
+
 
         }
 
@@ -284,17 +175,6 @@ namespace test
                 tabItem13.Visible = true;
                 tabItem5.Visible = tabItem6.Visible = tabItem7.Visible = tabItem8.Visible = tabItem9.Visible = tabItem10.Visible = tabItem11.Visible = tabItem12.Visible = tabItem14.Visible = tabItem15.Visible = tabItem16.Visible = false;
             }
-        }
-
-        private void UpdateTable()
-        {
-            //dataGridView_KH.DataSource = MySqlConnection.LoadData("KHACHHANG");
-            //dataGridView_PhieuThu.DataSource = MySqlConnection.LoadData("PHIEUTHUTIEN");
-            //dataGridView_PhieuNhap.DataSource = MySqlConnection.LoadData("CHITIETPHIEUNHAP");
-            //dataGridView_Sach.DataSource = MySqlConnection.LoadData("SACH");
-            //dataGridView_HoaDon.DataSource = MySqlConnection.LoadData("CHITIETHOADON");
-            //dataGridView_PhieuNhapTQ.DataSource = MySqlConnection.LoadData("PHIEUNHAP");
-            //dataGridView_HoaDonTQ.DataSource = MySqlConnection.LoadData("HOADON");
         }
 
 
@@ -574,27 +454,7 @@ namespace test
 
         private void btn_ThemPT_Click(object sender, EventArgs e)
         {
-            try
-            {
-                PhieuThuTienDTO phieuThuTien = new PhieuThuTienDTO();
-                phieuThuTien.MaPhieuThuTien = Utilities.PhieuThuUtility.PhatSinhMaPhieuThu();
-                phieuThuTien.SoTienThu = float.Parse(txt_SoTienThu.Text.ToString());
-                phieuThuTien.NgayThu = dTime_NgayThu.Value;
-                phieuThuTien.MaKhachHang = (MaKhachHangPhieuThuComboBox.SelectedItem as KhachHangDTO).MaKhachHang;
-                _phieuThuTienBll.InsertPhieuThuTien(phieuThuTien);
-                ConnectPhieuThuTienDataSource();
-
-            }
-            catch (SqlException sqlException)
-            {
-                MessageBox.Show("Các trường nhập vào không được để trống!", "Cảnh báo!", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
+          
             //try
             //{
             //    DataTable tb = new DataTable();
@@ -614,31 +474,7 @@ namespace test
 
         private void btn_XoaPT_Click(object sender, EventArgs e)
         {
-            try
-            {
-                PhieuThuTienDTO phieuThuDTO = new PhieuThuTienDTO();
-
-                phieuThuDTO.MaPhieuThuTien = txt_MaPhieuThu.Text;
-
-                if (DialogResult.No ==
-                    MessageBox.Show("Bạn có thực sự muốn xóa không?", "Cảnh báo!", MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question))
-                {
-                    return;
-                }
-
-                _phieuThuTienBll.DeleteByMaPhieuThuTien(phieuThuDTO);
-
-                ConnectPhieuThuTienDataSource();
-            }
-            catch (SqlException sqlEx)
-            {
-                MessageBox.Show(sqlEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
             //DataGridViewCell cell = null;
             //foreach (DataGridViewCell selectedcell in dataGridView_PhieuThu.SelectedCells)
             //{
@@ -654,35 +490,7 @@ namespace test
 
         private void btn_SuaPT_Click(object sender, EventArgs e)
         {
-            try
-            {
-                PhieuThuTienDTO phieuThuDto = new PhieuThuTienDTO();
-                phieuThuDto.MaPhieuThuTien = txt_MaPhieuThu.Text;
-                phieuThuDto.SoTienThu = float.Parse(txt_SoTienThu.Text);
-                phieuThuDto.NgayThu = dTime_NgayThu.Value;
-                phieuThuDto.MaKhachHang = (MaKhachHangPhieuThuComboBox.SelectedItem as KhachHangDTO).MaKhachHang;
-
-                if (DialogResult.No ==
-                    MessageBox.Show("Bạn có thực sự muốn sửa không?", "Cảnh báo!", MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question))
-                {
-                    return;
-                }
-
-                _phieuThuTienBll.UpdatePhieuThuTien(phieuThuDto);
-
-                ConnectPhieuThuTienDataSource();
-            }
-            catch (SqlException sqlEx)
-            {
-                MessageBox.Show("Có trường nhập vào bị trống!", "Cảnh báo!", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            
             //try
             //{
             //    DataGridViewCell cell = null;
@@ -732,35 +540,7 @@ namespace test
 
         private void btn_ThemHD_Click(object sender, EventArgs e)
         {
-            try
-            {
-                HoaDonDTO hoaDongDto = new HoaDonDTO();
-                hoaDongDto.MaHoaDon = Utilities.HoaDonUtility.PhatSinhMaHoaDon();
-                hoaDongDto.NgayLap = dTime_LapHD.Value;
-                hoaDongDto.MaKhachHang = (MaKhachHangHoaDonComboBox.SelectedItem as KhachHangDTO).MaKhachHang;
-
-                ChiTietHoaDonDTO chiTietHoaDonDto  = new ChiTietHoaDonDTO();
-                chiTietHoaDonDto.MaChiTietHoaDon = Utilities.HoaDonUtility.PhatSinhChiTietMaHoaDon();
-                chiTietHoaDonDto.MaHoaDon = hoaDongDto.MaHoaDon;
-                chiTietHoaDonDto.MaSach = (MaSachHoaDonComboBox.SelectedItem as SachDTO).MaSach;
-                chiTietHoaDonDto.SoLuongBan = int.Parse(txt_SoLuongBan.Text);
-
-                _hoaDonBll.InsertHoaDon(hoaDongDto);
-                _chiTietHoaDonBll.InsertChiTietHoaDon(chiTietHoaDonDto);
-
-                ConnectHoaDonDataSource();
-
-                ConnectChiTietHoaDonDataSource();
-            }
-            catch (SqlException sqlEx)
-            {
-                MessageBox.Show("Các trường nhập vào không được phép để trống!", "Cảnh báo!", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        
 
 
             //try
@@ -1104,29 +884,24 @@ namespace test
 
         private void PhieuThuTab_Click(object sender, EventArgs e)
         {
-            txt_MaPhieuThu.Text = Utilities.PhieuThuUtility.PhatSinhMaPhieuThu();
+            
             
         }
 
-        private void dataGridView_HoaDonTQ_SelectionChanged(object sender, EventArgs e)
+   
+        private void btnThem_Click(object sender, EventArgs e)
         {
-            txt_MaHD.TextChanged += (o, args) =>
-            {
-                try
-                {
-                    var chiTietHoaDonList = _chiTietHoaDonBll.SelectAll();
-                    var  list = chiTietHoaDonList.Where(n => n.MaHoaDon.Trim() == txt_MaHD.Text.Trim()) as List<ChiTietHoaDonDTO>;
-                    dataGridView_HoaDon.DataSource = list;
-                }
-                catch (SqlException sqlEx)
-                {
 
-                }
-                catch (Exception ex)
-                {
-                    
-                }
-            };
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

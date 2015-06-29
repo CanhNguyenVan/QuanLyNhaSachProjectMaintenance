@@ -12,54 +12,54 @@ namespace test.Utilities
     public static class HoaDonUtility
     {
 
-        private static string _maHoaDonPrefix = "MHD";
+        //private static string _maHoaDonPrefix = "MHD";
 
-        private static string _maChiTietHoaDonPrefix = "MCTHD";
+        //private static string _maChiTietHoaDonPrefix = "MCTHD";
 
-        public static string PhatSinhMaHoaDon()
-        {
-            HoaDonBLL hoaDonBll = new HoaDonBLL();
+        //public static string PhatSinhMaHoaDon()
+        //{
+        //    HoaDonBLL hoaDonBll = new HoaDonBLL();
 
-            var hoaDonList = hoaDonBll.SelectAll();
+        //    var hoaDonList = hoaDonBll.SelectAll();
 
-            if (hoaDonList.IsEmpty())
-            {
-                return _maHoaDonPrefix + 1;
-            }
+        //    if (hoaDonList.IsEmpty())
+        //    {
+        //        return _maHoaDonPrefix + 1;
+        //    }
 
-            List<int> maHoaDonList = new List<int>();
+        //    List<int> maHoaDonList = new List<int>();
 
-            foreach (HoaDonDTO hoaDonDto in hoaDonList)
-            {
-                maHoaDonList.Add(int.Parse(hoaDonDto.MaHoaDon.Replace(_maHoaDonPrefix, "")));
-            }
+        //    foreach (HoaDonDTO hoaDonDto in hoaDonList)
+        //    {
+        //        maHoaDonList.Add(int.Parse(hoaDonDto.MaHoaDon.Replace(_maHoaDonPrefix, "")));
+        //    }
             
-            return _maHoaDonPrefix + (maHoaDonList.Max() + 1);
+        //    return _maHoaDonPrefix + (maHoaDonList.Max() + 1);
 
-        }
+        //}
 
-        public static string PhatSinhChiTietMaHoaDon()
-        {
-            ChiTietHoaDonBLL chiTietHoaDonBll = new ChiTietHoaDonBLL();
+        //public static string PhatSinhChiTietMaHoaDon()
+        //{
+        //    ChiTietHoaDonBLL chiTietHoaDonBll = new ChiTietHoaDonBLL();
 
-            var chiTietHoaDonList = chiTietHoaDonBll.SelectAll();
+        //    var chiTietHoaDonList = chiTietHoaDonBll.SelectAll();
 
-            if (chiTietHoaDonList.IsEmpty())
-            {
-                return _maChiTietHoaDonPrefix + 1;
-            }
+        //    if (chiTietHoaDonList.IsEmpty())
+        //    {
+        //        return _maChiTietHoaDonPrefix + 1;
+        //    }
 
 
-            List<int> maChiTietHoaDonList = new List<int>();
+        //    List<int> maChiTietHoaDonList = new List<int>();
 
-            foreach (ChiTietHoaDonDTO chiTietHoaDonDto in chiTietHoaDonList)
-            {
-                maChiTietHoaDonList.Add(int.Parse(chiTietHoaDonDto.MaChiTietHoaDon.Replace(_maChiTietHoaDonPrefix, "")));
-            }
+        //    foreach (ChiTietHoaDonDTO chiTietHoaDonDto in chiTietHoaDonList)
+        //    {
+        //        maChiTietHoaDonList.Add(int.Parse(chiTietHoaDonDto.MaChiTietHoaDon.Replace(_maChiTietHoaDonPrefix, "")));
+        //    }
 
-            return _maChiTietHoaDonPrefix + (maChiTietHoaDonList.Max()  + 1);
+        //    return _maChiTietHoaDonPrefix + (maChiTietHoaDonList.Max()  + 1);
 
-        }
+        //}
 
     }
 }
