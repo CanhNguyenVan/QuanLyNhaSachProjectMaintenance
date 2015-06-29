@@ -46,83 +46,104 @@ namespace test
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            int index = dgvPhieuThu.CurrentCell.RowIndex;
-
-            string maPhieuThu = dgvPhieuThu.Rows[index].Cells[0].Value.ToString();
-            float soTienThu = float.Parse(dgvPhieuThu.Rows[index].Cells[1].Value.ToString());
-            string maKhachHang = dgvPhieuThu.Rows[index].Cells[2].Value.ToString();
-            DateTime ngayThu = DateTime.Parse(dgvPhieuThu.Rows[index].Cells[3].Value.ToString());
-
-            PhieuThuTienDTO phieuThuTienDto = new PhieuThuTienDTO();
-            phieuThuTienDto.MaPhieuThuTien = maPhieuThu;
-            phieuThuTienDto.SoTienThu = soTienThu;
-            phieuThuTienDto.MaKhachHang = maKhachHang;
-            phieuThuTienDto.NgayThu = ngayThu;
-
-            if (_phieuThuTienBll.InsertPhieuThuTien(phieuThuTienDto) == 1)
+            try
             {
-                MessageBox.Show("Thêm phiếu thu tiền thành công!");
+                int index = dgvPhieuThu.CurrentCell.RowIndex;
 
-                LoadData();
+                string maPhieuThu = dgvPhieuThu.Rows[index].Cells[0].Value.ToString();
+                float soTienThu = float.Parse(dgvPhieuThu.Rows[index].Cells[1].Value.ToString());
+                string maKhachHang = dgvPhieuThu.Rows[index].Cells[2].Value.ToString();
+                DateTime ngayThu = DateTime.Parse(dgvPhieuThu.Rows[index].Cells[3].Value.ToString());
+
+                PhieuThuTienDTO phieuThuTienDto = new PhieuThuTienDTO();
+                phieuThuTienDto.MaPhieuThuTien = maPhieuThu;
+                phieuThuTienDto.SoTienThu = soTienThu;
+                phieuThuTienDto.MaKhachHang = maKhachHang;
+                phieuThuTienDto.NgayThu = ngayThu;
+
+                if (_phieuThuTienBll.InsertPhieuThuTien(phieuThuTienDto) == 1)
+                {
+                    MessageBox.Show("Thêm phiếu thu tiền thành công!");
+
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi trường nhập vào hoặc trùng mã phiếu thu!", "Lỗi!");
+                }
+
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Lỗi trường nhập vào hoặc trùng mã phiếu thu!", "Lỗi!");
+                
             }
-
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            int index = dgvPhieuThu.CurrentCell.RowIndex;
-
-            string maPhieuThu = dgvPhieuThu.Rows[index].Cells[0].Value.ToString();
-            float soTienThu = float.Parse(dgvPhieuThu.Rows[index].Cells[1].Value.ToString());
-            string maKhachHang = dgvPhieuThu.Rows[index].Cells[2].Value.ToString();
-            DateTime ngayThu = DateTime.Parse(dgvPhieuThu.Rows[index].Cells[3].Value.ToString());
-
-            PhieuThuTienDTO phieuThuTienDto = new PhieuThuTienDTO();
-            phieuThuTienDto.MaPhieuThuTien = maPhieuThu;
-            phieuThuTienDto.SoTienThu = soTienThu;
-            phieuThuTienDto.MaKhachHang = maKhachHang;
-            phieuThuTienDto.NgayThu = ngayThu;
-
-            if (_phieuThuTienBll.UpdatePhieuThuTien(phieuThuTienDto) == 1)
+            try
             {
-                MessageBox.Show("Cập nhật phiếu thu tiền thành công!");
+                int index = dgvPhieuThu.CurrentCell.RowIndex;
 
-                LoadData();
+                string maPhieuThu = dgvPhieuThu.Rows[index].Cells[0].Value.ToString();
+                float soTienThu = float.Parse(dgvPhieuThu.Rows[index].Cells[1].Value.ToString());
+                string maKhachHang = dgvPhieuThu.Rows[index].Cells[2].Value.ToString();
+                DateTime ngayThu = DateTime.Parse(dgvPhieuThu.Rows[index].Cells[3].Value.ToString());
+
+                PhieuThuTienDTO phieuThuTienDto = new PhieuThuTienDTO();
+                phieuThuTienDto.MaPhieuThuTien = maPhieuThu;
+                phieuThuTienDto.SoTienThu = soTienThu;
+                phieuThuTienDto.MaKhachHang = maKhachHang;
+                phieuThuTienDto.NgayThu = ngayThu;
+
+                if (_phieuThuTienBll.UpdatePhieuThuTien(phieuThuTienDto) == 1)
+                {
+                    MessageBox.Show("Cập nhật phiếu thu tiền thành công!");
+
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi trường nhập vào hoặc trùng mã phiếu thu không tồn tại!", "Lỗi!");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Lỗi trường nhập vào hoặc trùng mã phiếu thu không tồn tại!", "Lỗi!");
+                
             }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int index = dgvPhieuThu.CurrentCell.RowIndex;
-
-            string maPhieuThu = dgvPhieuThu.Rows[index].Cells[0].Value.ToString();
-            float soTienThu = float.Parse(dgvPhieuThu.Rows[index].Cells[1].Value.ToString());
-            string maKhachHang = dgvPhieuThu.Rows[index].Cells[2].Value.ToString();
-            DateTime ngayThu = DateTime.Parse(dgvPhieuThu.Rows[index].Cells[3].Value.ToString());
-
-            PhieuThuTienDTO phieuThuTienDto = new PhieuThuTienDTO();
-            phieuThuTienDto.MaPhieuThuTien = maPhieuThu;
-            phieuThuTienDto.SoTienThu = soTienThu;
-            phieuThuTienDto.MaKhachHang = maKhachHang;
-            phieuThuTienDto.NgayThu = ngayThu;
-
-            if (_phieuThuTienBll.DeleteByMaPhieuThuTien(phieuThuTienDto) == 1)
+            try
             {
-                MessageBox.Show("Xóa phiếu thu tiền thành công!");
+                int index = dgvPhieuThu.CurrentCell.RowIndex;
 
-                LoadData();
+                string maPhieuThu = dgvPhieuThu.Rows[index].Cells[0].Value.ToString();
+                float soTienThu = float.Parse(dgvPhieuThu.Rows[index].Cells[1].Value.ToString());
+                string maKhachHang = dgvPhieuThu.Rows[index].Cells[2].Value.ToString();
+                DateTime ngayThu = DateTime.Parse(dgvPhieuThu.Rows[index].Cells[3].Value.ToString());
+
+                PhieuThuTienDTO phieuThuTienDto = new PhieuThuTienDTO();
+                phieuThuTienDto.MaPhieuThuTien = maPhieuThu;
+                phieuThuTienDto.SoTienThu = soTienThu;
+                phieuThuTienDto.MaKhachHang = maKhachHang;
+                phieuThuTienDto.NgayThu = ngayThu;
+
+                if (_phieuThuTienBll.DeleteByMaPhieuThuTien(phieuThuTienDto) == 1)
+                {
+                    MessageBox.Show("Xóa phiếu thu tiền thành công!");
+
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi xảy ra hoặc mã phiếu thu không tồn tại!", "Lỗi!");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Có lỗi xảy ra hoặc mã phiếu thu không tồn tại!", "Lỗi!");
+                
             }
         }
 
