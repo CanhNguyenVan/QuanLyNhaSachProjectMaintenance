@@ -12,7 +12,7 @@ set DateFormat DMY
 --Create Table SACH
 Create Table SACH
 (
-	MaSach char(10) primary key,
+	MaSach nvarchar(10) primary key,
 	TenSach nvarchar(100),
 	TheLoai nvarchar(50),
 	TacGia nvarchar(50),
@@ -24,7 +24,7 @@ Create Table SACH
 --Create Table KHACHHANG
 Create Table KHACHHANG
 (
-	MaKhachHang char(10) primary key,
+	MaKhachHang nvarchar(10) primary key,
 	HoTen nvarchar(50),
 	DiaChi nvarchar(100),
 	DienThoai int,
@@ -35,26 +35,26 @@ Create Table KHACHHANG
 --Create Table HOADON
 Create Table HOADON
 (
-	MaHoaDon char(10) primary key,
-	MaKhachHang char(10) foreign key references KHACHHANG(MaKhachHang),
+	MaHoaDon nvarchar(10) primary key,
+	MaKhachHang nvarchar(10) foreign key references KHACHHANG(MaKhachHang),
 	NgayLap smalldatetime
 )
 
 --Create Table CHITIETHOADON
 Create Table CHITIETHOADON
 (
-	MaChiTietHoaDon char(10) primary key,
-	MaHoaDon char(10) foreign key references HOADON(MaHoaDon),
-	MaSach char(10) foreign key references SACH(MaSach),
+	MaChiTietHoaDon nvarchar(10) primary key,
+	MaHoaDon nvarchar(10) foreign key references HOADON(MaHoaDon),
+	MaSach nvarchar(10) foreign key references SACH(MaSach),
 	SoLuongBan int
 )
 
 --Create Table BAOCAOCONGNO
 Create Table BAOCAOCONGNO
 (
-	MaBaoCaoCongNo char(10) primary key,
+	MaBaoCaoCongNo nvarchar(10) primary key,
 	Thang int,
-	MaKhachHang char(10) foreign key references KHACHHANG(MaKhachHang),
+	MaKhachHang nvarchar(10) foreign key references KHACHHANG(MaKhachHang),
 	NoDau float,
 	NoPhatSinh float,
 	NoCuoi float
@@ -63,9 +63,9 @@ Create Table BAOCAOCONGNO
 --Create Table BAOCAOTON
 Create Table BAOCAOTON
 (
-	MaBaoCaoTon char(10) primary key,
+	MaBaoCaoTon nvarchar(10) primary key,
 	Thang int,
-	MaSach char(10) foreign key references SACH(MaSach),
+	MaSach nvarchar(10) foreign key references SACH(MaSach),
 	TonDau int,
 	TonPhatSinh int,
 	TonCuoi int
@@ -74,16 +74,16 @@ Create Table BAOCAOTON
 --Create Table PHIEUNHAP
 Create Table PHIEUNHAP
 (
-	MaPhieuNhap char(10) primary key,
+	MaPhieuNhap nvarchar(10) primary key,
 	NgayNhap smalldatetime
 )	
 
 --Create Table CHITIETPHIEUNHAP
 Create Table CHITIETPHIEUNHAP
 (
-	MaChiTietPhieuNhap char(10) primary key,
-	MaPhieuNhap char(10) foreign key references PHIEUNHAP(MaPhieuNhap),
-	MaSach char(10) foreign key references SACH(MaSach),
+	MaChiTietPhieuNhap nvarchar(10) primary key,
+	MaPhieuNhap nvarchar(10) foreign key references PHIEUNHAP(MaPhieuNhap),
+	MaSach nvarchar(10) foreign key references SACH(MaSach),
 	SoLuongNhap int,
 	DonGiaNhap float
 )
@@ -91,9 +91,9 @@ Create Table CHITIETPHIEUNHAP
 --Create Table PHIEUTHUTIEN
 Create Table PHIEUTHUTIEN
 (
-	MaPhieuThuTien char(10) primary key,
+	MaPhieuThuTien nvarchar(10) primary key,
 	SoTienThu float,
-	MaKhachHang char(10) foreign key references KHACHHANG(MaKhachHang),
+	MaKhachHang nvarchar(10) foreign key references KHACHHANG(MaKhachHang),
 	NgayThu smalldatetime
 )
 
@@ -189,7 +189,7 @@ END
 GO
 
 CREATE PROCEDURE BaoCaoCongNo_SelectByMaBaoCaoCongNo
-@MaBaoCaoCongNo char(10)
+@MaBaoCaoCongNo nvarchar(10)
 AS
 BEGIN
 	select * from BAOCAOCONGNO where MaBaoCaoCongNo = @MaBaoCaoCongNo
@@ -198,7 +198,7 @@ GO
 
 ---
 CREATE PROCEDURE BaoCaoTon_SelectByMaBaoCaoTon
-@MaBaoCaoTon char(10)
+@MaBaoCaoTon nvarchar(10)
 AS
 BEGIN
 	select * from BAOCAOTON where MaBaoCaoTon = @MaBaoCaoTon
@@ -207,7 +207,7 @@ GO
 
 ---
 CREATE PROCEDURE ChiTietHoaDon_SelectByMaChiTietHoaDon
-@MaChiTietHoaDon char(10)
+@MaChiTietHoaDon nvarchar(10)
 AS
 BEGIN
 	select * from CHITIETHOADON where MaChiTietHoaDon = @MaChiTietHoaDon
@@ -216,7 +216,7 @@ GO
 
 ---
 CREATE PROCEDURE ChiTietPhieuNhap_SelectByMaChiTietPhieuNhap
-@MaChiTietPhieuNhap char(10)
+@MaChiTietPhieuNhap nvarchar(10)
 AS
 BEGIN
 	select * from CHITIETPHIEUNHAP where MaChiTietPhieuNhap = @MaChiTietPhieuNhap
@@ -225,7 +225,7 @@ GO
 
 ---
 CREATE PROCEDURE HoaDon_SelectByMaHoaDon
-@MaHoaDon char(10)
+@MaHoaDon nvarchar(10)
 AS
 BEGIN
 	select * from HOADON where MaHoaDon = @MaHoaDon
@@ -234,7 +234,7 @@ GO
 
 ---
 CREATE PROCEDURE KhachHang_SelectByMaKhachHang
-@MaKhachHang char(10)
+@MaKhachHang nvarchar(10)
 AS
 BEGIN
 	select * from KHACHHANG where MaKhachHang = @MaKhachHang
@@ -243,7 +243,7 @@ GO
 
 ---
 CREATE PROCEDURE PhieuNhap_SelectByPhieuNhap
-@MaPhieuNhap char(10)
+@MaPhieuNhap nvarchar(10)
 AS
 BEGIN
 	select * from PHIEUNHAP where MaPhieuNhap = @MaPhieuNhap
@@ -252,7 +252,7 @@ GO
 
 ---
 CREATE PROCEDURE PhieuThuTien_SelectByMaPhieuThuTien
-@MaPhieuThuTien char(10)
+@MaPhieuThuTien nvarchar(10)
 AS
 BEGIN
 	select * from PHIEUTHUTIEN where MaPhieuThuTien = @MaPhieuThuTien
@@ -261,7 +261,7 @@ GO
 
 ---
 CREATE PROCEDURE Sach_SelectByMaSach
-@MaSach char(10)
+@MaSach nvarchar(10)
 AS
 BEGIN
 	select * from SACH where MaSach = @MaSach
@@ -278,9 +278,9 @@ END
 GO
 
 CREATE PROCEDURE BaoCaoCongNo_Insert
-@MaBaoCaoCongNo char(10),
+@MaBaoCaoCongNo nvarchar(10),
 @Thang int,
-@MaKhachHang char(10),
+@MaKhachHang nvarchar(10),
 @NoDau float,
 @NoPhatSinh float,
 @NoCuoi float
@@ -293,9 +293,9 @@ GO
 
 ---
 CREATE PROCEDURE BaoCaoTon_Insert
-@MaBaoCaoTon char(10),
+@MaBaoCaoTon nvarchar(10),
 @Thang int,
-@MaSach char(10),
+@MaSach nvarchar(10),
 @TonDau int,
 @TonPhatSinh int,
 @TonCuoi int
@@ -308,9 +308,9 @@ GO
 
 ---
 CREATE PROCEDURE ChiTietHoaDon_Insert
-@MaChiTietHoaDon char(10),
-@MaHoaDon char(10),
-@MaSach char(10),
+@MaChiTietHoaDon nvarchar(10),
+@MaHoaDon nvarchar(10),
+@MaSach nvarchar(10),
 @SoLuongBan int
 AS
 BEGIN
@@ -321,9 +321,9 @@ GO
 
 ---
 CREATE PROCEDURE ChiTietPhieuNhap_Insert
-@MaChiTietPhieuNhap char(10),
-@MaPhieuNhap char(10),
-@MaSach char(10),
+@MaChiTietPhieuNhap nvarchar(10),
+@MaPhieuNhap nvarchar(10),
+@MaSach nvarchar(10),
 @SoLuongNhap int,
 @DonGiaNhap float
 AS
@@ -335,8 +335,8 @@ GO
 
 ---
 CREATE PROCEDURE HoaDon_Insert
-@MaHoaDon char(10),
-@MaKhachHang char(10),
+@MaHoaDon nvarchar(10),
+@MaKhachHang nvarchar(10),
 @NgayLap smalldatetime
 AS
 BEGIN
@@ -347,7 +347,7 @@ GO
 
 ---
 CREATE PROCEDURE KhachHang_Insert
-@MaKhachHang char(10),
+@MaKhachHang nvarchar(10),
 @HoTen nvarchar(50),
 @DiaChi nvarchar(100),
 @DienThoai int,
@@ -362,7 +362,7 @@ GO
 
 ---
 CREATE PROCEDURE PhieuNhap_Insert
-@MaPhieuNhap char(10),
+@MaPhieuNhap nvarchar(10),
 @NgayNhap smalldatetime
 AS
 BEGIN
@@ -373,9 +373,9 @@ GO
 
 ---
 CREATE PROCEDURE PhieuThuTien_Insert
-@MaPhieuThuTien char(10),
+@MaPhieuThuTien nvarchar(10),
 @SoTienThu float,
-@MaKhachHang char(10),
+@MaKhachHang nvarchar(10),
 @NgayThu smalldatetime
 AS
 BEGIN
@@ -386,7 +386,7 @@ GO
 
 ---
 CREATE PROCEDURE Sach_Insert
-@MaSach char(10),
+@MaSach nvarchar(10),
 @TenSach nvarchar(100),
 @TheLoai nvarchar(50),
 @TacGia nvarchar(50),
@@ -416,9 +416,9 @@ GO
 
 ---
 CREATE PROCEDURE BaoCaoCongNo_Update
-@MaBaoCaoCongNo char(10),
+@MaBaoCaoCongNo nvarchar(10),
 @Thang int,
-@MaKhachHang char(10),
+@MaKhachHang nvarchar(10),
 @NoDau float,
 @NoPhatSinh float,
 @NoCuoi float
@@ -437,9 +437,9 @@ END
 GO
 
 CREATE PROCEDURE BaoCaoTon_Update
-@MaBaoCaoTon char(10),
+@MaBaoCaoTon nvarchar(10),
 @Thang int,
-@MaSach char(10),
+@MaSach nvarchar(10),
 @TonDau int,
 @TonPhatSinh int,
 @TonCuoi int
@@ -458,9 +458,9 @@ END
 GO
 
 CREATE PROCEDURE ChiTietHoaDon_Update
-@MaChiTietHoaDon char(10),
-@MaHoaDon char(10),
-@MaSach char(10),
+@MaChiTietHoaDon nvarchar(10),
+@MaHoaDon nvarchar(10),
+@MaSach nvarchar(10),
 @SoLuongBan int
 AS
 BEGIN
@@ -475,9 +475,9 @@ END
 GO
 
 CREATE PROCEDURE ChiTietPhieuNhap_Update
-@MaChiTietPhieuNhap char(10),
-@MaPhieuNhap char(10),
-@MaSach char(10),
+@MaChiTietPhieuNhap nvarchar(10),
+@MaPhieuNhap nvarchar(10),
+@MaSach nvarchar(10),
 @SoLuongNhap int,
 @DonGiaNhap float
 AS
@@ -494,8 +494,8 @@ END
 GO
 
 CREATE PROCEDURE HoaDon_Update
-@MaHoaDon char(10),
-@MaKhachHang char(10),
+@MaHoaDon nvarchar(10),
+@MaKhachHang nvarchar(10),
 @NgayLap smalldatetime
 AS
 BEGIN
@@ -509,7 +509,7 @@ END
 GO
 
 CREATE PROCEDURE KhachHang_Update
-@MaKhachHang char(10),
+@MaKhachHang nvarchar(10),
 @HoTen nvarchar(50),
 @DiaChi nvarchar(100),
 @DienThoai int,
@@ -530,7 +530,7 @@ END
 GO
 
 CREATE PROCEDURE PhieuNhap_Update
-@MaPhieuNhap char(10),
+@MaPhieuNhap nvarchar(10),
 @NgayNhap smalldatetime
 AS
 BEGIN
@@ -543,9 +543,9 @@ END
 GO
 
 CREATE PROCEDURE PhieuThuTien_Update
-@MaPhieuThuTien char(10),
+@MaPhieuThuTien nvarchar(10),
 @SoTienThu float,
-@MaKhachHang char(10),
+@MaKhachHang nvarchar(10),
 @NgayThu smalldatetime
 AS
 BEGIN
@@ -560,7 +560,7 @@ END
 GO
 
 CREATE PROCEDURE Sach_Update
-@MaSach char(10),
+@MaSach nvarchar(10),
 @TenSach nvarchar(100),
 @TheLoai nvarchar(50),
 @TacGia nvarchar(50),
@@ -601,7 +601,7 @@ END
 GO
 
 CREATE PROCEDURE BaoCaoCongNo_DeleteByMaBaoCaoCongNo
-@MaBaoCaoCongNo char(10)
+@MaBaoCaoCongNo nvarchar(10)
 AS
 BEGIN
 	delete from BAOCAOCONGNO where (MaBaoCaoCongNo = @MaBaoCaoCongNo)
@@ -610,7 +610,7 @@ GO
 
 ---
 CREATE PROCEDURE BaoCaoTon_DeleteByMaBaoCaoTon
-@MaBaoCaoTon char(10)
+@MaBaoCaoTon nvarchar(10)
 AS
 BEGIN
 	delete from BAOCAOTON where (MaBaoCaoTon = @MaBaoCaoTon)
@@ -619,7 +619,7 @@ GO
 
 ---
 CREATE PROCEDURE ChiTietHoaDon_DeleteByMaChIietHoaDon
-@MaChiTietHoaDon char(10)
+@MaChiTietHoaDon nvarchar(10)
 AS
 BEGIN
 	delete from CHITIETHOADON where (MaChiTietHoaDon = @MaChiTietHoaDon)
@@ -628,7 +628,7 @@ GO
 
 ---
 CREATE PROCEDURE ChiTietPhieuNhap_DeleteByMaChiTietPhieuNhap
-@MaChiTietPhieuNhap char(10)
+@MaChiTietPhieuNhap nvarchar(10)
 AS
 BEGIN
 	delete from CHITIETPHIEUNHAP where (MaChiTietPhieuNhap = @MaChiTietPhieuNhap)
@@ -637,7 +637,7 @@ GO
 
 ---
 CREATE PROCEDURE HoaDon_DeleteByMaHoaDon
-@MaHoaDon char(10)
+@MaHoaDon nvarchar(10)
 AS
 BEGIN
 	delete from HOADON where (MaHoaDon = @MaHoaDon)
@@ -646,7 +646,7 @@ GO
 
 ---
 CREATE PROCEDURE KhachHang_DeleteByMaKhachHang
-@MaKhachHang char(10)
+@MaKhachHang nvarchar(10)
 AS
 BEGIN
 	delete from KHACHHANG where (MaKhachHang = @MaKhachHang)
@@ -655,7 +655,7 @@ GO
 
 ---
 CREATE PROCEDURE PhieuNhap_DeleteByMaPhieuNhap
-@MaPhieuNhap char(10)
+@MaPhieuNhap nvarchar(10)
 AS
 BEGIN
 	delete from PHIEUNHAP where (MaPhieuNhap = @MaPhieuNhap)
@@ -664,7 +664,7 @@ GO
 
 ---
 CREATE PROCEDURE PhieuThuTien_DeleteByMaPhieuThuTien
-@MaPhieuThuTien char(10)
+@MaPhieuThuTien nvarchar(10)
 AS
 BEGIN
 	delete from PHIEUTHUTIEN where (MaPhieuThuTien = @MaPhieuThuTien)
@@ -673,7 +673,7 @@ GO
 
 ---
 CREATE PROCEDURE Sach_DeleteByMaSach
-@MaSach char(10)
+@MaSach nvarchar(10)
 AS
 BEGIN
 	delete from SACH where (MaSach = @MaSach)
