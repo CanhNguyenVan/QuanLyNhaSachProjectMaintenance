@@ -105,6 +105,15 @@ Create Table THAMSO
 	SoLuongTonToiThieuSauKhiBan int,
 	TienNoToiDa float
 )
+
+Create Table TAIKHOAN
+(
+	MaTK int primary key,
+	TenTK nvarchar(30) not null,
+	MatKhau nvarchar(30) not null,
+	LoaiTK int
+)
+
 --Rang Buoc Toan Ven
 --Ngay Muon Sach Phai Truoc Ngay Tra Sach
 
@@ -717,3 +726,5 @@ insert into PHIEUTHUTIEN (MaPhieuThuTien, SoTienThu, MaKhachHang, NgayThu) value
 insert into PHIEUTHUTIEN (MaPhieuThuTien, SoTienThu, MaKhachHang, NgayThu) values ('PTT2', 250000, 'KH1', '12/6/2015')
 insert into PHIEUTHUTIEN (MaPhieuThuTien, SoTienThu, MaKhachHang, NgayThu) values ('PTT3', 3500000, 'KH1', '14/6/2015')
 
+insert into TAIKHOAN values(1,'Admin','123456',1)
+insert into TAIKHOAN values(2,'NhanVien','123456',2)
