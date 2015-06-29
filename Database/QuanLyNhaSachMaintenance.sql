@@ -688,6 +688,46 @@ BEGIN
 	delete from SACH where (MaSach = @MaSach)
 END
 GO
+---
+Create Procedure BaoCaoCongNo_SelectThang
+As
+Begin
+	Select Thang
+	From BAOCAOCONGNO
+End
+
+GO
+
+--
+Create Procedure BaoCaoCongNo_SelectAllByThang
+AS
+Begin	
+	Select kh.HoTen, cn.NoDau, cn.NoPhatSinh, cn.NoCuoi, cn.Thang
+	From BAOCAOCONGNO cn, KHACHHANG kh
+	Where cn.MaKhachHang = kh.MaKhachHang
+End
+
+GO
+
+-- 
+Create Procedure BaoCaoTon_SelectAllByThang
+AS
+Begin 
+	Select s.TenSach, t.TonDau, t.TonPhatSinh, t.TonCuoi, t.Thang
+	From BAOCAOTON t, SACH s
+	Where t.MaSach = s.MaSach
+End
+
+GO
+--
+Create Procedure BaoCaoTon_SelectThang
+AS
+Begin
+	Select distinct Thang
+	From BAOCAOTON
+End
+
+GO
 
 insert into SACH (MaSach, TenSach, TheLoai, TacGia, NamXuatBan, SoLuongTon, DonGiaBan) values ('S1', N'Cấu trúc rời rạc', N'Sách giáo trình', N'Nguyễn Văn Cảnh', 2000, 100, 25000)
 insert into SACH (MaSach, TenSach, TheLoai, TacGia, NamXuatBan, SoLuongTon, DonGiaBan) values ('S2', N'Tắt đèn', N'Sách văn học', N'Ngô Tất Tố', 2001, 50, 55000)
