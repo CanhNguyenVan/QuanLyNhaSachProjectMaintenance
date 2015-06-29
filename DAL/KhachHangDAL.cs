@@ -20,30 +20,31 @@ namespace DAL
         }
 
         //Hiển thị danh sách khách hàng lên màn hình
-        public List<KhachHangDTO> SelectAll()
+        public DataTable SelectAll()
         {
             try
             {
                 DataTable dataTable = new DataTable();
-                List<KhachHangDTO> list = new List<KhachHangDTO>();
+                //List<KhachHangDTO> list = new List<KhachHangDTO>();
 
                 dataTable = connect.GetData("KhachHang_SelectAll");
-                int row = dataTable.Rows.Count;
+                //int row = dataTable.Rows.Count;
 
-                for (int i = 0; i < row; i++)
-                {
-                    KhachHangDTO khachHangDTO = new KhachHangDTO();
-                    khachHangDTO.MaKhachHang = dataTable.Rows[i].ItemArray[0].ToString();
-                    khachHangDTO.HoTen = dataTable.Rows[i].ItemArray[1].ToString();
-                    khachHangDTO.DiaChi = dataTable.Rows[i].ItemArray[2].ToString();
-                    khachHangDTO.DienThoai = int.Parse(dataTable.Rows[i].ItemArray[3].ToString());
-                    khachHangDTO.Email = dataTable.Rows[i].ItemArray[4].ToString();
-                    khachHangDTO.SoTienNo = float.Parse(dataTable.Rows[i].ItemArray[5].ToString());
+                //for (int i = 0; i < row; i++)
+                //{
+                //    KhachHangDTO khachHangDTO = new KhachHangDTO();
+                //    khachHangDTO.MaKhachHang = dataTable.Rows[i].ItemArray[0].ToString();
+                //    khachHangDTO.HoTen = dataTable.Rows[i].ItemArray[1].ToString();
+                //    khachHangDTO.DiaChi = dataTable.Rows[i].ItemArray[2].ToString();
+                //    khachHangDTO.DienThoai = int.Parse(dataTable.Rows[i].ItemArray[3].ToString());
+                //    khachHangDTO.Email = dataTable.Rows[i].ItemArray[4].ToString();
+                //    khachHangDTO.SoTienNo = float.Parse(dataTable.Rows[i].ItemArray[5].ToString());
 
-                    list.Add(khachHangDTO);
-                }
+                //    list.Add(khachHangDTO);
+                //}
 
-                return list;
+                //return list;
+                return dataTable;
             }
             catch (Exception e)
             {
@@ -53,7 +54,7 @@ namespace DAL
         }
 
         //Thêm mới một khách hàng
-        public void InsertKhachHang(KhachHangDTO khachHangDTO)
+        public int InsertKhachHang(KhachHangDTO khachHangDTO)
         {
             int param = 6;
             string[] name = new string[param];
@@ -73,11 +74,11 @@ namespace DAL
             values[4] = khachHangDTO.Email;
             values[5] = khachHangDTO.SoTienNo;
 
-            connect.ExcuteNonQuery("KhachHang_Insert", name, values, param);
+            return connect.ExcuteNonQuery("KhachHang_Insert", name, values, param);
         }
 
         //Sửa thông tin một khách hàng
-        public void UpdateKhachHang(KhachHangDTO khachHangDTO)
+        public int UpdateKhachHang(KhachHangDTO khachHangDTO)
         {
             int param = 6;
             string[] name = new string[param];
@@ -97,11 +98,11 @@ namespace DAL
             values[4] = khachHangDTO.Email;
             values[5] = khachHangDTO.SoTienNo;
 
-            connect.ExcuteNonQuery("KhachHang_Update", name, values, param);
+            return connect.ExcuteNonQuery("KhachHang_Update", name, values, param);
         }
 
         //Xóa một khách hàng theo MaKhachHang
-        public void DeleteByMaKhachHang(KhachHangDTO khachHangDTO)
+        public int DeleteByMaKhachHang(KhachHangDTO khachHangDTO)
         {
             int param = 1;
             string[] name = new string[param];
@@ -110,7 +111,7 @@ namespace DAL
             name[0] = "@MaKhachHang";
             values[0] = khachHangDTO.MaKhachHang;
 
-            connect.ExcuteNonQuery("KhachHang_DeleteByMaKhachHang", name, values, param);
+            return connect.ExcuteNonQuery("KhachHang_DeleteByMaKhachHang", name, values, param);
         }
     }
 }

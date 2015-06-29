@@ -2,6 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,27 +14,27 @@ namespace BLL
         KhachHangDAL khachHangDAL = new KhachHangDAL();
 
         //Hiển thị danh sách khách hàng lên màn hình
-        public List<KhachHangDTO> SelectAll()
+        public DataTable SelectAll()
         {
             return khachHangDAL.SelectAll();
         }
 
         //Thêm mới một khách hàng
-        public void InsertKhachHang(KhachHangDTO khachHangDTO)
+        public int InsertKhachHang(KhachHangDTO khachHangDTO)
         {
-            khachHangDAL.InsertKhachHang(khachHangDTO);
+            return khachHangDAL.InsertKhachHang(khachHangDTO);
         }
 
         //Sửa thông tin một khách hàng
-        public void UpdateKhachHang(KhachHangDTO khachHangDTO)
+        public int UpdateKhachHang(KhachHangDTO khachHangDTO)
         {
-            khachHangDAL.UpdateKhachHang(khachHangDTO);
+            return khachHangDAL.UpdateKhachHang(khachHangDTO);
         }
 
         //Xóa một khách hàng theo MaKhachHang
-        public void DeleteByMaKhachHang(KhachHangDTO khachHangDTO)
+        public int DeleteByMaKhachHang(KhachHangDTO khachHangDTO)
         {
-            khachHangDAL.DeleteByMaKhachHang(khachHangDTO);
+            return khachHangDAL.DeleteByMaKhachHang(khachHangDTO);
         }
     }
 }

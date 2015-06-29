@@ -19,27 +19,28 @@ namespace DAL
         }
 
         //Hiển thị danh sách hóa đơn lên màn hình
-        public List<HoaDonDTO> SelectAll()
+        public DataTable SelectAll()
         {
             try
             {
                 DataTable dataTable = new DataTable();
-                List<HoaDonDTO> list = new List<HoaDonDTO>();
+                //List<HoaDonDTO> list = new List<HoaDonDTO>();
 
                 dataTable = connect.GetData("HoaDon_SelectAll");
-                int row = dataTable.Rows.Count;
+                //int row = dataTable.Rows.Count;
 
-                for (int i = 0; i < row; i++)
-                {
-                    HoaDonDTO hoaDonDTO = new HoaDonDTO();
-                    hoaDonDTO.MaHoaDon = dataTable.Rows[i].ItemArray[0].ToString();
-                    hoaDonDTO.MaKhachHang = dataTable.Rows[i].ItemArray[1].ToString();
-                    hoaDonDTO.NgayLap = DateTime.Parse(dataTable.Rows[i].ItemArray[2].ToString());
+                //for (int i = 0; i < row; i++)
+                //{
+                //    HoaDonDTO hoaDonDTO = new HoaDonDTO();
+                //    hoaDonDTO.MaHoaDon = dataTable.Rows[i].ItemArray[0].ToString();
+                //    hoaDonDTO.MaKhachHang = dataTable.Rows[i].ItemArray[1].ToString();
+                //    hoaDonDTO.NgayLap = DateTime.Parse(dataTable.Rows[i].ItemArray[2].ToString());
 
-                    list.Add(hoaDonDTO);
-                }
+                //    list.Add(hoaDonDTO);
+                //}
 
-                return list;
+                //return list;
+                return dataTable;
             }
             catch (Exception e)
             {
@@ -49,7 +50,7 @@ namespace DAL
         }
 
         //thêm mới một hóa đơn
-        public void InsertHoaDon(HoaDonDTO hoaDonDTO)
+        public int InsertHoaDon(HoaDonDTO hoaDonDTO)
         {
             int param = 3;
             string[] name = new string[param];
@@ -63,11 +64,11 @@ namespace DAL
             values[1] = hoaDonDTO.MaKhachHang;
             values[2] = hoaDonDTO.NgayLap;
 
-            connect.ExcuteNonQuery("HoaDon_Insert", name, values, param);
+            return connect.ExcuteNonQuery("HoaDon_Insert", name, values, param);
         }
 
         //Sửa thông tin một hóa đơn
-        public void UpdateHoaDon(HoaDonDTO hoaDonDTO)
+        public int UpdateHoaDon(HoaDonDTO hoaDonDTO)
         {
             int param = 3;
             string[] name = new string[param];
@@ -81,11 +82,11 @@ namespace DAL
             values[1] = hoaDonDTO.MaKhachHang;
             values[2] = hoaDonDTO.NgayLap;
 
-            connect.ExcuteNonQuery("HoaDon_Update", name, values, param);
+            return connect.ExcuteNonQuery("HoaDon_Update", name, values, param);
         }
 
         //Xóa một hóa đơn theo MaHoaDon
-        public void DeleteByMaHoaDon(HoaDonDTO hoaDonDTO)
+        public int DeleteByMaHoaDon(HoaDonDTO hoaDonDTO)
         {
             int param = 1;
             string[] name = new string[param];
@@ -94,7 +95,7 @@ namespace DAL
             name[0] = "@MaHoaDon";
             values[0] = hoaDonDTO.MaHoaDon;
 
-            connect.ExcuteNonQuery("HoaDon_DeleteByMaHoaDon", name, values, param);
+            return connect.ExcuteNonQuery("HoaDon_DeleteByMaHoaDon", name, values, param);
         }
     }
 }

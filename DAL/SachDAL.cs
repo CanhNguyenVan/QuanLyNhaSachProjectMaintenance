@@ -20,31 +20,31 @@ namespace DAL
         }
 
         //Chức năng hiển thị danh sách Sách trong database lên màn hình
-        public List<SachDTO> SelectAll()
+        public DataTable SelectAll()
         {
             try
             {
                 DataTable dataTable = new DataTable();
-                List<SachDTO> list = new List<SachDTO>();
+                //List<SachDTO> list = new List<SachDTO>();
 
                 dataTable = connect.GetData("Sach_SelectAll");
-                int row = dataTable.Rows.Count;
+                //int row = dataTable.Rows.Count;
 
-                for (int i = 0; i < row; i++)
-                {
-                    SachDTO sachDTO = new SachDTO();
-                    sachDTO.MaSach = dataTable.Rows[i].ItemArray[0].ToString();
-                    sachDTO.TenSach = dataTable.Rows[i].ItemArray[1].ToString();
-                    sachDTO.TheLoai = dataTable.Rows[i].ItemArray[2].ToString();
-                    sachDTO.TacGia = dataTable.Rows[i].ItemArray[3].ToString();
-                    sachDTO.NamSanXuat = int.Parse(dataTable.Rows[i].ItemArray[4].ToString());
-                    sachDTO.SoLuongTon = int.Parse(dataTable.Rows[i].ItemArray[5].ToString());
-                    sachDTO.DonGiaBan = float.Parse(dataTable.Rows[i].ItemArray[4].ToString());
+                //for (int i = 0; i < row; i++)
+                //{
+                //    SachDTO sachDTO = new SachDTO();
+                //    sachDTO.MaSach = dataTable.Rows[i].ItemArray[0].ToString();
+                //    sachDTO.TenSach = dataTable.Rows[i].ItemArray[1].ToString();
+                //    sachDTO.TheLoai = dataTable.Rows[i].ItemArray[2].ToString();
+                //    sachDTO.TacGia = dataTable.Rows[i].ItemArray[3].ToString();
+                //    sachDTO.NamSanXuat = int.Parse(dataTable.Rows[i].ItemArray[4].ToString());
+                //    sachDTO.SoLuongTon = int.Parse(dataTable.Rows[i].ItemArray[5].ToString());
+                //    sachDTO.DonGiaBan = float.Parse(dataTable.Rows[i].ItemArray[4].ToString());
 
-                    list.Add(sachDTO);
-                }
+                //    list.Add(sachDTO);
+                //}
 
-                return list;
+                return dataTable;
             }
             catch (Exception e)
             {
@@ -54,7 +54,7 @@ namespace DAL
         }
 
         //Thêm một cuốn sách vào danh sách Sách
-        public void InsertSach(SachDTO sachDTO)
+        public int InsertSach(SachDTO sachDTO)
         {
             int param = 7;
             string[] name = new string[param];
@@ -76,11 +76,11 @@ namespace DAL
             values[5] = sachDTO.SoLuongTon;
             values[6] = sachDTO.DonGiaBan;
 
-            connect.ExcuteNonQuery("Sach_Insert", name, values, param);
+            return connect.ExcuteNonQuery("Sach_Insert", name, values, param);
         }
 
         //Sửa đổi thông tin của sách
-        public void UpdateSach(SachDTO sachDTO)
+        public int UpdateSach(SachDTO sachDTO)
         {
             int param = 7;
             string[] name = new string[param];
@@ -102,11 +102,11 @@ namespace DAL
             values[5] = sachDTO.SoLuongTon;
             values[6] = sachDTO.DonGiaBan;
 
-            connect.ExcuteNonQuery("Sach_Update", name, values, param);
+            return connect.ExcuteNonQuery("Sach_Update", name, values, param);
         }
 
         //Xóa sách trong danh sách Sách theo Mã Sách
-        public void DeleteSachByMaSach(SachDTO sachDTO)
+        public int DeleteSachByMaSach(SachDTO sachDTO)
         {
             int param = 1;
             string[] name = new string[param];
@@ -115,11 +115,11 @@ namespace DAL
             name[0] = "@MaSach";
             values[0] = sachDTO.MaSach;
 
-            connect.ExcuteNonQuery("Sach_DeleteByMaSach", name, values, param);
+            return connect.ExcuteNonQuery("Sach_DeleteByMaSach", name, values, param);
         }
 
         //Xóa sách trong danh sách Sách theo Tên Sách
-        public void DeleteSachByTenSach(SachDTO sachDTO)
+        public int DeleteSachByTenSach(SachDTO sachDTO)
         {
             int param = 1;
             string[] name = new string[param];
@@ -128,7 +128,7 @@ namespace DAL
             name[0] = "@TenSach";
             values[0] = sachDTO.TenSach;
 
-            connect.ExcuteNonQuery("Sach_DeleteByTenSach", name, values, param);
+            return connect.ExcuteNonQuery("Sach_DeleteByTenSach", name, values, param);
         }
     }
 }

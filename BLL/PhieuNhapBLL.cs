@@ -2,6 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,27 +14,27 @@ namespace BLL
         PhieuNhapDAL phieuNhapDAL = new PhieuNhapDAL();
 
         //Hiển thị danh sách các phiếu nhập lên màn hình
-        public List<PhieuNhapDTO> SelectAll()
+        public DataTable SelectAll()
         {
             return phieuNhapDAL.SelectAll();
         }
 
         //Thêm mới một phiếu nhập
-        public void InsertPhieuNhap(PhieuNhapDTO phieuNhapDTO)
+        public int InsertPhieuNhap(PhieuNhapDTO phieuNhapDTO)
         {
-            phieuNhapDAL.InsertPhieuNhap(phieuNhapDTO);
+            return phieuNhapDAL.InsertPhieuNhap(phieuNhapDTO);
         }
 
         //Sửa thông tin một phiếu nhập
-        public void UpdatePhieuNhap(PhieuNhapDTO phieuNhapDTO)
+        public int UpdatePhieuNhap(PhieuNhapDTO phieuNhapDTO)
         {
-            phieuNhapDAL.UpdatePhieuNhap(phieuNhapDTO);
+            return phieuNhapDAL.UpdatePhieuNhap(phieuNhapDTO);
         }
 
         //Xóa một phiếu nhập theo MaPhieuNhap
-        public void DeleteByMaPhieuNhap(PhieuNhapDTO phieuNhapDTO)
+        public int DeleteByMaPhieuNhap(PhieuNhapDTO phieuNhapDTO)
         {
-            phieuNhapDAL.DeleteByMaPhieuNhap(phieuNhapDTO);
+            return phieuNhapDAL.DeleteByMaPhieuNhap(phieuNhapDTO);
         }
     }
 }

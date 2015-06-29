@@ -2,6 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,13 +14,13 @@ namespace BLL
         BaoCaoTonDAL baoCaoTonDAL = new BaoCaoTonDAL();
 
         //Hiển thị danh sách các báo cáo tồn
-        public List<BaoCaoTonDTO> SelectAll()
+        public DataTable SelectAll()
         {
             return baoCaoTonDAL.SelectAll();
         }
 
         //Hiển thị danh sách các báo cáo tồn theo tháng
-        public List<BaoCaoTonDTO> SelectAllByMonth()
+        public DataTable SelectAllByMonth()
         {
             return baoCaoTonDAL.SelectByMonth();
         }

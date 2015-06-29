@@ -19,28 +19,29 @@ namespace DAL
         }
 
         //Hiển thị danh sách phiếu thu tiền lên màn hình
-        public List<PhieuThuTienDTO> SelectAll()
+        public DataTable SelectAll()
         {
             try
             {
                 DataTable dataTable = new DataTable();
-                List<PhieuThuTienDTO> list = new List<PhieuThuTienDTO>();
+                //List<PhieuThuTienDTO> list = new List<PhieuThuTienDTO>();
 
                 dataTable = connect.GetData("PhieuThuTien_SelectAll");
-                int row = dataTable.Rows.Count;
+                //int row = dataTable.Rows.Count;
 
-                for (int i = 0; i < row; i++)
-                {
-                    PhieuThuTienDTO phieuThuTienDTO = new PhieuThuTienDTO();
-                    phieuThuTienDTO.MaPhieuThuTien = dataTable.Rows[i].ItemArray[0].ToString();
-                    phieuThuTienDTO.SoTienThu = float.Parse(dataTable.Rows[i].ItemArray[1].ToString());
-                    phieuThuTienDTO.MaKhachHang = dataTable.Rows[i].ItemArray[2].ToString();
-                    phieuThuTienDTO.NgayThu = DateTime.Parse(dataTable.Rows[i].ItemArray[3].ToString());
+                //for (int i = 0; i < row; i++)
+                //{
+                //    PhieuThuTienDTO phieuThuTienDTO = new PhieuThuTienDTO();
+                //    phieuThuTienDTO.MaPhieuThuTien = dataTable.Rows[i].ItemArray[0].ToString();
+                //    phieuThuTienDTO.SoTienThu = float.Parse(dataTable.Rows[i].ItemArray[1].ToString());
+                //    phieuThuTienDTO.MaKhachHang = dataTable.Rows[i].ItemArray[2].ToString();
+                //    phieuThuTienDTO.NgayThu = DateTime.Parse(dataTable.Rows[i].ItemArray[3].ToString());
 
-                    list.Add(phieuThuTienDTO);
-                }
+                //    list.Add(phieuThuTienDTO);
+                //}
 
-                return list;
+                //return list;
+                return dataTable;
             }
             catch (Exception e)
             {
@@ -50,7 +51,7 @@ namespace DAL
         }
 
         //Thêm mới một phiếu thu tiền
-        public void InsertPhieuThuTien(PhieuThuTienDTO phieuThuTienDTO)
+        public int InsertPhieuThuTien(PhieuThuTienDTO phieuThuTienDTO)
         {
             int param = 4;
             string[] name = new string[param];
@@ -66,11 +67,11 @@ namespace DAL
             values[2] = phieuThuTienDTO.MaKhachHang;
             values[3] = phieuThuTienDTO.NgayThu;
 
-            connect.ExcuteNonQuery("PhieuThuTien_Insert", name, values, param);
+            return connect.ExcuteNonQuery("PhieuThuTien_Insert", name, values, param);
         }
 
         //Sửa một phiếu thu tiền
-        public void UpdatePhieuThuTien(PhieuThuTienDTO phieuThuTienDTO)
+        public int UpdatePhieuThuTien(PhieuThuTienDTO phieuThuTienDTO)
         {
             int param = 4;
             string[] name = new string[param];
@@ -86,11 +87,11 @@ namespace DAL
             values[2] = phieuThuTienDTO.MaKhachHang;
             values[3] = phieuThuTienDTO.NgayThu;
 
-            connect.ExcuteNonQuery("PhieuThuTien_Update", name, values, param);
+            return connect.ExcuteNonQuery("PhieuThuTien_Update", name, values, param);
         }
 
         //Xóa một phiếu thu tiền theo mã phiếu thu tiền
-        public void DeleteByMaPhieuThuTien(PhieuThuTienDTO phieuThuTienDTO)
+        public int DeleteByMaPhieuThuTien(PhieuThuTienDTO phieuThuTienDTO)
         {
             int param = 1;
             string[] name = new string[param];
@@ -99,7 +100,7 @@ namespace DAL
             name[0] = "@MaPhieuThuTien";
             values[0] = phieuThuTienDTO.MaPhieuThuTien;
 
-            connect.ExcuteNonQuery("PhieuThuTien_DeleteByMaPhieuThuTien", name, values, param);
+            return connect.ExcuteNonQuery("PhieuThuTien_DeleteByMaPhieuThuTien", name, values, param);
         }
     }
 }

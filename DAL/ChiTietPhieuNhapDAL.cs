@@ -18,29 +18,30 @@ namespace DAL
             connect = new DataConnecter();
         }
 
-        public List<ChiTietPhieuNhapDTO> SelectAll()
+        public DataTable SelectAll()
         {
             try
             {
                 DataTable dataTable = new DataTable();
-                List<ChiTietPhieuNhapDTO> list = new List<ChiTietPhieuNhapDTO>();
+                //List<ChiTietPhieuNhapDTO> list = new List<ChiTietPhieuNhapDTO>();
 
                 dataTable = connect.GetData("ChiTietPhieuNhap_SelectAll");
-                int row = dataTable.Rows.Count;
+                //int row = dataTable.Rows.Count;
 
-                for (int i = 0; i < row; i++)
-                {
-                    ChiTietPhieuNhapDTO chiTietPhieuNhapDTO = new ChiTietPhieuNhapDTO();
-                    chiTietPhieuNhapDTO.MaChiTietPhieuNhap = dataTable.Rows[i].ItemArray[0].ToString();
-                    chiTietPhieuNhapDTO.MaPhieuNhap = dataTable.Rows[i].ItemArray[1].ToString();
-                    chiTietPhieuNhapDTO.MaSach = dataTable.Rows[i].ItemArray[2].ToString();
-                    chiTietPhieuNhapDTO.SoLuongNhap = int.Parse(dataTable.Rows[i].ItemArray[3].ToString());
-                    chiTietPhieuNhapDTO.DonGiaNhap = float.Parse(dataTable.Rows[i].ItemArray[4].ToString());
+                //for (int i = 0; i < row; i++)
+                //{
+                //    ChiTietPhieuNhapDTO chiTietPhieuNhapDTO = new ChiTietPhieuNhapDTO();
+                //    chiTietPhieuNhapDTO.MaChiTietPhieuNhap = dataTable.Rows[i].ItemArray[0].ToString();
+                //    chiTietPhieuNhapDTO.MaPhieuNhap = dataTable.Rows[i].ItemArray[1].ToString();
+                //    chiTietPhieuNhapDTO.MaSach = dataTable.Rows[i].ItemArray[2].ToString();
+                //    chiTietPhieuNhapDTO.SoLuongNhap = int.Parse(dataTable.Rows[i].ItemArray[3].ToString());
+                //    chiTietPhieuNhapDTO.DonGiaNhap = float.Parse(dataTable.Rows[i].ItemArray[4].ToString());
 
-                    list.Add(chiTietPhieuNhapDTO);
-                }
+                //    list.Add(chiTietPhieuNhapDTO);
+                //}
 
-                return list;
+                //return list;
+                return dataTable;
             }
             catch (Exception e)
             {
@@ -49,7 +50,7 @@ namespace DAL
             }
         }
 
-        public void InsertChiTietPhieuNhap(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO)
+        public int InsertChiTietPhieuNhap(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO)
         {
             int param = 5;
             string[] name = new string[param];
@@ -67,10 +68,10 @@ namespace DAL
             values[3] = chiTietPhieuNhapDTO.SoLuongNhap;
             values[4] = chiTietPhieuNhapDTO.DonGiaNhap;
 
-            connect.ExcuteNonQuery("ChiTietPhieuNhap_Insert", name, values, param);
+            return connect.ExcuteNonQuery("ChiTietPhieuNhap_Insert", name, values, param);
         }
 
-        public void UpdateChiTietPhieuNhap(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO)
+        public int UpdateChiTietPhieuNhap(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO)
         {
             int param = 5;
             string[] name = new string[param];
@@ -88,10 +89,10 @@ namespace DAL
             values[3] = chiTietPhieuNhapDTO.SoLuongNhap;
             values[4] = chiTietPhieuNhapDTO.DonGiaNhap;
 
-            connect.ExcuteNonQuery("ChiTietPhieuNhap_Update", name, values, param);
+            return connect.ExcuteNonQuery("ChiTietPhieuNhap_Update", name, values, param);
         }
 
-        public void DeleteByMaChiTietPhieuNhap(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO)
+        public int DeleteByMaChiTietPhieuNhap(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO)
         {
             int param = 1;
             string[] name = new string[param];
@@ -100,7 +101,7 @@ namespace DAL
             name[0] = "@MaChiTietPhieuNhap";
             values[0] = chiTietPhieuNhapDTO.MaChiTietPhieuNhap;
 
-            connect.ExcuteNonQuery("ChiTietPhieNhap_DeleteByMaChiTietPhieuNhap", name, values, param);
+            return connect.ExcuteNonQuery("ChiTietPhieNhap_DeleteByMaChiTietPhieuNhap", name, values, param);
         }
     }
 }

@@ -2,6 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,24 +13,24 @@ namespace BLL
     {
         ChiTietPhieuNhapDAL chiTietPhieuNhapDAL = new ChiTietPhieuNhapDAL();
 
-        public List<ChiTietPhieuNhapDTO> SelectAll()
+        public DataTable SelectAll()
         {
             return chiTietPhieuNhapDAL.SelectAll();
         }
 
-        public void InsertChiTietPhieuNhap(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO)
+        public int InsertChiTietPhieuNhap(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO)
         {
-            chiTietPhieuNhapDAL.InsertChiTietPhieuNhap(chiTietPhieuNhapDTO);
+            return chiTietPhieuNhapDAL.InsertChiTietPhieuNhap(chiTietPhieuNhapDTO);
         }
 
-        public void UpdateChiTietPhieuNhap(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO)
+        public int UpdateChiTietPhieuNhap(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO)
         {
-            chiTietPhieuNhapDAL.UpdateChiTietPhieuNhap(chiTietPhieuNhapDTO);
+            return chiTietPhieuNhapDAL.UpdateChiTietPhieuNhap(chiTietPhieuNhapDTO);
         }
 
-        public void DeleteByMaChiTietPhieuNhap(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO)
+        public int DeleteByMaChiTietPhieuNhap(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO)
         {
-            chiTietPhieuNhapDAL.DeleteByMaChiTietPhieuNhap(chiTietPhieuNhapDTO);
+            return chiTietPhieuNhapDAL.DeleteByMaChiTietPhieuNhap(chiTietPhieuNhapDTO);
         }
     }
 }

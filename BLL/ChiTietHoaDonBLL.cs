@@ -2,6 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,24 +13,24 @@ namespace BLL
     {
         ChiTietHoaDonDAL chiTietHoaDonDAL = new ChiTietHoaDonDAL();
 
-        public List<ChiTietHoaDonDTO> SelectAll()
+        public DataTable SelectAll()
         {
             return chiTietHoaDonDAL.SelectAll();
         }
 
-        public void InsertChiTietHoaDon(ChiTietHoaDonDTO chiTietHoaDonDTO)
+        public int InsertChiTietHoaDon(ChiTietHoaDonDTO chiTietHoaDonDTO)
         {
-            chiTietHoaDonDAL.InsertChiTietHoaDon(chiTietHoaDonDTO);
+            return chiTietHoaDonDAL.InsertChiTietHoaDon(chiTietHoaDonDTO);
         }
 
-        public void UpdateChiTietPhieuNhap(ChiTietHoaDonDTO chiTietHoaDonDTO)
+        public int UpdateChiTietPhieuNhap(ChiTietHoaDonDTO chiTietHoaDonDTO)
         {
-            chiTietHoaDonDAL.UpdateChiTietHoaDon(chiTietHoaDonDTO);
+            return chiTietHoaDonDAL.UpdateChiTietHoaDon(chiTietHoaDonDTO);
         }
 
-        public void DeleteByMaChiTietPhieuNhap(ChiTietHoaDonDTO chiTietHoaDonDTO)
+        public int DeleteByMaChiTietPhieuNhap(ChiTietHoaDonDTO chiTietHoaDonDTO)
         {
-            chiTietHoaDonDAL.DeleteByMaChiTietsHoaDon(chiTietHoaDonDTO);
+            return chiTietHoaDonDAL.DeleteByMaChiTietsHoaDon(chiTietHoaDonDTO);
         }
     }
 }

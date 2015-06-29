@@ -2,6 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,27 +14,27 @@ namespace BLL
         HoaDonDAL hoaDonDAL = new HoaDonDAL();
 
         //Hiển thị danh sách hóa đơn lên màn hình
-        public List<HoaDonDTO> SelectAll()
+        public DataTable SelectAll()
         {
             return hoaDonDAL.SelectAll();
         }
 
         //thêm mới một hóa đơn
-        public void InsertHoaDon(HoaDonDTO hoaDonDTO)
+        public int InsertHoaDon(HoaDonDTO hoaDonDTO)
         {
-            hoaDonDAL.InsertHoaDon(hoaDonDTO);
+            return hoaDonDAL.InsertHoaDon(hoaDonDTO);
         }
 
         //Sửa thông tin một hóa đơn
-        public void UpdateHoaDon(HoaDonDTO hoaDonDTO)
+        public int UpdateHoaDon(HoaDonDTO hoaDonDTO)
         {
-            hoaDonDAL.UpdateHoaDon(hoaDonDTO);
+            return hoaDonDAL.UpdateHoaDon(hoaDonDTO);
         }
 
         //Xóa một hóa đơn
-        public void DeleteByMaHoaDon(HoaDonDTO hoaDonDTO)
+        public int DeleteByMaHoaDon(HoaDonDTO hoaDonDTO)
         {
-            hoaDonDAL.DeleteByMaHoaDon(hoaDonDTO);
+            return hoaDonDAL.DeleteByMaHoaDon(hoaDonDTO);
         }
     }
 }

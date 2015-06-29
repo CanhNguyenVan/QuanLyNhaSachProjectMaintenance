@@ -20,26 +20,27 @@ namespace DAL
         }
 
         //Hiển thị danh sách các phiếu nhập lên màn hình
-        public List<PhieuNhapDTO> SelectAll()
+        public DataTable SelectAll()
         {
             try
             {
                 DataTable dataTable = new DataTable();
-                List<PhieuNhapDTO> list = new List<PhieuNhapDTO>();
+                //List<PhieuNhapDTO> list = new List<PhieuNhapDTO>();
 
                 dataTable = connect.GetData("PhieuNhap_SelectAll");
-                int row = dataTable.Rows.Count;
+                //int row = dataTable.Rows.Count;
 
-                for (int i = 0; i < row; i++)
-                {
-                    PhieuNhapDTO phieuNhapDTO = new PhieuNhapDTO();
-                    phieuNhapDTO.MaPhieuNhap = dataTable.Rows[i].ItemArray[0].ToString();
-                    phieuNhapDTO.NgayNhap = DateTime.Parse(dataTable.Rows[i].ItemArray[1].ToString());
+                //for (int i = 0; i < row; i++)
+                //{
+                //    PhieuNhapDTO phieuNhapDTO = new PhieuNhapDTO();
+                //    phieuNhapDTO.MaPhieuNhap = dataTable.Rows[i].ItemArray[0].ToString();
+                //    phieuNhapDTO.NgayNhap = DateTime.Parse(dataTable.Rows[i].ItemArray[1].ToString());
 
-                    list.Add(phieuNhapDTO);
-                }
+                //    list.Add(phieuNhapDTO);
+                //}
 
-                return list;
+                //return list;
+                return dataTable;
             }
             catch (Exception e)
             {
@@ -49,7 +50,7 @@ namespace DAL
         }
 
         //Thêm mới một phiếu nhập
-        public void InsertPhieuNhap(PhieuNhapDTO phieuNhapDTO)
+        public int InsertPhieuNhap(PhieuNhapDTO phieuNhapDTO)
         {
             int param = 2;
             string[] name = new string[param];
@@ -61,11 +62,11 @@ namespace DAL
             values[0] = phieuNhapDTO.MaPhieuNhap;
             values[1] = phieuNhapDTO.NgayNhap;
 
-            connect.ExcuteNonQuery("PhieuNhap_Insert", name, values, param);
+            return connect.ExcuteNonQuery("PhieuNhap_Insert", name, values, param);
         }
 
         //Sửa thông tin một phiếu nhập
-        public void UpdatePhieuNhap(PhieuNhapDTO phieuNhapDTO)
+        public int UpdatePhieuNhap(PhieuNhapDTO phieuNhapDTO)
         {
             int param = 2;
             string[] name = new string[param];
@@ -77,11 +78,11 @@ namespace DAL
             values[0] = phieuNhapDTO.MaPhieuNhap;
             values[1] = phieuNhapDTO.NgayNhap;
 
-            connect.ExcuteNonQuery("PhieuNhap_Update", name, values, param);
+            return connect.ExcuteNonQuery("PhieuNhap_Update", name, values, param);
         }
 
         //Xóa một phiếu nhập theo MaPhieuNhap
-        public void DeleteByMaPhieuNhap(PhieuNhapDTO phieuNhapDTO)
+        public int DeleteByMaPhieuNhap(PhieuNhapDTO phieuNhapDTO)
         {
             int param = 1;
             string[] name = new string[param];
@@ -90,7 +91,7 @@ namespace DAL
             name[0] = "@MaPhieuNhap";
             values[0] = phieuNhapDTO.MaPhieuNhap;
 
-            connect.ExcuteNonQuery("PhieuNhap_DeleteByMaPhieuNhap", name, values, param);
+            return connect.ExcuteNonQuery("PhieuNhap_DeleteByMaPhieuNhap", name, values, param);
         }
     }
 }
