@@ -86,12 +86,18 @@ namespace test
             if (_frmQuanLyPhieuThu == null)
             {
                 _frmQuanLyPhieuThu = new frmQuanLyPhieuThu();
+                _frmQuanLyPhieuThu.Closed += _frmQuanLyPhieuThu_Closed;
                 _frmQuanLyPhieuThu.MdiParent = this;
             }
             
             _frmQuanLyPhieuThu.Show();
 
             //LoadDataPhieuThu();
+        }
+
+        void _frmQuanLyPhieuThu_Closed(object sender, EventArgs e)
+        {
+            _frmQuanLyPhieuThu = null;
         }
 
 
@@ -114,11 +120,17 @@ namespace test
             if (_frmHoaDon == null)
             {
                 _frmHoaDon = new frmHoaDon();
+                _frmHoaDon.Closed += _frmHoaDon_Closed;
                 _frmHoaDon.MdiParent = this;
             }
 
             _frmHoaDon.Show();
         
+        }
+
+        void _frmHoaDon_Closed(object sender, EventArgs e)
+        {
+            _frmHoaDon = null;
         }
 
 
