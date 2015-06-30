@@ -114,6 +114,72 @@ Create Table TAIKHOAN
 	LoaiTK int
 )
 
+Go 
+
+CREATE PROCEDURE TaiKhoan_Delete
+@MaTK int
+AS
+
+SET NOCOUNT ON
+
+DELETE FROM TAIKHOAN
+WHERE
+	MaTK = @MaTK
+
+Go
+
+CREATE PROCEDURE TaiKhoan_Insert
+	@MaTK int, @TenTK nvarchar(30), @MatKhau nvarchar(30), @LoaiTK int
+AS
+
+SET NOCOUNT ON
+
+INSERT INTO TAIKHOAN
+VALUES (@MaTK, @TenTK, @MatKhau, @LoaiTK)
+
+Go
+
+CREATE PROCEDURE TaiKhoan_SelectLastMaTK
+AS
+
+SET NOCOUNT ON
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT TOP 1 MaTK
+FROM	TAIKHOAN
+ORDER BY 
+	MaTK DESC
+
+Go
+
+CREATE PROCEDURE TaiKhoan_SelectAll
+AS
+
+SET NOCOUNT ON
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+BEGIN
+SELECT  *
+FROM
+	TAIKHOAN
+END
+
+Go
+
+CREATE PROCEDURE TaiKhoan_Update
+	@MaTK int, @TenTK nvarchar(30), @MatKhau nvarchar(30), @LoaiTK int
+AS
+
+SET NOCOUNT ON
+
+UPDATE TAIKHOAN SET
+	
+	TenTK = @TenTK,
+	MatKhau=@MatKhau,
+	LoaiTK=@LoaiTK
+WHERE
+	MaTK = @MaTK
+
+
 --Rang Buoc Toan Ven
 --Ngay Muon Sach Phai Truoc Ngay Tra Sach
 
