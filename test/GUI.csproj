@@ -65,18 +65,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmBaoCaoTon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBaoCaoTon.Designer.cs">
-      <DependentUpon>frmBaoCaoTon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmBaoCaoCongNo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBaoCaoCongNo.Designer.cs">
-      <DependentUpon>frmBaoCaoCongNo.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,24 +101,23 @@
     <Compile Include="frmQuanLyPhieuThu.Designer.cs">
       <DependentUpon>frmQuanLyPhieuThu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQuyDinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuyDinh.Designer.cs">
+      <DependentUpon>frmQuyDinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTimKiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTimKiem.Designer.cs">
+      <DependentUpon>frmTimKiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="MySqlConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyNhaSachMaintenanceDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyNhaSachMaintenanceDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Utilities\HoaDonUtility.cs" />
     <Compile Include="Utilities\PhieuThuUtility.cs" />
-    <EmbeddedResource Include="BaoCaoCongNo.rdlc" />
-    <EmbeddedResource Include="BaoCaoTon.rdlc" />
-    <EmbeddedResource Include="frmBaoCaoTon.resx">
-      <DependentUpon>frmBaoCaoTon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBaoCaoCongNo.resx">
-      <DependentUpon>frmBaoCaoCongNo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmHoaDon.resx">
       <DependentUpon>frmHoaDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyPhieuThu.resx">
       <DependentUpon>frmQuanLyPhieuThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuyDinh.resx">
+      <DependentUpon>frmQuyDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTimKiem.resx">
+      <DependentUpon>frmTimKiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -174,17 +167,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="QuanLyNhaSachMaintenanceDataSet.xsc">
-      <DependentUpon>QuanLyNhaSachMaintenanceDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyNhaSachMaintenanceDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyNhaSachMaintenanceDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="QuanLyNhaSachMaintenanceDataSet.xss">
-      <DependentUpon>QuanLyNhaSachMaintenanceDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Resources\user-settings-icon.png" />
   </ItemGroup>
   <ItemGroup>

@@ -17,24 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{A6
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs21
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = BLL\\BLL.csproj
-		SccProjectName1 = BLL
-		SccLocalPath1 = BLL
-		SccProjectUniqueName2 = DAL\\DAL.csproj
-		SccProjectName2 = DAL
-		SccLocalPath2 = DAL
-		SccProjectUniqueName3 = DTO\\DTO.csproj
-		SccProjectName3 = DTO
-		SccLocalPath3 = DTO
-		SccProjectUniqueName4 = test\\GUI.csproj
-		SccProjectName4 = test
-		SccLocalPath4 = test
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

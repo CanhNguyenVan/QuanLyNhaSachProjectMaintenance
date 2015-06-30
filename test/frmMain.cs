@@ -28,6 +28,9 @@ namespace test
 
         private frmHoaDon _frmHoaDon = null;
 
+        private frmQuyDinh _frmQuyDinh = null;
+
+        private frmTimKiem _frmTimKiem = null;
         public frmMain()
         {
             InitializeComponent();
@@ -136,22 +139,49 @@ namespace test
 
         private void btn_ThayDoiQuyDinh_Click(object sender, EventArgs e)
         {
-            //if (isTabHT)
+            ////if (isTabHT)
+            //{
+            //    tabItem14.Visible = true;
+            //    tabItem5.Visible = tabItem6.Visible = tabItem7.Visible = tabItem8.Visible = tabItem9.Visible = tabItem10.Visible = tabItem11.Visible = tabItem12.Visible = tabItem13.Visible = tabItem15.Visible = tabItem16.Visible = false;
+            //}
+            //txt_SLNhapItNhat.Text = txt_TonToiDaTruocKhiNhap.Text = txt_TonToiThieuSauBan.Text = txt_TienNoToiDa.Text = "";
+
+            if (_frmQuyDinh == null)
             {
-                tabItem14.Visible = true;
-                tabItem5.Visible = tabItem6.Visible = tabItem7.Visible = tabItem8.Visible = tabItem9.Visible = tabItem10.Visible = tabItem11.Visible = tabItem12.Visible = tabItem13.Visible = tabItem15.Visible = tabItem16.Visible = false;
+                _frmQuyDinh = new frmQuyDinh();
+                _frmQuyDinh.Closed += _frmQuyDinh_Closed;
+                _frmQuyDinh.MdiParent = this;
             }
-            txt_SLNhapItNhat.Text = txt_TonToiDaTruocKhiNhap.Text = txt_TonToiThieuSauBan.Text = txt_TienNoToiDa.Text = "";
+
+            _frmQuyDinh.Show();
+        }
+
+        void _frmQuyDinh_Closed(object sender, EventArgs e)
+        {
+            _frmQuyDinh = null;
         }
 
         private void btn_TimKiem_Click(object sender, EventArgs e)
         {
-            //if (isTabHT)
+            ////if (isTabHT)
+            //{
+            //    tabItem15.Visible = true;
+            //    tabItem5.Visible = tabItem6.Visible = tabItem7.Visible = tabItem8.Visible = tabItem9.Visible = tabItem10.Visible = tabItem11.Visible = tabItem12.Visible = tabItem13.Visible = tabItem14.Visible = tabItem16.Visible = false;
+            //}
+
+            if (_frmTimKiem == null)
             {
-                tabItem15.Visible = true;
-                tabItem5.Visible = tabItem6.Visible = tabItem7.Visible = tabItem8.Visible = tabItem9.Visible = tabItem10.Visible = tabItem11.Visible = tabItem12.Visible = tabItem13.Visible = tabItem14.Visible = tabItem16.Visible = false;
+                _frmTimKiem = new frmTimKiem();
+                _frmTimKiem.Closed += _frmTimKiem_Closed;
+                _frmTimKiem.MdiParent = this;
             }
+
+            _frmTimKiem.Show();
         }
+
+        void _frmTimKiem_Closed(object sender, EventArgs e)
+        {
+            _frmTimKiem = null;}
 
         private void btn_CongNo_Click(object sender, EventArgs e)
         {

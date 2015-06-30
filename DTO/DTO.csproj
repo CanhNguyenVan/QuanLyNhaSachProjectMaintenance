@@ -78,6 +78,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SachDTO.cs" />
+    <Compile Include="TaiKhoanDTO.cs" />
     <Compile Include="ThamSoDTO.cs" />
   </ItemGroup>
   <ItemGroup>
