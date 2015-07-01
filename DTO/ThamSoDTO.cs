@@ -8,13 +8,6 @@ namespace DTO
 {
     public class ThamSoDTO
     {
-        private int _maThamSo;
-
-        public int MaThamSo
-        {
-            get { return _maThamSo; }
-            set { _maThamSo = value; }
-        }
         private int _soLuongNhapToiThieu;
 
         public int SoLuongNhapToiThieu

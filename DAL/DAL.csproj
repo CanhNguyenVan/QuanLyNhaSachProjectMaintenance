@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="SachDAL.cs" />
     <Compile Include="TaiKhoanDAL.cs" />
+    <Compile Include="ThamSoDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

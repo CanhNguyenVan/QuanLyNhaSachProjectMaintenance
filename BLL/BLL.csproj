@@ -54,6 +54,8 @@
     <Compile Include="PhieuThuTienBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SachBLL.cs" />
+    <Compile Include="TaiKhoanBLL.cs" />
+    <Compile Include="ThamSoBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

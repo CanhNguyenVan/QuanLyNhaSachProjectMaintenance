@@ -99,7 +99,6 @@ Create Table PHIEUTHUTIEN
 
 Create Table THAMSO
 (
-	MaThamSo int identity(1,1) primary key,
 	SoLuongNhapToiThieu int,
 	SoLuongTonToiDaTruocKhiNhap int,
 	SoLuongTonToiThieuSauKhiBan int,
@@ -344,13 +343,6 @@ END
 GO
 
 ---
-CREATE PROCEDURE ThamSo_SelectByMaThamSo
-@MaThamSo int
-AS
-BEGIN
-	select * from THAMSO where MaThamSo = @MaThamSo
-END
-GO
 
 CREATE PROCEDURE BaoCaoCongNo_Insert
 @MaBaoCaoCongNo nvarchar(10),
@@ -472,20 +464,6 @@ AS
 BEGIN
 	insert into SACH (MaSach, TenSach, TheLoai, TacGia, NamXuatBan, SoLuongTon, DonGiaBan)
 	values (@MaSach, @TenSach, @TheLoai, @TacGia, @NamXuatBan, @SoLuongTon, @DonGiaBan)
-END
-GO
-
----
-CREATE PROCEDURE ThamSo_Insert
-@MaThamSo int,
-@SoLuongNhapToiThieu int,
-@SoLuongTonToiDaTruocKhiNhap int,
-@SoLuongTonToiThieuSauKhiBan int,
-@TienNoToiDa float
-AS
-BEGIN
-	insert into THAMSO (MaThamSo, SoLuongNhapToiThieu, SoLuongTonToiDaTruocKhiNhap, SoLuongTonToiThieuSauKhiBan, TienNoToiDa)
-	values (@MaThamSo, @SoLuongNhapToiThieu, @SoLuongTonToiDaTruocKhiNhap, @SoLuongTonToiThieuSauKhiBan, @TienNoToiDa)
 END
 GO
 
@@ -658,7 +636,6 @@ END
 GO
 
 CREATE PROCEDURE ThamSo_Update
-@MaThamSo int,
 @SoLuongNhapToiThieu int,
 @SoLuongTonToiDaTruocKhiNhap int,
 @SoLuongTonToiThieuSauKhiBan int,
@@ -671,7 +648,6 @@ BEGIN
 		SoLuongTonToiDaTruocKhiNhap = @SoLuongTonToiDaTruocKhiNhap,
 		SoLuongTonToiThieuSauKhiBan = @SoLuongTonToiThieuSauKhiBan,
 		TienNoToiDa = @TienNoToiDa
-	where (MaThamSo = @MaThamSo)
 END
 GO
 
@@ -834,3 +810,5 @@ insert into PHIEUTHUTIEN (MaPhieuThuTien, SoTienThu, MaKhachHang, NgayThu) value
 
 insert into TAIKHOAN values(1,'Admin','123456',1)
 insert into TAIKHOAN values(2,'NhanVien','123456',2)
+
+insert into THAMSO values(150,300,20,20000)
