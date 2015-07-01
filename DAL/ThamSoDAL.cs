@@ -32,19 +32,21 @@ namespace DAL
 
         public int UpdateThamSo(ThamSoDTO thamSoDTO)
         {
-            int param = 4;
+            int param = 5;
             string[] names = new string[param];
             object[] values = new object[param];
 
-            names[0] = @"SoLuongNhapToiThieu";
-            names[1] = @"SoLuongTonToiDaTruocKhiNhap";
-            names[2] = @"SoLuongTonToiThieuTruocKhiBan";
-            names[3] = @"TienNoToiDa";
+            names[0] = @"MaThamSo";
+            names[1] = @"SoLuongNhapToiThieu";
+            names[2] = @"SoLuongTonToiDaTruocKhiNhap";
+            names[3] = @"SoLuongTonToiThieuTruocKhiBan";
+            names[4] = @"TienNoToiDa";
 
-            values[0] = thamSoDTO.SoLuongNhapToiThieu;
-            values[1] = thamSoDTO.SoLuongTonToiDaTruocKhiNhap;
-            values[2] = thamSoDTO.SoLuongTonToiThieuSauKhiBan;
-            values[3] = thamSoDTO.TienNoToiDa;
+            values[0] = thamSoDTO.MaThamSo;
+            values[1] = thamSoDTO.SoLuongNhapToiThieu;
+            values[2] = thamSoDTO.SoLuongTonToiDaTruocKhiNhap;
+            values[3] = thamSoDTO.SoLuongTonToiThieuSauKhiBan;
+            values[4] = thamSoDTO.TienNoToiDa;
 
             return connect.ExcuteNonQuery("ThamSo_Update", names, values, param);
         }

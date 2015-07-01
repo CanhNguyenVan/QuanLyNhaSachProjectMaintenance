@@ -99,6 +99,7 @@ Create Table PHIEUTHUTIEN
 
 Create Table THAMSO
 (
+	MaThamSo int,
 	SoLuongNhapToiThieu int,
 	SoLuongTonToiDaTruocKhiNhap int,
 	SoLuongTonToiThieuSauKhiBan int,
@@ -636,6 +637,7 @@ END
 GO
 
 CREATE PROCEDURE ThamSo_Update
+@MaThamSo int,
 @SoLuongNhapToiThieu int,
 @SoLuongTonToiDaTruocKhiNhap int,
 @SoLuongTonToiThieuSauKhiBan int,
@@ -648,6 +650,7 @@ BEGIN
 		SoLuongTonToiDaTruocKhiNhap = @SoLuongTonToiDaTruocKhiNhap,
 		SoLuongTonToiThieuSauKhiBan = @SoLuongTonToiThieuSauKhiBan,
 		TienNoToiDa = @TienNoToiDa
+	where MaThamSo = @MaThamSo
 END
 GO
 
@@ -811,4 +814,4 @@ insert into PHIEUTHUTIEN (MaPhieuThuTien, SoTienThu, MaKhachHang, NgayThu) value
 insert into TAIKHOAN values(1,'Admin','123456',1)
 insert into TAIKHOAN values(2,'NhanVien','123456',2)
 
-insert into THAMSO values(150,300,20,20000)
+insert into THAMSO values(1,150,300,20,20000)
