@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 using DTO;
 
 namespace test
@@ -14,19 +15,48 @@ namespace test
     public partial class frmQuyDinh : Form
     {
 
+        private ThamSoBLL _thamSoBll = new ThamSoBLL();
         public frmQuyDinh()
         {
             InitializeComponent();
+
+            Load += frmQuyDinh_Load;
+        }
+
+        void frmQuyDinh_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+
+            txt_SLNhapItNhat.Text = ThamSo.ThamSoQuyDinh.SoLuongNhapToiThieu.ToString();
+            txt_TonToiDaTruocKhiNhap.Text = ThamSo.ThamSoQuyDinh.SoLuongTonToiDaTruocKhiNhap.ToString();
+            txt_TienNoToiDa.Text = ThamSo.ThamSoQuyDinh.TienNoToiDa.ToString();
+            txt_TonToiThieuSauBan.Text = ThamSo.ThamSoQuyDinh.SoLuongTonToiThieuSauKhiBan.ToString();
         }
 
         private void btn_TDQD_Click(object sender, EventArgs e)
         {
+            if (_thamSoBll.UpdateThamSo(ThamSo.ThamSoQuyDinh) == 1)
+            {
+                MessageBox.Show("Sửa thành công!");
+                var dt = _thamSoBll.SelectAll();
+                ThamSo.ThamSoQuyDinh.SoLuongNhapToiThieu = int.Parse(dt.Rows[0]["SoLuongNhapToiThieu"].ToString());
+                ThamSo.ThamSoQuyDinh.SoLuongTonToiDaTruocKhiNhap = int.Parse(dt.Rows[0]["SoLuongTonToiDaTruocKhiNhap"].ToString());
+                ThamSo.ThamSoQuyDinh.TienNoToiDa = int.Parse(dt.Rows[0]["TienNoToiDa"].ToString());
+                ThamSo.ThamSoQuyDinh.SoLuongTonToiThieuSauKhiBan = int.Parse(dt.Rows[0]["SoLuongTonToiThieuSauKhiBan"].ToString());
 
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi xảy ra!");
+            }
         }
 
         private void txt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+        {if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }

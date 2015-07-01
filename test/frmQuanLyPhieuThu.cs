@@ -32,11 +32,12 @@ namespace test
        
         private void LoadData()
         {
-            dgvPhieuThu.DataSource = _phieuThuTienBll.SelectAll();
-
             (dgvPhieuThu.Columns["MaKhachHang"] as DataGridViewComboBoxColumn).DataSource = _khachHangBll.SelectAll();
             (dgvPhieuThu.Columns["MaKhachHang"] as DataGridViewComboBoxColumn).DisplayMember = "HoTen";
-            (dgvPhieuThu.Columns["MaKhachHang"] as DataGridViewComboBoxColumn).ValueMember = "MaKhachHang";  
+            (dgvPhieuThu.Columns["MaKhachHang"] as DataGridViewComboBoxColumn).ValueMember = "MaKhachHang";
+
+            dgvPhieuThu.DataSource = _phieuThuTienBll.SelectAll();
+
         } 
         
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -58,6 +59,13 @@ namespace test
                 PhieuThuTienDTO phieuThuTienDto = new PhieuThuTienDTO();
                 phieuThuTienDto.MaPhieuThuTien = maPhieuThu;
                 phieuThuTienDto.SoTienThu = soTienThu;
+
+                if (soTienThu > ThamSo.ThamSoQuyDinh.TienNoToiDa)
+                {
+                    MessageBox.Show("Số tiền thu phải lớn hơn tiền nợ tối đa!");
+                    return;
+                }
+
                 phieuThuTienDto.MaKhachHang = maKhachHang;
                 phieuThuTienDto.NgayThu = ngayThu;
 

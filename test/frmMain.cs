@@ -39,9 +39,17 @@ namespace test
             //this.MaximizeBox = false;
 
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void frmMain_Load(object sender, EventArgs e)
         {
+            ThamSoBLL  thamSoBll = new ThamSoBLL();
+            var dt = thamSoBll.SelectAll();
+
+            ThamSo.ThamSoQuyDinh.MaThamSo = int.Parse(dt.Rows[0]["MaThamSo"].ToString());
+            ThamSo.ThamSoQuyDinh.SoLuongNhapToiThieu = int.Parse(dt.Rows[0]["SoLuongNhapToiThieu"].ToString());
+            ThamSo.ThamSoQuyDinh.SoLuongTonToiDaTruocKhiNhap = int.Parse(dt.Rows[0]["SoLuongTonToiDaTruocKhiNhap"].ToString());
+            ThamSo.ThamSoQuyDinh.TienNoToiDa = int.Parse(dt.Rows[0]["TienNoToiDa"].ToString());
+            ThamSo.ThamSoQuyDinh.SoLuongTonToiThieuSauKhiBan = int.Parse(dt.Rows[0]["SoLuongTonToiThieuSauKhiBan"].ToString());
+
         }
 
         private void btn_Thoat_Click(object sender, EventArgs e)
@@ -1016,5 +1024,7 @@ namespace test
             //    MessageBox.Show("Có lỗi xảy ra hoặc mã phiếu thu không tồn tại!", "Lỗi!");
             //}
         }
+
+        
     }
 }
