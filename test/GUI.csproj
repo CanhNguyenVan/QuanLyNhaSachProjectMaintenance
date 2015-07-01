@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoiMatKhau.Designer.cs">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,23 +83,11 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDangKy.cs">
+    <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDangKy.Designer.cs">
-      <DependentUpon>FormDangKy.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormDangNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDangNhap.Designer.cs">
-      <DependentUpon>FormDangNhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormDMK.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDMK.Designer.cs">
-      <DependentUpon>FormDMK.cs</DependentUpon>
+    <Compile Include="frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="frmQuanLyPhieuThu.cs">
       <SubType>Form</SubType>
@@ -119,20 +113,17 @@
     <Compile Include="ThamSo.cs" />
     <Compile Include="Utilities\HoaDonUtility.cs" />
     <Compile Include="Utilities\PhieuThuUtility.cs" />
+    <EmbeddedResource Include="frmDoiMatKhau.resx">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHoaDon.resx">
       <DependentUpon>frmHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDangKy.resx">
-      <DependentUpon>FormDangKy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormDangNhap.resx">
-      <DependentUpon>FormDangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormDMK.resx">
-      <DependentUpon>FormDMK.cs</DependentUpon>
+    <EmbeddedResource Include="frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyPhieuThu.resx">
       <DependentUpon>frmQuanLyPhieuThu.cs</DependentUpon>

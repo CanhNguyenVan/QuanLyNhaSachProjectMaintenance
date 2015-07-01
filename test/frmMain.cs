@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using BLL;
 using DevComponents.DotNetBar;
+using DevExpress.XtraPrinting.Native;
 using DTO;
 using TabControl = System.Windows.Forms.TabControl;
 
@@ -31,6 +32,11 @@ namespace test
         private frmQuyDinh _frmQuyDinh = null;
 
         private frmTimKiem _frmTimKiem = null;
+
+        private frmDangNhap _frmDangNhap = null;
+
+        private frmDoiMatKhau _frmDoiMatKhau = null;
+
         public frmMain()
         {
             InitializeComponent();
@@ -39,23 +45,18 @@ namespace test
             //this.MaximizeBox = false;
 
         }
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             ThamSoBLL  thamSoBll = new ThamSoBLL();
             var dt = thamSoBll.SelectAll();
 
-            ThamSo.ThamSoQuyDinh.MaThamSo = int.Parse(dt.Rows[0]["MaThamSo"].ToString());
-            ThamSo.ThamSoQuyDinh.SoLuongNhapToiThieu = int.Parse(dt.Rows[0]["SoLuongNhapToiThieu"].ToString());
-            ThamSo.ThamSoQuyDinh.SoLuongTonToiDaTruocKhiNhap = int.Parse(dt.Rows[0]["SoLuongTonToiDaTruocKhiNhap"].ToString());
-            ThamSo.ThamSoQuyDinh.TienNoToiDa = int.Parse(dt.Rows[0]["TienNoToiDa"].ToString());
-            ThamSo.ThamSoQuyDinh.SoLuongTonToiThieuSauKhiBan = int.Parse(dt.Rows[0]["SoLuongTonToiThieuSauKhiBan"].ToString());
+            ThamSo.ThamSoQuyDinh.MaThamSo = int.Parse(dt.Rows[0]["MaThamSo"].ToString().Trim());
+            ThamSo.ThamSoQuyDinh.SoLuongNhapToiThieu = int.Parse(dt.Rows[0]["SoLuongNhapToiThieu"].ToString().Trim());
+            ThamSo.ThamSoQuyDinh.SoLuongTonToiDaTruocKhiNhap = int.Parse(dt.Rows[0]["SoLuongTonToiDaTruocKhiNhap"].ToString().Trim());
+            ThamSo.ThamSoQuyDinh.TienNoToiDa = int.Parse(dt.Rows[0]["TienNoToiDa"].ToString().Trim());
+            ThamSo.ThamSoQuyDinh.SoLuongTonToiThieuSauKhiBan = int.Parse(dt.Rows[0]["SoLuongTonToiThieuSauKhiBan"].ToString().Trim());
 
-        }
-
-        private void btn_Thoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Application.Exit();
         }
 
         private void btn_Sach_Click(object sender, EventArgs e)
@@ -110,11 +111,6 @@ namespace test
         {
             _frmQuanLyPhieuThu = null;
         }
-
-
-
-
-     
 
  
         private void btn_HoaDon_Click(object sender, EventArgs e)
@@ -685,9 +681,17 @@ namespace test
 
         private void btn_DangXuat_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormDangNhap formDN = new FormDangNhap();
-            formDN.Show();
+            ThamSo.LoaiTaiKhoan = 0;
+
+            if (_frmDangNhap == null)
+            {
+                _frmDangNhap = new frmDangNhap();
+                _frmDangNhap.Closed +=_frmDangNhap_Closed;
+            }
+
+            _frmDangNhap.Show();
+
+            this.Close();
         }
 
 
@@ -818,13 +822,6 @@ namespace test
 
             //    dataGridView_TK.DataSource = tb;
             //}   
-        }
-
-        private void btn_DoiMatKhau_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormDMK formDMK = new FormDMK();
-            formDMK.Show();
         }
 
         private void buttonX30_Click(object sender, EventArgs e)
@@ -1024,6 +1021,116 @@ namespace test
             //    MessageBox.Show("Có lỗi xảy ra hoặc mã phiếu thu không tồn tại!", "Lỗi!");
             //}
         }
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            if (_frmDangNhap == null)
+            {
+                _frmDangNhap = new frmDangNhap();
+                _frmDangNhap.Closed += _frmDangNhap_Closed;
+                _frmDangNhap.BtnDangNhap.Click += BtnDangNhap_Click;
+            }
+
+            _frmDangNhap.ShowDialog();
+        }
+
+        void BtnDangNhap_Click(object sender, EventArgs e)
+        {
+            TaiKhoanBLL _taiKhoanBll = new TaiKhoanBLL();
+
+            if (_frmDangNhap.TxtTaiKhoan.Text.IsEmpty() && _frmDangNhap.TxtMatKhau.Text.IsEmpty())
+            {
+                MessageBox.Show("Nhập tài khoản và mật khẩu!");
+                return;
+            }
+            else if (_frmDangNhap.TxtTaiKhoan.Text.IsEmpty())
+            {
+                MessageBox.Show("Nhập tài khoản!");
+                return;
+            }
+            else if (_frmDangNhap.TxtMatKhau.Text.IsEmpty())
+            {
+                MessageBox.Show("Nhập mật khẩu!");
+                return;
+            }
+
+            var tk = _taiKhoanBll.SelectAll();
+
+            var tkString = _frmDangNhap.TxtTaiKhoan.Text.Trim();
+            var mkString = _frmDangNhap.TxtMatKhau.Text.Trim();
+
+            var query = from dt in tk.AsEnumerable()
+                        where dt["TenTK"].ToString().Trim().Equals(tkString) &&
+                              dt["MatKhau"].ToString().Trim().Equals(mkString)
+                        select new
+                        {
+                            MaTk = dt["MaTk"],
+                            TenTK = dt["TenTK"],
+                            MatKhau = dt["MatKhau"],
+                            LoaiTK = dt["LoaiTK"]
+                        };
+            if (query.Count() == 0)
+            {
+                MessageBox.Show("Sai tài khoản hoặc mật khẩu!", "Lỗi đăng nhập");
+                return;
+            }
+
+            DataTable dtb = new DataTable("Tai Khoan");
+            dtb.Columns.Add("MaTk", typeof(int));
+            dtb.Columns.Add("TenTK", typeof(string));
+            dtb.Columns.Add("MatKhau", typeof(string));
+            dtb.Columns.Add("LoaiTK", typeof(int));
+
+            foreach (var item in query)
+            {
+                dtb.Rows.Add(item.MaTk,
+                    item.TenTK,
+                    item.MatKhau,
+                    item.LoaiTK);
+            }
+
+            if (int.Parse(dtb.Rows[0]["LoaiTK"].ToString()) == 1)
+            {
+                SetQuyen(1);
+            }
+            else if (int.Parse(dtb.Rows[0]["LoaiTK"].ToString()) == 2)
+            {
+                SetQuyen(2);
+            }
+
+            _frmDangNhap.Close();
+
+            MessageBox.Show("Đăng nhập thành công!");
+
+        }
+
+        private void SetQuyen(int i)
+        {
+            
+        }
+
+        void _frmDangNhap_Closed(object sender, EventArgs e)
+        {
+            _frmDangNhap = null;
+
+        }
+
+        private void btnPhanQuyen_Click(object sender, EventArgs e)
+        {
+            if (_frmDoiMatKhau == null)
+            {
+                _frmDoiMatKhau = new frmDoiMatKhau();
+                _frmDoiMatKhau.Closed += _frmDoiMatKhau_Closed;
+            }
+
+            _frmDoiMatKhau.ShowDialog();
+        }
+
+        private void _frmDoiMatKhau_Closed(object sender, EventArgs e)
+        {
+            _frmDoiMatKhau = null;
+        }
+
 
         
     }

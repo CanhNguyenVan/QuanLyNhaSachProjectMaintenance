@@ -34,24 +34,20 @@
             this.txt_TienNoToiDa = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_TonToiDaTruocKhiNhap = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txt_SLNhapItNhat = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.check_SuDungQD4 = new DevExpress.XtraEditors.CheckEdit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.check_SuDungQD4.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_TDQD
             // 
             this.btn_TDQD.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_TDQD.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_TDQD.Location = new System.Drawing.Point(206, 284);
+            this.btn_TDQD.Location = new System.Drawing.Point(206, 229);
             this.btn_TDQD.Name = "btn_TDQD";
             this.btn_TDQD.Size = new System.Drawing.Size(75, 23);
             this.btn_TDQD.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -116,16 +112,6 @@
             this.label31.TabIndex = 0;
             this.label31.Text = "Tiền nợ tối đa";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.check_SuDungQD4);
-            this.groupBox3.Location = new System.Drawing.Point(12, 229);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(487, 49);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Quy Định 4";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txt_TonToiDaTruocKhiNhap);
@@ -183,22 +169,13 @@
             this.label33.TabIndex = 0;
             this.label33.Text = "Số lượng nhập ít nhất";
             // 
-            // check_SuDungQD4
-            // 
-            this.check_SuDungQD4.Location = new System.Drawing.Point(29, 19);
-            this.check_SuDungQD4.Name = "check_SuDungQD4";
-            this.check_SuDungQD4.Properties.Caption = "Sử dụng quy định số tiền thu không vượt quá số tiền khách đang nợ";
-            this.check_SuDungQD4.Size = new System.Drawing.Size(417, 19);
-            this.check_SuDungQD4.TabIndex = 0;
-            // 
             // frmQuyDinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 314);
+            this.ClientSize = new System.Drawing.Size(508, 261);
             this.Controls.Add(this.btn_TDQD);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -206,10 +183,8 @@
             this.Text = "Quy Định";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.check_SuDungQD4.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -222,12 +197,10 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txt_TienNoToiDa;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevComponents.DotNetBar.Controls.TextBoxX txt_TonToiDaTruocKhiNhap;
         private DevComponents.DotNetBar.Controls.TextBoxX txt_SLNhapItNhat;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
-        private DevExpress.XtraEditors.CheckEdit check_SuDungQD4;
     }
 }

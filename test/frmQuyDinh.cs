@@ -43,10 +43,10 @@ namespace test
             {
                 MessageBox.Show("Sửa thành công!");
                 var dt = _thamSoBll.SelectAll();
-                ThamSo.ThamSoQuyDinh.SoLuongNhapToiThieu = int.Parse(dt.Rows[0]["SoLuongNhapToiThieu"].ToString());
-                ThamSo.ThamSoQuyDinh.SoLuongTonToiDaTruocKhiNhap = int.Parse(dt.Rows[0]["SoLuongTonToiDaTruocKhiNhap"].ToString());
-                ThamSo.ThamSoQuyDinh.TienNoToiDa = int.Parse(dt.Rows[0]["TienNoToiDa"].ToString());
-                ThamSo.ThamSoQuyDinh.SoLuongTonToiThieuSauKhiBan = int.Parse(dt.Rows[0]["SoLuongTonToiThieuSauKhiBan"].ToString());
+                ThamSo.ThamSoQuyDinh.SoLuongNhapToiThieu = int.Parse(dt.Rows[0]["SoLuongNhapToiThieu"].ToString().Trim());
+                ThamSo.ThamSoQuyDinh.SoLuongTonToiDaTruocKhiNhap = int.Parse(dt.Rows[0]["SoLuongTonToiDaTruocKhiNhap"].ToString().Trim());
+                ThamSo.ThamSoQuyDinh.TienNoToiDa = int.Parse(dt.Rows[0]["TienNoToiDa"].ToString().Trim());
+                ThamSo.ThamSoQuyDinh.SoLuongTonToiThieuSauKhiBan = int.Parse(dt.Rows[0]["SoLuongTonToiThieuSauKhiBan"].ToString().Trim());
 
             }
             else

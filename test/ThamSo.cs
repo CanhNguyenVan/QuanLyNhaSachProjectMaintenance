@@ -9,7 +9,9 @@ namespace test
 {
     public static class ThamSo
     {
-        public static ThamSoDTO ThamSoQuyDinh { get; set; }
+        public static ThamSoDTO ThamSoQuyDinh = new ThamSoDTO();
+
+        public static int LoaiTaiKhoan = 0;
 
     }
 }
