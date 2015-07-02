@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackupAndRestoreBLL.cs" />
     <Compile Include="BaoCaoCongNoBLL.cs" />
     <Compile Include="BaoCaoTonBLL.cs" />
     <Compile Include="ChiTietHoaDonBLL.cs" />
