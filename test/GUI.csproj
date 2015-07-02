@@ -89,11 +89,29 @@
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQuanLyKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyKhachHang.Designer.cs">
+      <DependentUpon>frmQuanLyKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyPhieuNhap.Designer.cs">
+      <DependentUpon>frmQuanLyPhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmQuanLyPhieuThu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmQuanLyPhieuThu.Designer.cs">
       <DependentUpon>frmQuanLyPhieuThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLySach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLySach.Designer.cs">
+      <DependentUpon>frmQuanLySach.cs</DependentUpon>
     </Compile>
     <Compile Include="frmQuyDinh.cs">
       <SubType>Form</SubType>
@@ -125,8 +143,17 @@
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyKhachHang.resx">
+      <DependentUpon>frmQuanLyKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyPhieuNhap.resx">
+      <DependentUpon>frmQuanLyPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyPhieuThu.resx">
       <DependentUpon>frmQuanLyPhieuThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLySach.resx">
+      <DependentUpon>frmQuanLySach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuyDinh.resx">
       <DependentUpon>frmQuyDinh.cs</DependentUpon>
@@ -231,17 +258,17 @@
     <None Include="Resources\Untitled2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{84d1efb9-4d7f-40b0-8100-db4223f15514}</Project>
+      <Project>{4a78af17-3989-405e-a55e-a7da64cf6130}</Project>
       <Name>BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{cd690c97-6478-48df-8d8e-a26f46c0ce0e}</Project>
+      <Project>{b7779383-57a0-4d3b-9916-1ddde7763c02}</Project>
       <Name>DTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
