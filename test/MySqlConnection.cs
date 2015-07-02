@@ -20,7 +20,7 @@ namespace test
         {
             try
             {
-                sqlConnect = new SqlConnection(@"Data Source=CUONG-PC;Initial Catalog=QuanLyNhaSachMaintenance;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False");
+                sqlConnect = new SqlConnection(@"Data Source=PHAMHONGSON-PC;Initial Catalog=QuanLyNhaSachMaintenance;Integrated Security=True");
 
                 
 
