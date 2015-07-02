@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.btnDoi = new DevComponents.DotNetBar.ButtonX();
             this.txtMatKhau2 = new System.Windows.Forms.TextBox();
             this.txtMatKhau1 = new System.Windows.Forms.TextBox();
@@ -40,25 +39,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnThoat
-            // 
-            this.btnThoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnThoat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(310, 146);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(90, 36);
-            this.btnThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnThoat.TabIndex = 17;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
             // btnDoi
             // 
             this.btnDoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnDoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnDoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDoi.Location = new System.Drawing.Point(16, 146);
+            this.btnDoi.Location = new System.Drawing.Point(180, 151);
             this.btnDoi.Name = "btnDoi";
             this.btnDoi.Size = new System.Drawing.Size(90, 36);
             this.btnDoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -146,7 +132,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 199);
-            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDoi);
             this.Controls.Add(this.txtMatKhau2);
             this.Controls.Add(this.txtMatKhau1);
@@ -167,7 +152,6 @@
 
         #endregion
 
-        private DevComponents.DotNetBar.ButtonX btnThoat;
         private DevComponents.DotNetBar.ButtonX btnDoi;
         private System.Windows.Forms.TextBox txtMatKhau2;
         private System.Windows.Forms.TextBox txtMatKhau1;
