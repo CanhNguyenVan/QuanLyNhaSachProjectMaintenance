@@ -60,7 +60,7 @@ namespace DAL
             string[] name = new string[param];
             object[] values = new object[param];
 
-            name[0] = "@MaKhacHang";
+            name[0] = "@MaKhachHang";
             name[1] = "@HoTen";
             name[2] = "@DiaChi";
             name[3] = "@DienThoai";
@@ -84,7 +84,7 @@ namespace DAL
             string[] name = new string[param];
             object[] values = new object[param];
 
-            name[0] = "@MaKhacHang";
+            name[0] = "@MaKhachHang";
             name[1] = "@HoTen";
             name[2] = "@DiaChi";
             name[3] = "@DienThoai";
