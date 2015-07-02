@@ -142,14 +142,6 @@ namespace test
             }
         }
 
-        
-        private void btn_DangXuat_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
 
         private void txt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -202,6 +194,7 @@ namespace test
                                                     btnBackupRestore.Enabled = true;
                 btn_CongNo.Enabled =
                     btn_Ton.Enabled =
+                    btn_ThayDoiQuyDinh.Enabled = 
                         btnBackupRestore.Enabled = false;
             }
             else if (loaiTaiKhoan == 0)
@@ -269,6 +262,14 @@ namespace test
         private void Form1_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

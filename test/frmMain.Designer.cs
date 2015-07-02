@@ -31,34 +31,34 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tabControl1 = new DevComponents.DotNetBar.TabControl();
-            this.tabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
-            this.tabItem3 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
-            this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
-            this.tabItem1 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabControlPanel4 = new DevComponents.DotNetBar.TabControlPanel();
-            this.tabItem4 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabControl2 = new DevComponents.DotNetBar.TabControl();
             this.btnDoiMatKhau = new DevComponents.DotNetBar.ButtonX();
-            this.btn_DangXuat = new DevComponents.DotNetBar.ButtonX();
+            this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.btn_TimKiem = new DevComponents.DotNetBar.ButtonX();
             this.btn_ThayDoiQuyDinh = new DevComponents.DotNetBar.ButtonX();
             this.btnDangNhap = new DevComponents.DotNetBar.ButtonX();
+            this.tabItem1 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
             this.btn_HoaDon = new DevComponents.DotNetBar.ButtonX();
             this.btn_PhieuThu = new DevComponents.DotNetBar.ButtonX();
             this.btn_PhieuNhap = new DevComponents.DotNetBar.ButtonX();
             this.btn_KhachHang = new DevComponents.DotNetBar.ButtonX();
             this.btn_Sach = new DevComponents.DotNetBar.ButtonX();
+            this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
             this.btn_Ton = new DevComponents.DotNetBar.ButtonX();
             this.btn_CongNo = new DevComponents.DotNetBar.ButtonX();
+            this.tabItem3 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel4 = new DevComponents.DotNetBar.TabControlPanel();
             this.btnBackupRestore = new DevComponents.DotNetBar.ButtonX();
             this.btn_ThongTin = new DevComponents.DotNetBar.ButtonX();
+            this.tabItem4 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControl2 = new DevComponents.DotNetBar.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabControlPanel3.SuspendLayout();
-            this.tabControlPanel2.SuspendLayout();
             this.tabControlPanel1.SuspendLayout();
+            this.tabControlPanel2.SuspendLayout();
+            this.tabControlPanel3.SuspendLayout();
             this.tabControlPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl2)).BeginInit();
             this.SuspendLayout();
@@ -86,63 +86,10 @@
             this.tabControl1.Tabs.Add(this.tabItem3);
             this.tabControl1.Tabs.Add(this.tabItem4);
             // 
-            // tabControlPanel3
-            // 
-            this.tabControlPanel3.Controls.Add(this.btn_Ton);
-            this.tabControlPanel3.Controls.Add(this.btn_CongNo);
-            this.tabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel3.Location = new System.Drawing.Point(0, 23);
-            this.tabControlPanel3.Name = "tabControlPanel3";
-            this.tabControlPanel3.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel3.Size = new System.Drawing.Size(1120, 129);
-            this.tabControlPanel3.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-            this.tabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
-            this.tabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
-            this.tabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel3.Style.GradientAngle = 90;
-            this.tabControlPanel3.TabIndex = 3;
-            this.tabControlPanel3.TabItem = this.tabItem3;
-            // 
-            // tabItem3
-            // 
-            this.tabItem3.AttachedControl = this.tabControlPanel3;
-            this.tabItem3.Name = "tabItem3";
-            this.tabItem3.Text = "Thống Kê - Báo Cáo";
-            // 
-            // tabControlPanel2
-            // 
-            this.tabControlPanel2.Controls.Add(this.btn_HoaDon);
-            this.tabControlPanel2.Controls.Add(this.btn_PhieuThu);
-            this.tabControlPanel2.Controls.Add(this.btn_PhieuNhap);
-            this.tabControlPanel2.Controls.Add(this.btn_KhachHang);
-            this.tabControlPanel2.Controls.Add(this.btn_Sach);
-            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel2.Location = new System.Drawing.Point(0, 23);
-            this.tabControlPanel2.Name = "tabControlPanel2";
-            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel2.Size = new System.Drawing.Size(1120, 129);
-            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
-            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
-            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel2.Style.GradientAngle = 90;
-            this.tabControlPanel2.TabIndex = 2;
-            this.tabControlPanel2.TabItem = this.tabItem2;
-            // 
-            // tabItem2
-            // 
-            this.tabItem2.AttachedControl = this.tabControlPanel2;
-            this.tabItem2.Name = "tabItem2";
-            this.tabItem2.Text = "Quản Lý";
-            // 
             // tabControlPanel1
             // 
             this.tabControlPanel1.Controls.Add(this.btnDoiMatKhau);
-            this.tabControlPanel1.Controls.Add(this.btn_DangXuat);
+            this.tabControlPanel1.Controls.Add(this.btnThoat);
             this.tabControlPanel1.Controls.Add(this.btn_TimKiem);
             this.tabControlPanel1.Controls.Add(this.btn_ThayDoiQuyDinh);
             this.tabControlPanel1.Controls.Add(this.btnDangNhap);
@@ -161,55 +108,6 @@
             this.tabControlPanel1.TabIndex = 1;
             this.tabControlPanel1.TabItem = this.tabItem1;
             // 
-            // tabItem1
-            // 
-            this.tabItem1.AttachedControl = this.tabControlPanel1;
-            this.tabItem1.Name = "tabItem1";
-            this.tabItem1.Text = "Hệ Thống";
-            // 
-            // tabControlPanel4
-            // 
-            this.tabControlPanel4.Controls.Add(this.btnBackupRestore);
-            this.tabControlPanel4.Controls.Add(this.btn_ThongTin);
-            this.tabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel4.Location = new System.Drawing.Point(0, 23);
-            this.tabControlPanel4.Name = "tabControlPanel4";
-            this.tabControlPanel4.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel4.Size = new System.Drawing.Size(1120, 129);
-            this.tabControlPanel4.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-            this.tabControlPanel4.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
-            this.tabControlPanel4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
-            this.tabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel4.Style.GradientAngle = 90;
-            this.tabControlPanel4.TabIndex = 4;
-            this.tabControlPanel4.TabItem = this.tabItem4;
-            // 
-            // tabItem4
-            // 
-            this.tabItem4.AttachedControl = this.tabControlPanel4;
-            this.tabItem4.Name = "tabItem4";
-            this.tabItem4.Text = "Trợ Giúp";
-            // 
-            // tabControl2
-            // 
-            this.tabControl2.AutoCloseTabs = true;
-            this.tabControl2.BackColor = System.Drawing.Color.Silver;
-            this.tabControl2.CanReorderTabs = true;
-            this.tabControl2.CloseButtonOnTabsVisible = true;
-            this.tabControl2.CloseButtonPosition = DevComponents.DotNetBar.eTabCloseButtonPosition.Right;
-            this.tabControl2.CloseButtonVisible = true;
-            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Location = new System.Drawing.Point(0, 152);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedTabFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.tabControl2.SelectedTabIndex = -1;
-            this.tabControl2.Size = new System.Drawing.Size(1120, 548);
-            this.tabControl2.TabIndex = 3;
-            this.tabControl2.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
-            this.tabControl2.Text = "tabControl2";
-            // 
             // btnDoiMatKhau
             // 
             this.btnDoiMatKhau.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -224,19 +122,19 @@
             this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
             this.btnDoiMatKhau.Click += new System.EventHandler(this.btnPhanQuyen_Click);
             // 
-            // btn_DangXuat
+            // btnThoat
             // 
-            this.btn_DangXuat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_DangXuat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_DangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btn_DangXuat.Image")));
-            this.btn_DangXuat.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btn_DangXuat.Location = new System.Drawing.Point(460, 15);
-            this.btn_DangXuat.Name = "btn_DangXuat";
-            this.btn_DangXuat.Size = new System.Drawing.Size(88, 89);
-            this.btn_DangXuat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btn_DangXuat.TabIndex = 5;
-            this.btn_DangXuat.Text = "Đăng Xuất";
-            this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
+            this.btnThoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnThoat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
+            this.btnThoat.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnThoat.Location = new System.Drawing.Point(460, 15);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(88, 89);
+            this.btnThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnThoat.TabIndex = 5;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btn_TimKiem
             // 
@@ -279,6 +177,34 @@
             this.btnDangNhap.TabIndex = 2;
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
+            // 
+            // tabItem1
+            // 
+            this.tabItem1.AttachedControl = this.tabControlPanel1;
+            this.tabItem1.Name = "tabItem1";
+            this.tabItem1.Text = "Hệ Thống";
+            // 
+            // tabControlPanel2
+            // 
+            this.tabControlPanel2.Controls.Add(this.btn_HoaDon);
+            this.tabControlPanel2.Controls.Add(this.btn_PhieuThu);
+            this.tabControlPanel2.Controls.Add(this.btn_PhieuNhap);
+            this.tabControlPanel2.Controls.Add(this.btn_KhachHang);
+            this.tabControlPanel2.Controls.Add(this.btn_Sach);
+            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel2.Location = new System.Drawing.Point(0, 23);
+            this.tabControlPanel2.Name = "tabControlPanel2";
+            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel2.Size = new System.Drawing.Size(1120, 129);
+            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel2.Style.GradientAngle = 90;
+            this.tabControlPanel2.TabIndex = 2;
+            this.tabControlPanel2.TabItem = this.tabItem2;
             // 
             // btn_HoaDon
             // 
@@ -350,6 +276,31 @@
             this.btn_Sach.Text = "Sách";
             this.btn_Sach.Click += new System.EventHandler(this.btn_Sach_Click);
             // 
+            // tabItem2
+            // 
+            this.tabItem2.AttachedControl = this.tabControlPanel2;
+            this.tabItem2.Name = "tabItem2";
+            this.tabItem2.Text = "Quản Lý";
+            // 
+            // tabControlPanel3
+            // 
+            this.tabControlPanel3.Controls.Add(this.btn_Ton);
+            this.tabControlPanel3.Controls.Add(this.btn_CongNo);
+            this.tabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel3.Location = new System.Drawing.Point(0, 23);
+            this.tabControlPanel3.Name = "tabControlPanel3";
+            this.tabControlPanel3.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel3.Size = new System.Drawing.Size(1120, 129);
+            this.tabControlPanel3.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+            this.tabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+            this.tabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+            this.tabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel3.Style.GradientAngle = 90;
+            this.tabControlPanel3.TabIndex = 3;
+            this.tabControlPanel3.TabItem = this.tabItem3;
+            // 
             // btn_Ton
             // 
             this.btn_Ton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -377,6 +328,31 @@
             this.btn_CongNo.TabIndex = 0;
             this.btn_CongNo.Text = "Công Nợ";
             this.btn_CongNo.Click += new System.EventHandler(this.btn_CongNo_Click);
+            // 
+            // tabItem3
+            // 
+            this.tabItem3.AttachedControl = this.tabControlPanel3;
+            this.tabItem3.Name = "tabItem3";
+            this.tabItem3.Text = "Thống Kê - Báo Cáo";
+            // 
+            // tabControlPanel4
+            // 
+            this.tabControlPanel4.Controls.Add(this.btnBackupRestore);
+            this.tabControlPanel4.Controls.Add(this.btn_ThongTin);
+            this.tabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel4.Location = new System.Drawing.Point(0, 23);
+            this.tabControlPanel4.Name = "tabControlPanel4";
+            this.tabControlPanel4.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel4.Size = new System.Drawing.Size(1120, 129);
+            this.tabControlPanel4.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+            this.tabControlPanel4.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+            this.tabControlPanel4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+            this.tabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel4.Style.GradientAngle = 90;
+            this.tabControlPanel4.TabIndex = 4;
+            this.tabControlPanel4.TabItem = this.tabItem4;
             // 
             // btnBackupRestore
             // 
@@ -406,6 +382,30 @@
             this.btn_ThongTin.Text = "Thông Tin";
             this.btn_ThongTin.Click += new System.EventHandler(this.btn_ThongTin_Click);
             // 
+            // tabItem4
+            // 
+            this.tabItem4.AttachedControl = this.tabControlPanel4;
+            this.tabItem4.Name = "tabItem4";
+            this.tabItem4.Text = "Trợ Giúp";
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.AutoCloseTabs = true;
+            this.tabControl2.BackColor = System.Drawing.Color.Silver;
+            this.tabControl2.CanReorderTabs = true;
+            this.tabControl2.CloseButtonOnTabsVisible = true;
+            this.tabControl2.CloseButtonPosition = DevComponents.DotNetBar.eTabCloseButtonPosition.Right;
+            this.tabControl2.CloseButtonVisible = true;
+            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl2.Location = new System.Drawing.Point(0, 152);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedTabFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tabControl2.SelectedTabIndex = -1;
+            this.tabControl2.Size = new System.Drawing.Size(1120, 548);
+            this.tabControl2.TabIndex = 3;
+            this.tabControl2.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
+            this.tabControl2.Text = "tabControl2";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,9 +424,9 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabControlPanel3.ResumeLayout(false);
-            this.tabControlPanel2.ResumeLayout(false);
             this.tabControlPanel1.ResumeLayout(false);
+            this.tabControlPanel2.ResumeLayout(false);
+            this.tabControlPanel3.ResumeLayout(false);
             this.tabControlPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl2)).EndInit();
             this.ResumeLayout(false);
@@ -447,7 +447,7 @@
         private DevComponents.DotNetBar.TabItem tabItem4;
         public DevComponents.DotNetBar.ButtonX btnDangNhap;
         private DevComponents.DotNetBar.ButtonX btnDoiMatKhau;
-        private DevComponents.DotNetBar.ButtonX btn_DangXuat;
+        private DevComponents.DotNetBar.ButtonX btnThoat;
         private DevComponents.DotNetBar.ButtonX btn_TimKiem;
         private DevComponents.DotNetBar.ButtonX btn_ThayDoiQuyDinh;
         private DevComponents.DotNetBar.ButtonX btn_Sach;
