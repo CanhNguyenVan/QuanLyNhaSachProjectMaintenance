@@ -39,15 +39,18 @@
             this.txt_SLNhapItNhat = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.isUsingQuyDinh4 = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_TDQD
             // 
             this.btn_TDQD.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_TDQD.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_TDQD.Location = new System.Drawing.Point(206, 229);
+            this.btn_TDQD.Location = new System.Drawing.Point(227, 331);
             this.btn_TDQD.Name = "btn_TDQD";
             this.btn_TDQD.Size = new System.Drawing.Size(75, 23);
             this.btn_TDQD.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -169,11 +172,33 @@
             this.label33.TabIndex = 0;
             this.label33.Text = "Số lượng nhập ít nhất";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.isUsingQuyDinh4);
+            this.groupBox3.Location = new System.Drawing.Point(21, 229);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(487, 68);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Quy Định 4";
+            // 
+            // isUsingQuyDinh4
+            // 
+            this.isUsingQuyDinh4.AutoSize = true;
+            this.isUsingQuyDinh4.Location = new System.Drawing.Point(24, 33);
+            this.isUsingQuyDinh4.Name = "isUsingQuyDinh4";
+            this.isUsingQuyDinh4.Size = new System.Drawing.Size(262, 17);
+            this.isUsingQuyDinh4.TabIndex = 0;
+            this.isUsingQuyDinh4.Text = "Số tiền thu không được vượt quá số tiền nợ tối đa";
+            this.isUsingQuyDinh4.UseVisualStyleBackColor = true;
+            this.isUsingQuyDinh4.CheckedChanged += new System.EventHandler(this.isUsingQuyDinh4_CheckedChanged);
+            // 
             // frmQuyDinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 261);
+            this.ClientSize = new System.Drawing.Size(537, 361);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btn_TDQD);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -185,6 +210,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -202,5 +229,7 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txt_SLNhapItNhat;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox isUsingQuyDinh4;
     }
 }

@@ -60,9 +60,9 @@ namespace test
                 phieuThuTienDto.MaPhieuThuTien = maPhieuThu;
                 phieuThuTienDto.SoTienThu = soTienThu;
 
-                if (soTienThu > ThamSo.ThamSoQuyDinh.TienNoToiDa)
+                if (ThamSo.IsUsingQuyDinh4 && !(soTienThu < ThamSo.ThamSoQuyDinh.TienNoToiDa))
                 {
-                    MessageBox.Show("Số tiền thu phải lớn hơn tiền nợ tối đa!");
+                    MessageBox.Show("Số tiền thu không được vượt quá số tiền nợ tối đa!");
                     return;
                 }
 
@@ -98,11 +98,19 @@ namespace test
                 string maKhachHang = dgvPhieuThu.Rows[index].Cells[2].Value.ToString();
                 DateTime ngayThu = DateTime.Parse(dgvPhieuThu.Rows[index].Cells[3].Value.ToString());
 
+                if (ThamSo.IsUsingQuyDinh4 && !(soTienThu < ThamSo.ThamSoQuyDinh.TienNoToiDa))
+                {
+                    MessageBox.Show("Số tiền thu không được vượt quá số tiền nợ tối đa!");
+                    return;
+                }
+
                 PhieuThuTienDTO phieuThuTienDto = new PhieuThuTienDTO();
                 phieuThuTienDto.MaPhieuThuTien = maPhieuThu;
                 phieuThuTienDto.SoTienThu = soTienThu;
                 phieuThuTienDto.MaKhachHang = maKhachHang;
                 phieuThuTienDto.NgayThu = ngayThu;
+
+                
 
                 if (_phieuThuTienBll.UpdatePhieuThuTien(phieuThuTienDto) != 0)
                 {

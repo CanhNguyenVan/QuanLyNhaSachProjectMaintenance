@@ -11,6 +11,8 @@ namespace test
     {
         public static ThamSoDTO ThamSoQuyDinh = new ThamSoDTO();
 
+        public static bool IsUsingQuyDinh4 = false;
+
         public static int LoaiTaiKhoan = 0;
 
     }

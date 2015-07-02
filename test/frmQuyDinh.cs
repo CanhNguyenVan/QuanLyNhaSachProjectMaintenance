@@ -75,5 +75,17 @@ namespace test
                 e.Handled = true;
             }
         }
+
+        private void isUsingQuyDinh4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isUsingQuyDinh4.Checked == true)
+            {
+                ThamSo.IsUsingQuyDinh4 = true;
+            }
+            else
+            {
+                ThamSo.IsUsingQuyDinh4 = false;
+            }
+        }
     }
 }
