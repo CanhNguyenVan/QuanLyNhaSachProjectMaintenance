@@ -60,7 +60,7 @@ namespace test
                 khachHangDto.Email = email;
                 khachHangDto.SoTienNo = soTienNo;
 
-                if (_khachHangBll.InsertKhachHang(khachHangDto) == 1)
+                if (_khachHangBll.InsertKhachHang(khachHangDto) != 0)
                 {
                     MessageBox.Show("Thêm khách hàng thành công!");
 
@@ -68,7 +68,7 @@ namespace test
                 }
                 else
                 {
-                    MessageBox.Show("Lỗi trường nhập vào hoặc trùng mã phiếu thu!", "Lỗi!");
+                    MessageBox.Show("Lỗi trường nhập vào hoặc trùng mã khách hàng!", "Lỗi!");
                 }         
             }
             catch (Exception)
@@ -97,7 +97,7 @@ namespace test
                 khachHangDto.Email = email;
                 khachHangDto.SoTienNo = soTienNo;
 
-                if (_khachHangBll.UpdateKhachHang(khachHangDto) == 1)
+                if (_khachHangBll.UpdateKhachHang(khachHangDto) != 0)
                 {
                     MessageBox.Show("Sửa khách hàng thành công!");
 
@@ -105,7 +105,7 @@ namespace test
                 }
                 else
                 {
-                    MessageBox.Show("Lỗi trường nhập vào hoặc trùng mã phiếu thu!", "Lỗi!");
+                    MessageBox.Show("Lỗi trường nhập vào hoặc trùng mã khách hàng!", "Lỗi!");
                 }
             }
             catch (Exception)
@@ -134,7 +134,7 @@ namespace test
                 khachHangDto.Email = email;
                 khachHangDto.SoTienNo = soTienNo;
 
-                if (_khachHangBll.DeleteByMaKhachHang(khachHangDto) == 1)
+                if (_khachHangBll.DeleteByMaKhachHang(khachHangDto) != 0)
                 {
                     MessageBox.Show("Xóa khách hàng thành công!");
 
@@ -142,7 +142,7 @@ namespace test
                 }
                 else
                 {
-                    MessageBox.Show("Lỗi trường nhập vào hoặc trùng mã phiếu thu!", "Lỗi!");
+                    MessageBox.Show("Lỗi : nhập sai hoặc không tồn tại mã khách hàng!", "Lỗi!");
                 }
             }
             catch (Exception)

@@ -113,7 +113,7 @@ namespace test
                 phieuNhapDTO.MaPhieuNhap = maPhieuNhap;
                 phieuNhapDTO.NgayNhap = ngayNhap;
 
-                if (_phieuNhapBll.InsertPhieuNhap(phieuNhapDTO) == 1)
+                if (_phieuNhapBll.InsertPhieuNhap(phieuNhapDTO) != 0)
                 {
                     MessageBox.Show("Thêm phiếu nhập tiền thành công!");
 
@@ -143,7 +143,7 @@ namespace test
                 phieuNhapDTO.MaPhieuNhap = maPhieuNhap;
                 phieuNhapDTO.NgayNhap = ngayNhap;
 
-                if (_phieuNhapBll.UpdatePhieuNhap(phieuNhapDTO) == 1)
+                if (_phieuNhapBll.UpdatePhieuNhap(phieuNhapDTO) != 0)
                 {
                     MessageBox.Show("Sửa phiếu nhập tiền thành công!");
 
@@ -173,7 +173,7 @@ namespace test
                 phieuNhapDTO.MaPhieuNhap = maPhieuNhap;
                 phieuNhapDTO.NgayNhap = ngayNhap;
 
-                if (_phieuNhapBll.DeleteByMaPhieuNhap(phieuNhapDTO) == 1)
+                if (_phieuNhapBll.DeleteByMaPhieuNhap(phieuNhapDTO) != 0)
                 {
                     MessageBox.Show("Xóa phiếu nhập tiền thành công!");
 
@@ -217,7 +217,7 @@ namespace test
                 
                 chiTietPhieuNhapDTO.DonGiaNhap = donGiaNhap;
 
-                if ( 1 == _chiTietPhieuNhapBll.InsertChiTietPhieuNhap(chiTietPhieuNhapDTO) )
+                if (0 != _chiTietPhieuNhapBll.InsertChiTietPhieuNhap(chiTietPhieuNhapDTO) )
                 {
                     MessageBox.Show("Thêm Thông Tin chi tiết phiếu nhập tiền thành công!");
 
@@ -256,7 +256,7 @@ namespace test
                 chiTietPhieuNhapDTO.SoLuongNhap = soLuongNhap;
                 chiTietPhieuNhapDTO.DonGiaNhap = donGiaNhap;
 
-                if (_chiTietPhieuNhapBll.UpdateChiTietPhieuNhap(chiTietPhieuNhapDTO) == 1)
+                if (_chiTietPhieuNhapBll.UpdateChiTietPhieuNhap(chiTietPhieuNhapDTO) != 0)
                 {
                     MessageBox.Show("Sửa Thông Tin chi tiết phiếu nhập tiền thành công!");
 
@@ -294,7 +294,7 @@ namespace test
                 chiTietPhieuNhapDTO.SoLuongNhap = soLuongNhap;
                 chiTietPhieuNhapDTO.DonGiaNhap = donGiaNhap;
 
-                if (_chiTietPhieuNhapBll.DeleteByMaChiTietPhieuNhap(chiTietPhieuNhapDTO) == 1)
+                if (_chiTietPhieuNhapBll.DeleteByMaChiTietPhieuNhap(chiTietPhieuNhapDTO) != 0)
                 {
                     MessageBox.Show("Sửa Thông Tin chi tiết phiếu nhập tiền thành công!");
 

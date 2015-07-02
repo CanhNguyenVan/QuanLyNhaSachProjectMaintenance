@@ -66,7 +66,7 @@ namespace test
 
                 if (_sachBll.InsertSach(sachDTO) != 0)
                 {
-                    MessageBox.Show("Thêm phiếu thu tiền thành công!");
+                    MessageBox.Show("Thêm Sách Thành Công !");
 
                     LoadData();
                 }
@@ -113,7 +113,7 @@ namespace test
                 }
                 else
                 {
-                    MessageBox.Show("Lỗi trường nhập vào hoặc trùng mã sách !", "Lỗi!");
+                    MessageBox.Show("Lỗi trường nhập không đúng hoặc trùng mã sách !", "Lỗi!");
                 }
             }
             catch (Exception)
@@ -146,13 +146,13 @@ namespace test
 
                 if (_sachBll.DeleteSachByMaSach(sachDTO) != 0)
                 {
-                    MessageBox.Show("Xoa Sách phiếu thành công !");
+                    MessageBox.Show("Xóa Sách thành công!");
 
                     LoadData();
                 }
                 else
                 {
-                    MessageBox.Show("Có lỗi xảy ra hoặc  mã sách không tồn tại !", "Lỗi!");
+                    MessageBox.Show("Lỗi Nhập sai hoặc không tồn tại mã Sách!", "Lỗi!");
                 }
             }
             catch (Exception)
