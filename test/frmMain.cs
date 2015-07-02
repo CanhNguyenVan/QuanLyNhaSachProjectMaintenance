@@ -135,11 +135,11 @@ namespace test
 
         private void btn_ThongTin_Click(object sender, EventArgs e)
         {
-            //if (checkTab("Thông Tin") == false)
-            //{
-            //    frmThongTin form = new frmThongTin();
-            //    AddTabControl(form, "Thông Tin");
-            //}
+            if (checkTab("Thông Tin") == false)
+            {
+                frmThongTin form = new frmThongTin();
+                AddTabControl(form, "Thông Tin");
+            }
         }
 
         
