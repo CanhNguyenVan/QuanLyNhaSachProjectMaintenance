@@ -34,6 +34,40 @@ namespace DAL
                 }
         }
 
+        public int Backup(string fileName)
+        {
+            try
+            {
+                string query = "Backup database QuanLyNhaSachMaintenance to disk = '" + fileName + ".bak'";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnect);
+                sqlCommand.CommandType = CommandType.Text;
+                return sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Constants.LoadDataError);
+                return 0;
+            }   
+        }
+
+        public int Restore(string fileName)
+        {
+            try
+            {
+                string query = "Alter Database QuanLyNhaSachMaintence Set Single_User With Rollback Immediate;";
+                query += "Restore Database QuanLyNhaSachMaintence From Disk = '" + fileName + "' With Replace;";
+                //string query = "Backup database QuanLyNhaSachMaintenance to disk = '" + fileName + ".bak'";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnect);
+                sqlCommand.CommandType = CommandType.Text;
+                return sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Constants.LoadDataError);
+                return 0;
+            }   
+        }
+
         public DataTable GetData(string sql)
         {
             DataTable dataTable = new DataTable();
