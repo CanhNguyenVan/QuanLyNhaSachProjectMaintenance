@@ -69,7 +69,7 @@ namespace test
                 phieuThuTienDto.MaKhachHang = maKhachHang;
                 phieuThuTienDto.NgayThu = ngayThu;
 
-                if (_phieuThuTienBll.InsertPhieuThuTien(phieuThuTienDto) == 1)
+                if (_phieuThuTienBll.InsertPhieuThuTien(phieuThuTienDto) != 0)
                 {
                     MessageBox.Show("Thêm phiếu thu tiền thành công!");
 
@@ -104,7 +104,7 @@ namespace test
                 phieuThuTienDto.MaKhachHang = maKhachHang;
                 phieuThuTienDto.NgayThu = ngayThu;
 
-                if (_phieuThuTienBll.UpdatePhieuThuTien(phieuThuTienDto) == 1)
+                if (_phieuThuTienBll.UpdatePhieuThuTien(phieuThuTienDto) != 0)
                 {
                     MessageBox.Show("Cập nhật phiếu thu tiền thành công!");
 
@@ -138,7 +138,7 @@ namespace test
                 phieuThuTienDto.MaKhachHang = maKhachHang;
                 phieuThuTienDto.NgayThu = ngayThu;
 
-                if (_phieuThuTienBll.DeleteByMaPhieuThuTien(phieuThuTienDto) == 1)
+                if (_phieuThuTienBll.DeleteByMaPhieuThuTien(phieuThuTienDto) != 0)
                 {
                     MessageBox.Show("Xóa phiếu thu tiền thành công!");
 

@@ -64,7 +64,7 @@ namespace test
                 sachDTO.SoLuongTon = soLuongTon;
                 sachDTO.DonGiaBan = donGia;
 
-                if (_sachBll.InsertSach(sachDTO) == 1)
+                if (_sachBll.InsertSach(sachDTO) != 0)
                 {
                     MessageBox.Show("Thêm phiếu thu tiền thành công!");
 
@@ -105,7 +105,7 @@ namespace test
                 sachDTO.DonGiaBan = donGia;
 
 
-                if (_sachBll.UpdateSach(sachDTO) == 1)
+                if (_sachBll.UpdateSach(sachDTO) != 0)
                 {
                     MessageBox.Show("Cập nhật phiếu thành công !");
 
@@ -144,7 +144,7 @@ namespace test
                 sachDTO.SoLuongTon = soLuongTon;
                 sachDTO.DonGiaBan = donGia;
 
-                if (_sachBll.DeleteSachByMaSach(sachDTO) == 1)
+                if (_sachBll.DeleteSachByMaSach(sachDTO) != 0)
                 {
                     MessageBox.Show("Xoa Sách phiếu thành công !");
 

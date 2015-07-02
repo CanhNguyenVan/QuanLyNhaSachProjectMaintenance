@@ -80,10 +80,10 @@ namespace test
             TaiKhoanDTO taiKhoanDto = new TaiKhoanDTO();
             taiKhoanDto.MaTaiKhoan = dt.Rows[0]["MaTK"].ToString();
             taiKhoanDto.TenTaiKhoan = dt.Rows[0]["TenTK"].ToString();
-            taiKhoanDto.MatKhau = dt.Rows[0]["MatKhau"].ToString();
+            taiKhoanDto.MatKhau = mk1String;
             taiKhoanDto.LoaiTaiKhoan = dt.Rows[0]["LoaiTK"].ToString();
 
-            if (1 == _taiKhoanBll.UpdateTaiKhoan(taiKhoanDto))
+            if (0 != _taiKhoanBll.UpdateTaiKhoan(taiKhoanDto))
             {
                 MessageBox.Show("Cập nhật thành công!");
             }

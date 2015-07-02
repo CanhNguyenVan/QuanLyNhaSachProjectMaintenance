@@ -135,7 +135,11 @@ namespace test
 
         private void btn_ThongTin_Click(object sender, EventArgs e)
         {
-           
+            //if (checkTab("Thông Tin") == false)
+            //{
+            //    frmThongTin form = new frmThongTin();
+            //    AddTabControl(form, "Thông Tin");
+            //}
         }
 
         
@@ -186,6 +190,16 @@ namespace test
             }
             if (loaiTaiKhoan == 2)
             {
+                btn_ThayDoiQuyDinh.Enabled =
+                    btn_TimKiem.Enabled =
+                        btn_Sach.Enabled =
+                            btn_KhachHang.Enabled =
+                                btn_PhieuNhap.Enabled =
+                                    btn_PhieuThu.Enabled =
+                                        btn_HoaDon.Enabled =
+                                            btn_CongNo.Enabled =
+                                                btn_Ton.Enabled =
+                                                    btnBackupRestore.Enabled = true;
                 btn_CongNo.Enabled =
                     btn_Ton.Enabled =
                         btnBackupRestore.Enabled = false;

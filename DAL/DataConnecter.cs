@@ -38,7 +38,7 @@ namespace DAL
         {
             try
             {
-                string query = "Backup Database QuanLyNhaSachMaintenance To Disk='" + fileName + ".bak' With Format";
+                string query = "Backup Database QuanLyNhaSachMaintenance To Disk='" + fileName + ".bak' with format" ;
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnect);
                 sqlCommand.CommandType = CommandType.Text;
                 return sqlCommand.ExecuteNonQuery();

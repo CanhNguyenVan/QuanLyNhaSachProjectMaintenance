@@ -134,7 +134,7 @@ namespace test
                 hoaDonDto.MaKhachHang = maKhachHang;
                 hoaDonDto.NgayLap = ngayLap;
 
-                if (1 == _hoaDonBll.InsertHoaDon(hoaDonDto))
+                if (0 != _hoaDonBll.InsertHoaDon(hoaDonDto))
                 {
                     MessageBox.Show("Thêm hóa đơn thành công!");
 
@@ -165,7 +165,7 @@ namespace test
                 hoaDonDto.MaKhachHang = maKhachHang;
                 hoaDonDto.NgayLap = ngayLap;
 
-                if (1 == _hoaDonBll.UpdateHoaDon(hoaDonDto))
+                if (0 != _hoaDonBll.UpdateHoaDon(hoaDonDto))
                 {
                     MessageBox.Show("Sửa hóa đơn thành công!");
 
@@ -196,7 +196,7 @@ namespace test
                 hoaDonDto.MaKhachHang = maKhachHang;
                 hoaDonDto.NgayLap = ngayLap;
 
-                if (1 == _hoaDonBll.DeleteByMaHoaDon(hoaDonDto))
+                if (0 != _hoaDonBll.DeleteByMaHoaDon(hoaDonDto))
                 {
                     MessageBox.Show("Xóa hóa đơn thành công!");
 
@@ -229,7 +229,7 @@ namespace test
                 chiTietHoaDonDto.MaSach = maSach;
                 chiTietHoaDonDto.SoLuongBan = soLuongBan;
 
-                if (1 == _chiTietHoaDonBll.InsertChiTietHoaDon(chiTietHoaDonDto))
+                if (0 != _chiTietHoaDonBll.InsertChiTietHoaDon(chiTietHoaDonDto))
                 {
                     MessageBox.Show("Thêm hóa đơn thành công!");
 
@@ -262,7 +262,7 @@ namespace test
                 chiTietHoaDonDto.MaSach = maSach;
                 chiTietHoaDonDto.SoLuongBan = soLuongBan;
 
-                if (1 == _chiTietHoaDonBll.UpdateChiTietPhieuNhap(chiTietHoaDonDto))
+                if (0 != _chiTietHoaDonBll.UpdateChiTietPhieuNhap(chiTietHoaDonDto))
                 {
                     MessageBox.Show("Sửa hóa đơn thành công!");
 
@@ -295,7 +295,7 @@ namespace test
                 chiTietHoaDonDto.MaSach = maSach;
                 chiTietHoaDonDto.SoLuongBan = soLuongBan;
 
-                if (1 == _chiTietHoaDonBll.DeleteByMaChiTietPhieuNhap(chiTietHoaDonDto))
+                if (0 != _chiTietHoaDonBll.DeleteByMaChiTietPhieuNhap(chiTietHoaDonDto))
                 {
                     MessageBox.Show("Thêm hóa đơn thành công!");
 

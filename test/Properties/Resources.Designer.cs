@@ -113,6 +113,16 @@ namespace test.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Database_Active_icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Database_Active_icon__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete_icon {
             get {
                 object obj = ResourceManager.GetObject("delete-icon", resourceCulture);
@@ -196,6 +206,16 @@ namespace test.Properties {
         internal static System.Drawing.Bitmap kiem_ke_hang_hoa {
             get {
                 object obj = ResourceManager.GetObject("kiem-ke-hang-hoa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap modify_key_icon {
+            get {
+                object obj = ResourceManager.GetObject("modify_key_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

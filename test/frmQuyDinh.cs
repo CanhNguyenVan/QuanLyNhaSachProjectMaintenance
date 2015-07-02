@@ -39,7 +39,7 @@ namespace test
 
         private void btn_TDQD_Click(object sender, EventArgs e)
         {
-            if (_thamSoBll.UpdateThamSo(ThamSo.ThamSoQuyDinh) == 1)
+            if (_thamSoBll.UpdateThamSo(ThamSo.ThamSoQuyDinh) != 0)
             {
                 MessageBox.Show("Sửa thành công!");
                 var dt = _thamSoBll.SelectAll();
