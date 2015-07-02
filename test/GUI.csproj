@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBackupAndRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackupAndRestore.designer.cs">
+      <DependentUpon>frmBackupAndRestore.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     <Compile Include="ThamSo.cs" />
     <Compile Include="Utilities\HoaDonUtility.cs" />
     <Compile Include="Utilities\PhieuThuUtility.cs" />
+    <EmbeddedResource Include="frmBackupAndRestore.resx">
+      <DependentUpon>frmBackupAndRestore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDoiMatKhau.resx">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
