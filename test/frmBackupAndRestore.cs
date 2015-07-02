@@ -19,23 +19,14 @@ namespace test
             InitializeComponent();
         }
 
-        private void btnBrowse_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == DialogResult.OK)
-            {
-                txtLocation.Text = fbd.SelectedPath;
-            }
-        }
-
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            if (txtLocation.Text.CompareTo("") == 0)
+            SaveFileDialog sdg = new SaveFileDialog();
+            if (sdg.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Chọn vị trí backup.");
-                return;
+                backupAndRestoreBll.Backup(sdg.FileName);
             }
-            if (backupAndRestoreBll.Backup(txtLocation.Text) > 0)
+            if (backupAndRestoreBll.Backup(sdg.FileName) > 0)
             {
                 MessageBox.Show("Backup thành công.");
             }
