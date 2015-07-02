@@ -20,7 +20,7 @@ namespace test
         public frmQuanLyPhieuNhap()
         {
             InitializeComponent();
-            Load += frmQuanLyPhieuNhap_Load;
+            //Load += frmQuanLyPhieuNhap_Load;
          
         }
 
@@ -39,11 +39,11 @@ namespace test
         private void LoadDataChiTietPhieuNhap()
         {
 
-            (dgvChiTietPhieuNhap.Columns["MaPhieuNhap"] as DataGridViewComboBoxColumn).DataSource = _sachBll.SelectAll();
-            (dgvChiTietPhieuNhap.Columns["MaPhieuNhap"] as DataGridViewComboBoxColumn).DisplayMember = "TenSach";
-            (dgvChiTietPhieuNhap.Columns["MaPhieuNhap"] as DataGridViewComboBoxColumn).ValueMember = "MaSach";
+            (dgvChiTietPhieuNhap.Columns["MaSach"] as DataGridViewComboBoxColumn).DataSource = _sachBll.SelectAll();
+            (dgvChiTietPhieuNhap.Columns["MaSach"] as DataGridViewComboBoxColumn).DisplayMember = "TenSach";
+            (dgvChiTietPhieuNhap.Columns["MaSach"] as DataGridViewComboBoxColumn).ValueMember = "MaSach";
 
-            dgvChiTietPhieuNhap.DataSource = _sachBll.SelectAll();
+            dgvChiTietPhieuNhap.DataSource = _chiTietPhieuNhapBll.SelectAll();
         }
 
         private void LoadDataChiTietPhieuNhap(string maPhieuNhap)
@@ -217,7 +217,7 @@ namespace test
                 
                 chiTietPhieuNhapDTO.DonGiaNhap = donGiaNhap;
 
-                if ( _chiTietPhieuNhapBll.InsertChiTietPhieuNhap(chiTietPhieuNhapDTO) == 1)
+                if ( 1 == _chiTietPhieuNhapBll.InsertChiTietPhieuNhap(chiTietPhieuNhapDTO) )
                 {
                     MessageBox.Show("Thêm Thông Tin chi tiết phiếu nhập tiền thành công!");
 

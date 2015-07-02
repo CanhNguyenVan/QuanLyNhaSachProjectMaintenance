@@ -170,7 +170,7 @@
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.dgvKhachHang);
             this.Name = "frmQuanLyKhachHang";
-            this.Text = "frmQuanLyKhachHang";
+            this.Text = "Quản Lý Khách Hàng";
             this.Load += new System.EventHandler(this.frmQuanLyKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
             this.ResumeLayout(false);

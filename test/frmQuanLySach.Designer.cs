@@ -193,8 +193,9 @@
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.dgvSach);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmQuanLySach";
-            this.Text = "frmQuanLySach";
+            this.Text = "Quản Lý Sách";
             this.Load += new System.EventHandler(this.frmQuanLySach_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSach)).EndInit();
             this.ResumeLayout(false);

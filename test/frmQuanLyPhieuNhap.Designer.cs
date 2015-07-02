@@ -32,6 +32,11 @@
             this.MaPhieuNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvQuanLyPhieuNhap = new System.Windows.Forms.DataGridView();
             this.dgvChiTietPhieuNhap = new System.Windows.Forms.DataGridView();
+            this.MaChiTietPhieuNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaPhieuNhapInChiTietPhieuNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSach = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SoLuongNhap = new DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn();
+            this.DonGiaNhap = new DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -41,11 +46,6 @@
             this.btnThem1 = new System.Windows.Forms.Button();
             this.btnSua1 = new System.Windows.Forms.Button();
             this.btnXoa1 = new System.Windows.Forms.Button();
-            this.MaChiTietPhieuNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaPhieuNhapInChiTietPhieuNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaSach = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SoLuongNhap = new DevComponents.DotNetBar.Controls.DataGridViewIntegerInputColumn();
-            this.DonGiaNhap = new DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuanLyPhieuNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietPhieuNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -128,6 +128,57 @@
             this.dgvChiTietPhieuNhap.Name = "dgvChiTietPhieuNhap";
             this.dgvChiTietPhieuNhap.Size = new System.Drawing.Size(515, 380);
             this.dgvChiTietPhieuNhap.TabIndex = 18;
+            // 
+            // MaChiTietPhieuNhap
+            // 
+            this.MaChiTietPhieuNhap.DataPropertyName = "MaChiTietPhieuNhap";
+            this.MaChiTietPhieuNhap.HeaderText = "Mã Chi Tiết Phiếu Nhập";
+            this.MaChiTietPhieuNhap.Name = "MaChiTietPhieuNhap";
+            // 
+            // MaPhieuNhapInChiTietPhieuNhap
+            // 
+            this.MaPhieuNhapInChiTietPhieuNhap.DataPropertyName = "MaPhieuNhap";
+            this.MaPhieuNhapInChiTietPhieuNhap.HeaderText = "Mã Phiếu Nhập";
+            this.MaPhieuNhapInChiTietPhieuNhap.Name = "MaPhieuNhapInChiTietPhieuNhap";
+            this.MaPhieuNhapInChiTietPhieuNhap.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // MaSach
+            // 
+            this.MaSach.DataPropertyName = "MaSach";
+            this.MaSach.HeaderText = "Tên Sách";
+            this.MaSach.Name = "MaSach";
+            this.MaSach.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.MaSach.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // SoLuongNhap
+            // 
+            // 
+            // 
+            // 
+            this.SoLuongNhap.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
+            this.SoLuongNhap.BackgroundStyle.Class = "DataGridViewNumericBorder";
+            this.SoLuongNhap.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.SoLuongNhap.BackgroundStyle.TextColor = System.Drawing.SystemColors.ControlText;
+            this.SoLuongNhap.DataPropertyName = "SoLuongNhap";
+            this.SoLuongNhap.HeaderText = "Số Lượng Nhập";
+            this.SoLuongNhap.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
+            this.SoLuongNhap.Name = "SoLuongNhap";
+            this.SoLuongNhap.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // DonGiaNhap
+            // 
+            // 
+            // 
+            // 
+            this.DonGiaNhap.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
+            this.DonGiaNhap.BackgroundStyle.Class = "DataGridViewNumericBorder";
+            this.DonGiaNhap.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.DonGiaNhap.BackgroundStyle.TextColor = System.Drawing.SystemColors.ControlText;
+            this.DonGiaNhap.DataPropertyName = "DonGiaNhap";
+            this.DonGiaNhap.HeaderText = "Đơn Giá Nhập";
+            this.DonGiaNhap.Increment = 1D;
+            this.DonGiaNhap.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
+            this.DonGiaNhap.Name = "DonGiaNhap";
             // 
             // splitContainer1
             // 
@@ -242,57 +293,6 @@
             this.btnXoa1.UseVisualStyleBackColor = true;
             this.btnXoa1.Click += new System.EventHandler(this.btnXoa1_Click);
             // 
-            // MaChiTietPhieuNhap
-            // 
-            this.MaChiTietPhieuNhap.DataPropertyName = "MaChiTietPhieuNhap";
-            this.MaChiTietPhieuNhap.HeaderText = "Mã Chi Tiết Phiếu Nhập";
-            this.MaChiTietPhieuNhap.Name = "MaChiTietPhieuNhap";
-            // 
-            // MaPhieuNhapInChiTietPhieuNhap
-            // 
-            this.MaPhieuNhapInChiTietPhieuNhap.DataPropertyName = "MaPhieuNhap";
-            this.MaPhieuNhapInChiTietPhieuNhap.HeaderText = "Mã Phiếu Nhập";
-            this.MaPhieuNhapInChiTietPhieuNhap.Name = "MaPhieuNhapInChiTietPhieuNhap";
-            this.MaPhieuNhapInChiTietPhieuNhap.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // MaSach
-            // 
-            this.MaSach.DataPropertyName = "MaSach";
-            this.MaSach.HeaderText = "Tên Sách";
-            this.MaSach.Name = "MaSach";
-            this.MaSach.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.MaSach.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // SoLuongNhap
-            // 
-            // 
-            // 
-            // 
-            this.SoLuongNhap.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
-            this.SoLuongNhap.BackgroundStyle.Class = "DataGridViewNumericBorder";
-            this.SoLuongNhap.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.SoLuongNhap.BackgroundStyle.TextColor = System.Drawing.SystemColors.ControlText;
-            this.SoLuongNhap.DataPropertyName = "SoLuongNhap";
-            this.SoLuongNhap.HeaderText = "Số Lượng Nhập";
-            this.SoLuongNhap.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
-            this.SoLuongNhap.Name = "SoLuongNhap";
-            this.SoLuongNhap.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // DonGiaNhap
-            // 
-            // 
-            // 
-            // 
-            this.DonGiaNhap.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
-            this.DonGiaNhap.BackgroundStyle.Class = "DataGridViewNumericBorder";
-            this.DonGiaNhap.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.DonGiaNhap.BackgroundStyle.TextColor = System.Drawing.SystemColors.ControlText;
-            this.DonGiaNhap.DataPropertyName = "DonGiaNhap";
-            this.DonGiaNhap.HeaderText = "Đơn Giá Nhập";
-            this.DonGiaNhap.Increment = 1D;
-            this.DonGiaNhap.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Left;
-            this.DonGiaNhap.Name = "DonGiaNhap";
-            // 
             // frmQuanLyPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,7 +300,7 @@
             this.ClientSize = new System.Drawing.Size(1064, 380);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmQuanLyPhieuNhap";
-            this.Text = "frmQuanLyPhieuNhap";
+            this.Text = "Quản Lý Phiếu Nhập";
             this.Load += new System.EventHandler(this.frmQuanLyPhieuNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuanLyPhieuNhap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietPhieuNhap)).EndInit();
