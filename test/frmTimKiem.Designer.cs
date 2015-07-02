@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.txtQuery = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
             this.dgvTimKiem = new System.Windows.Forms.DataGridView();
             this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,20 +45,11 @@
             // 
             // txtQuery
             // 
-            this.txtQuery.Location = new System.Drawing.Point(69, 5);
+            this.txtQuery.Location = new System.Drawing.Point(15, 5);
             this.txtQuery.Name = "txtQuery";
-            this.txtQuery.Size = new System.Drawing.Size(326, 20);
+            this.txtQuery.Size = new System.Drawing.Size(380, 20);
             this.txtQuery.TabIndex = 6;
             this.txtQuery.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaSach_KeyDown);
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(12, 9);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(53, 13);
-            this.label28.TabIndex = 4;
-            this.label28.Text = "Mã Sách:";
             // 
             // dgvTimKiem
             // 
@@ -193,7 +183,6 @@
             this.Controls.Add(this.cbxLoaiTimKiem);
             this.Controls.Add(this.dgvTimKiem);
             this.Controls.Add(this.txtQuery);
-            this.Controls.Add(this.label28);
             this.Name = "frmTimKiem";
             this.Text = "Tìm Kiếm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvTimKiem)).EndInit();
@@ -205,7 +194,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtQuery;
-        private System.Windows.Forms.Label label28;
         private System.Windows.Forms.DataGridView dgvTimKiem;
         private System.Windows.Forms.ComboBox cbxLoaiTimKiem;
         private System.Windows.Forms.Label label1;
