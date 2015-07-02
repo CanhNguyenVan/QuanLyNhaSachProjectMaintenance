@@ -24,22 +24,7 @@ namespace DAL
             try
             {
                 DataTable dataTable = new DataTable();
-                //List<HoaDonDTO> list = new List<HoaDonDTO>();
-
                 dataTable = connect.GetData("HoaDon_SelectAll");
-                //int row = dataTable.Rows.Count;
-
-                //for (int i = 0; i < row; i++)
-                //{
-                //    HoaDonDTO hoaDonDTO = new HoaDonDTO();
-                //    hoaDonDTO.MaHoaDon = dataTable.Rows[i].ItemArray[0].ToString();
-                //    hoaDonDTO.MaKhachHang = dataTable.Rows[i].ItemArray[1].ToString();
-                //    hoaDonDTO.NgayLap = DateTime.Parse(dataTable.Rows[i].ItemArray[2].ToString());
-
-                //    list.Add(hoaDonDTO);
-                //}
-
-                //return list;
                 return dataTable;
             }
             catch (Exception e)

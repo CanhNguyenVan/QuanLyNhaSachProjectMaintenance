@@ -25,21 +25,7 @@ namespace DAL
             try
             {
                 DataTable dataTable = new DataTable();
-                //List<PhieuNhapDTO> list = new List<PhieuNhapDTO>();
-
                 dataTable = connect.GetData("PhieuNhap_SelectAll");
-                //int row = dataTable.Rows.Count;
-
-                //for (int i = 0; i < row; i++)
-                //{
-                //    PhieuNhapDTO phieuNhapDTO = new PhieuNhapDTO();
-                //    phieuNhapDTO.MaPhieuNhap = dataTable.Rows[i].ItemArray[0].ToString();
-                //    phieuNhapDTO.NgayNhap = DateTime.Parse(dataTable.Rows[i].ItemArray[1].ToString());
-
-                //    list.Add(phieuNhapDTO);
-                //}
-
-                //return list;
                 return dataTable;
             }
             catch (Exception e)

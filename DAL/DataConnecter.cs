@@ -38,7 +38,7 @@ namespace DAL
         {
             try
             {
-                string query = "Backup database QuanLyNhaSachMaintenance to disk = '" + fileName + ".bak'";
+                string query = "Backup Database QuanLyNhaSachMaintenance To Disk='" + fileName + ".bak' With Format";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnect);
                 sqlCommand.CommandType = CommandType.Text;
                 return sqlCommand.ExecuteNonQuery();
@@ -52,12 +52,9 @@ namespace DAL
 
         public int Restore(string fileName)
         {
-            try
-            {
-                string query = "Alter Database QuanLyNhaSachMaintence Set Single_User With Rollback Immediate;";
-                query += "Restore Database QuanLyNhaSachMaintence From Disk = '" + fileName + "' With Replace;";
-                //string query = "Backup database QuanLyNhaSachMaintenance to disk = '" + fileName + ".bak'";
-                SqlCommand sqlCommand = new SqlCommand(query, sqlConnect);
+            try{
+                string sql = "Alter Database QuanLyNhaSachMaintenance Set Offline With Rollback Immediate Use master Restore Database QuanLyNhaSachMaintenance From Disk ='" + fileName + "' With Replace Alter Database QuanLyNhaSachMaintenance Set Online";
+                SqlCommand sqlCommand = new SqlCommand(sql, sqlConnect);
                 sqlCommand.CommandType = CommandType.Text;
                 return sqlCommand.ExecuteNonQuery();
             }

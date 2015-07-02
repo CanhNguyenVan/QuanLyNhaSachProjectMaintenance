@@ -24,25 +24,7 @@ namespace DAL
             try
             {
                 DataTable dataTable = new DataTable();
-                //List<BaoCaoTonDTO> list = new List<BaoCaoTonDTO>();
-
-
                 dataTable = connect.GetData("BaoCaoTon_SelectAll");
-                //int row = dataTable.Rows.Count;
-
-                //for (int i = 0; i < row; i++)
-                //{
-                //    BaoCaoTonDTO baoCaoTonDTO = new BaoCaoTonDTO();
-                //    baoCaoTonDTO.MaBaoCaoTon = dataTable.Rows[i].ItemArray[0].ToString();
-                //    baoCaoTonDTO.Thang = int.Parse(dataTable.Rows[i].ItemArray[1].ToString());
-                //    baoCaoTonDTO.TonDau = int.Parse(dataTable.Rows[i].ItemArray[2].ToString());
-                //    baoCaoTonDTO.TonCuoi = int.Parse(dataTable.Rows[i].ItemArray[3].ToString());
-                //    baoCaoTonDTO.TonPhatSinh = int.Parse(dataTable.Rows[i].ItemArray[4].ToString());
-
-                //    list.Add(baoCaoTonDTO);
-                //}
-
-                //return list;
                 return dataTable;
             }
             catch (Exception e)
@@ -58,25 +40,7 @@ namespace DAL
             try
             {
                 DataTable dataTable = new DataTable();
-                //List<BaoCaoTonDTO> list = new List<BaoCaoTonDTO>();
-
-
                 dataTable = connect.GetData("BaoCaoTon_SelectByMonth");
-                //int row = dataTable.Rows.Count;
-
-                //for (int i = 0; i < row; i++)
-                //{
-                //    BaoCaoTonDTO baoCaoTonDTO = new BaoCaoTonDTO();
-                //    baoCaoTonDTO.MaBaoCaoTon = dataTable.Rows[i].ItemArray[0].ToString();
-                //    baoCaoTonDTO.Thang = int.Parse(dataTable.Rows[i].ItemArray[1].ToString());
-                //    baoCaoTonDTO.TonDau = int.Parse(dataTable.Rows[i].ItemArray[2].ToString());
-                //    baoCaoTonDTO.TonCuoi = int.Parse(dataTable.Rows[i].ItemArray[3].ToString());
-                //    baoCaoTonDTO.TonPhatSinh = int.Parse(dataTable.Rows[i].ItemArray[4].ToString());
-
-                //    list.Add(baoCaoTonDTO);
-                //}
-
-                //return list;
                 return dataTable;
             }
             catch (Exception e)

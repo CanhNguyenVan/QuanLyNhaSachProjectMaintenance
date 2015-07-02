@@ -25,25 +25,7 @@ namespace DAL
             try
             {
                 DataTable dataTable = new DataTable();
-                //List<KhachHangDTO> list = new List<KhachHangDTO>();
-
                 dataTable = connect.GetData("KhachHang_SelectAll");
-                //int row = dataTable.Rows.Count;
-
-                //for (int i = 0; i < row; i++)
-                //{
-                //    KhachHangDTO khachHangDTO = new KhachHangDTO();
-                //    khachHangDTO.MaKhachHang = dataTable.Rows[i].ItemArray[0].ToString();
-                //    khachHangDTO.HoTen = dataTable.Rows[i].ItemArray[1].ToString();
-                //    khachHangDTO.DiaChi = dataTable.Rows[i].ItemArray[2].ToString();
-                //    khachHangDTO.DienThoai = int.Parse(dataTable.Rows[i].ItemArray[3].ToString());
-                //    khachHangDTO.Email = dataTable.Rows[i].ItemArray[4].ToString();
-                //    khachHangDTO.SoTienNo = float.Parse(dataTable.Rows[i].ItemArray[5].ToString());
-
-                //    list.Add(khachHangDTO);
-                //}
-
-                //return list;
                 return dataTable;
             }
             catch (Exception e)

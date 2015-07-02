@@ -22,14 +22,15 @@ namespace test
         private void btnBackup_Click(object sender, EventArgs e)
         {
             SaveFileDialog save = new SaveFileDialog();
+            
             if (save.ShowDialog() == DialogResult.OK)
             {
-                backupAndRestoreBll.Backup(save.FileName);
+                txtLocation.Text = save.FileName;
             }
-            //if (backupAndRestoreBll.Backup(save.FileName) > 0)
-            //{
-            //    MessageBox.Show("Backup thành công.");
-            //}
+            if (backupAndRestoreBll.Backup(save.FileName) == -1)
+            {
+                MessageBox.Show("Backup thành công.");
+            }
         }
 
         private void btnBrowsePath_Click(object sender, EventArgs e)
@@ -47,13 +48,14 @@ namespace test
         {
             if (txtPath.Text.CompareTo("") == 0)
             {
-                MessageBox.Show("Chọn đường dẫn file cần restore.");
+                MessageBox.Show("Chọn đường dẫn của file cần restore.");
                 return;
             }
-            if (backupAndRestoreBll.Restore(txtPath.Text) > 0)
+            if (backupAndRestoreBll.Restore(txtPath.Text) == -1)
             {
-                MessageBox.Show("Restore thành công.");
+                MessageBox.Show("Restore Thành Công!");
             }
+            
         }
     }
 }

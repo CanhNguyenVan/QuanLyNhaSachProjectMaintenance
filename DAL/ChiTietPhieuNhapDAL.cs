@@ -23,24 +23,7 @@ namespace DAL
             try
             {
                 DataTable dataTable = new DataTable();
-                //List<ChiTietPhieuNhapDTO> list = new List<ChiTietPhieuNhapDTO>();
-
                 dataTable = connect.GetData("ChiTietPhieuNhap_SelectAll");
-                //int row = dataTable.Rows.Count;
-
-                //for (int i = 0; i < row; i++)
-                //{
-                //    ChiTietPhieuNhapDTO chiTietPhieuNhapDTO = new ChiTietPhieuNhapDTO();
-                //    chiTietPhieuNhapDTO.MaChiTietPhieuNhap = dataTable.Rows[i].ItemArray[0].ToString();
-                //    chiTietPhieuNhapDTO.MaPhieuNhap = dataTable.Rows[i].ItemArray[1].ToString();
-                //    chiTietPhieuNhapDTO.MaSach = dataTable.Rows[i].ItemArray[2].ToString();
-                //    chiTietPhieuNhapDTO.SoLuongNhap = int.Parse(dataTable.Rows[i].ItemArray[3].ToString());
-                //    chiTietPhieuNhapDTO.DonGiaNhap = float.Parse(dataTable.Rows[i].ItemArray[4].ToString());
-
-                //    list.Add(chiTietPhieuNhapDTO);
-                //}
-
-                //return list;
                 return dataTable;
             }
             catch (Exception e)
