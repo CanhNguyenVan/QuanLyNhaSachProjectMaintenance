@@ -25,12 +25,17 @@ namespace test
             
             if (save.ShowDialog() == DialogResult.OK)
             {
-                txtLocation.Text = save.FileName;
+                txtLocation.Text = save.FileName + ".bak";
             }
-            if (backupAndRestoreBll.Backup(save.FileName) == -1)
+            if (save.FileName.CompareTo("") == 0)
             {
-                MessageBox.Show("Backup thành công.");
+                MessageBox.Show("Chọn Nơi Lưu File Backup.");
             }
+            else
+                if (backupAndRestoreBll.Backup(save.FileName) != 0)
+                {
+                    MessageBox.Show("Backup thành công.");
+                }
         }
 
         private void btnBrowsePath_Click(object sender, EventArgs e)
@@ -51,7 +56,7 @@ namespace test
                 MessageBox.Show("Chọn đường dẫn của file cần restore.");
                 return;
             }
-            if (backupAndRestoreBll.Restore(txtPath.Text) == -1)
+            if (backupAndRestoreBll.Restore(txtPath.Text) != 0)
             {
                 MessageBox.Show("Restore Thành Công!");
             }

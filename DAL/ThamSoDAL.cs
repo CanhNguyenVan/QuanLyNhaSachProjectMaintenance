@@ -36,10 +36,10 @@ namespace DAL
             string[] names = new string[param];
             object[] values = new object[param];
 
-            names[0] = @"MaThamSo";
+            names[0] = @"MaThamSo"; 
             names[1] = @"SoLuongNhapToiThieu";
             names[2] = @"SoLuongTonToiDaTruocKhiNhap";
-            names[3] = @"SoLuongTonToiThieuTruocKhiBan";
+            names[3] = @"SoLuongTonToiThieuSauKhiBan";
             names[4] = @"TienNoToiDa";
 
             values[0] = thamSoDTO.MaThamSo;

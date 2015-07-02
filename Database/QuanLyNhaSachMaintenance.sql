@@ -99,7 +99,7 @@ Create Table PHIEUTHUTIEN
 
 Create Table THAMSO
 (
-	MaThamSo int,
+	MaThamSo int primary key,
 	SoLuongNhapToiThieu int,
 	SoLuongTonToiDaTruocKhiNhap int,
 	SoLuongTonToiThieuSauKhiBan int,
