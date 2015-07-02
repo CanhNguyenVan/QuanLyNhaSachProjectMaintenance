@@ -134,6 +134,15 @@ namespace test
                 hoaDonDto.MaKhachHang = maKhachHang;
                 hoaDonDto.NgayLap = ngayLap;
 
+                var query = from kh in _khachHangBll.SelectAll().AsEnumerable()
+                    where kh["MaKhachHang"].ToString().Trim().Equals(maKhachHang.Trim()) && int.Parse(kh["SoTienNo"].ToString()) > ThamSo.ThamSoQuyDinh.TienNoToiDa
+                    select kh;
+                if (query.Count() > 0)
+                {
+                    MessageBox.Show("Bạn đang nợ nên bạn không thể tạo hóa đơn!");
+                    return;
+                }
+
                 if (1 == _hoaDonBll.InsertHoaDon(hoaDonDto))
                 {
                     MessageBox.Show("Thêm hóa đơn thành công!");
