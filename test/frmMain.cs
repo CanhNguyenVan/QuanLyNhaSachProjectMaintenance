@@ -37,6 +37,10 @@ namespace test
 
         private frmDoiMatKhau _frmDoiMatKhau = null;
 
+        private frmBaoCaoCongNo _frmBaoCaoCongNo = null;
+
+        private frmBaoCaoTon _frmBaoCaoTon = null;
+
         public frmMain()
         {
             InitializeComponent();
@@ -189,24 +193,50 @@ namespace test
 
         private void btn_CongNo_Click(object sender, EventArgs e)
         {
-            //if (isTabTK)
+            ////if (isTabTK)
+            //{
+            //    tabItem10.Visible = true;
+            //    tabItem5.Visible = tabItem6.Visible = tabItem7.Visible = tabItem8.Visible = tabItem9.Visible = tabItem11.Visible = tabItem12.Visible = tabItem13.Visible = tabItem14.Visible = tabItem15.Visible = tabItem16.Visible = false;
+            //}
+
+            if (_frmBaoCaoCongNo == null)
             {
-                tabItem10.Visible = true;
-                tabItem5.Visible = tabItem6.Visible = tabItem7.Visible = tabItem8.Visible = tabItem9.Visible = tabItem11.Visible = tabItem12.Visible = tabItem13.Visible = tabItem14.Visible = tabItem15.Visible = tabItem16.Visible = false;
+                _frmBaoCaoCongNo = new frmBaoCaoCongNo();
+                _frmBaoCaoCongNo.Closed += _frmBaoCaoCongNo_Closed;
+                _frmBaoCaoCongNo.MdiParent = this;
             }
 
+            _frmBaoCaoCongNo.Show();
+        }
 
+        void _frmBaoCaoCongNo_Closed(object sender, EventArgs e)
+        {
+            _frmBaoCaoCongNo = null;
         }
 
         private void btn_Ton_Click(object sender, EventArgs e)
         {
-            //if (isTabTK)
+            ////if (isTabTK)
+            //{
+            //    tabItem11.Visible = true;
+            //    tabItem5.Visible = tabItem6.Visible = tabItem7.Visible = tabItem8.Visible = tabItem9.Visible = tabItem10.Visible = tabItem12.Visible = tabItem13.Visible = tabItem14.Visible = tabItem15.Visible = tabItem16.Visible = false;
+            //}
+
+            if (_frmBaoCaoTon == null)
             {
-                tabItem11.Visible = true;
-                tabItem5.Visible = tabItem6.Visible = tabItem7.Visible = tabItem8.Visible = tabItem9.Visible = tabItem10.Visible = tabItem12.Visible = tabItem13.Visible = tabItem14.Visible = tabItem15.Visible = tabItem16.Visible = false;
+                _frmBaoCaoTon = new frmBaoCaoTon();
+                _frmBaoCaoTon.Closed += _frmBaoCaoTon_Closed;
+                _frmBaoCaoTon.MdiParent = this;
             }
 
+            _frmBaoCaoTon.Show();
 
+
+        }
+
+        void _frmBaoCaoTon_Closed(object sender, EventArgs e)
+        {
+            _frmBaoCaoTon = null;
         }
 
         private void btn_TroGiup_Click(object sender, EventArgs e)

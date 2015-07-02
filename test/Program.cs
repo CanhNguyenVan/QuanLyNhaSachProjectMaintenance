@@ -22,7 +22,7 @@ namespace test
            // DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
-            Application.Run(new frmBackupAndRestore());
+            Application.Run(new frmMain());
         }
     }
 }
