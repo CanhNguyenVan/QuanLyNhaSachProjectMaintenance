@@ -107,7 +107,7 @@ namespace test
 
                 if (_sachBll.UpdateSach(sachDTO) != 0)
                 {
-                    MessageBox.Show("Cập nhật phiếu thành công !");
+                    MessageBox.Show("Cập nhật sách thành công !");
 
                     LoadData();
                 }
